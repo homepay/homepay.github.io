@@ -75,7 +75,7 @@
                   <div class="col-lg-12" data-aos="fade-up" data-aos-delay="0">
                      <div class="card rounded-2">
                         <div class="card-body">
-                           <form data-action="form/message-form.php" method="post" class="form-submit-init">
+                           <form id="contact-form" method="post">
                               <div class="row g-gs">
                                  <div class="col-12">
                                     <div class="form-group">
@@ -119,9 +119,8 @@
                                  </div>
                                  <div class="col-12">
                                     <div class="form-group">
-                                       <button class="btn btn-primary" type="submit" id="submit-btn">
-                                          Send Message
-                                       </button>
+                                       <button class="btn btn-primary" type="submit" id="submit-btn">Send
+                                          Message</button>
                                     </div>
                                  </div>
                               </div>
@@ -249,6 +248,52 @@
    </div>
    <script src="../assets/js/bundle.js?v1.0.0"></script>
    <script src="../assets/js/scripts.js?v1.0.0"></script>
+   <script>
+      document.addEventListener('DOMContentLoaded', () => {
+         const form = document.getElementById('contact-form');
+         const charCount = document.getElementById('char-count');
+         const charMax = document.getElementById('char-max').dataset.charMax;
+         const textBox = document.getElementById('textarea-box');
+
+         textBox.addEventListener('input', () => {
+            charCount.textContent = textBox.value.length;
+         });
+
+         form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Validate form inputs
+            const name = form['user-name'].value.trim();
+            const email = form['user-email'].value.trim();
+            const phone = form['user-phone'].value.trim();
+            const message = form['user-message'].value.trim();
+
+            if (!name || !email || !phone || !message) {
+               alert('Please fill in all required fields.');
+               return;
+            }
+
+            const formData = new FormData(form);
+            try {
+               const response = await fetch('form/message-form.php', {
+                  method: 'POST',
+                  body: formData
+               });
+
+               if (response.ok) {
+                  alert('Message sent successfully!');
+                  form.reset();
+                  charCount.textContent = '0';
+               } else {
+                  alert('Failed to send the message. Please try again.');
+               }
+            } catch (error) {
+               console.error('Error:', error);
+               alert('An error occurred. Please try again.');
+            }
+         });
+      });
+   </script>
 </body>
 
 </html>
