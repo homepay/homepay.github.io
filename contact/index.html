@@ -73,6 +73,7 @@
                </div>
                <div class="row g-gs">
                   <div class="col-lg-12" data-aos="fade-up" data-aos-delay="0">
+                     <div id="liveAlertPlaceholder"></div>
                      <div class="card rounded-2">
                         <div class="card-body">
                            <form id="contact-form" method="post">
@@ -261,10 +262,22 @@
          const charCount = document.getElementById('char-count');
          const charMax = document.getElementById('char-max').dataset.charMax;
          const textBox = document.getElementById('textarea-box');
+         const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
 
          textBox.addEventListener('input', () => {
             charCount.textContent = textBox.value.length;
          });
+
+         const appendAlert = (message, type) => {
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = [
+               `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+               `   <div>${message}</div>`,
+               '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+               '</div>'
+            ].join('');
+            alertPlaceholder.append(wrapper);
+         };
 
          form.addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -287,26 +300,26 @@
                message: message
             };
             console.log('Form data:', formData);
-            // try {
-            const response = await fetch('https://devapi.dev.homepay.io/api/contact', {
-               method: 'POST',
-               headers: {
-                  'Content-Type': 'application/json'
-               },
-               body: JSON.stringify(formData)
-            });
+            try {
+               const response = await fetch('https://devapi.dev.homepay.io/api/contact3', {
+                  method: 'POST',
+                  headers: {
+                     'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(formData)
+               });
 
-            if (response.ok) {
-               alert('Message sent successfully!');
-               form.reset();
-               charCount.textContent = '0';
-            } else {
-               alert('Failed to send the message. Please try again.');
+               if (response.ok) {
+                  appendAlert('Message sent successfully!', 'success');
+                  form.reset();
+                  charCount.textContent = '0';
+               } else {
+                  appendAlert('Failed to send the message. Please try again.', 'danger');
+               }
+            } catch (error) {
+               console.error('Error:', error);
+               appendAlert('An error occurred. Please try again.', 'danger');
             }
-            // } catch (error) {
-            //    console.error('Error:', error);
-            //    alert('An error occurred. Please try again.');
-            // }
          });
       });
    </script>
