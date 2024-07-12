@@ -9,7 +9,21 @@
    <title>Home - HomePay | Enabling the digital future</title>
    <link rel="stylesheet" href="assets/css/style-business-expance-tracker.css?v1.0.0" />
    <style>
+      body {
+         scroll-behavior: smooth;
+      }
 
+      #blaze {
+         padding-top: 100px;
+      }
+
+      #remittance {
+         padding-top: 100px;
+      }
+
+      #takapay {
+         padding-top: 120px;
+      }
    </style>
 </head>
 
@@ -660,7 +674,7 @@
                </div>
             </div>
          </section>
-         <section class="nk-section nk-feature-section pb-7 pb-lg-120">
+         <section class="nk-section nk-feature-section ">
             <div class="container">
                <div class="row justify-content-center">
                   <div class="col-lg-8 col-xxl-6">
@@ -927,7 +941,7 @@
                               </div>
                            </div> -->
                      <h2 class="nk-section-title mb-0">
-                        Bangladesh's First Real-Time Remittance Platform <span style="color:orange; font-size: 45px;">
+                        Bangladesh's First Real-Time Remittance Platform <span style="color:orange;">
                            Blaze
                         </span>
                         <!-- <span class="d-lg-block"> in detail</span> -->
@@ -980,7 +994,7 @@
                               </div>
                            </div> -->
                      <h2 class="nk-section-title mb-0">
-                        Remittance <span style="color: rgb(233, 57, 57) ; font-size: 45px;">
+                        Remittance <span style="color: rgb(233, 57, 57) ;">
                            Gateway
                         </span> For Local Partners
                      </h2>
@@ -1029,7 +1043,7 @@
                               </div>
                            </div> -->
                      <h2 class="nk-section-title mb-0">
-                        National Card Scheme Authentication <span style="color:#3f78e0 ; font-size: 45px;">
+                        National Card Scheme Authentication <span style="color:#3f78e0 ;">
                            TakaPay
                         </span>
                      </h2>
@@ -1598,6 +1612,26 @@
    </div>
    <script src="./assets/js/bundle.js?v1.0.0"></script>
    <script src="./assets/js/scripts.js?v1.0.0"></script>
+   <script>
+         document.querySelectorAll('.scroll-link').forEach(link => {
+            link.addEventListener('click', function (event) {
+               event.preventDefault();
+               const targetId = this.getAttribute('href').substring(1);
+               const targetElement = document.getElementById(targetId);
+
+               if (targetElement) {
+                  const offset = (window.innerHeight - targetElement.offsetHeight) / 2;
+                  const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                  const offsetPosition = elementPosition - offset;
+
+                  window.scrollTo({
+                     top: offsetPosition,
+                     behavior: 'smooth'
+                  });
+               }
+            });
+         });
+   </script>
 </body>
 
 </html>
