@@ -8,9 +8,33 @@
    <link rel="shortcut icon" href="https://homepay.github.io/favicon.png" />
    <title>Contact Us - HomePay</title>
    <link rel="stylesheet" href="../assets/css/style.css?v1.0.0" />
+   <style>
+      input[type=text] {
+         padding: 12px 20px;
+         display: inline-block;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         box-sizing: border-box;
+      }
+
+      button {
+         background-color: #4CAF50;
+         border: none;
+         color: white;
+         padding: 12px 30px;
+         text-decoration: none;
+         margin: 4px 2px;
+         cursor: pointer;
+      }
+
+      canvas {
+         /*prevent interaction with the canvas*/
+         pointer-events: none;
+      }
+   </style>
 </head>
 
-<body class="nk-body" data-navbar-collapse="xl">
+<body class="nk-body" data-navbar-collapse="xl" onload="createCaptcha()">
    <div class="preloader">
       <div class="loader"></div>
    </div>
@@ -134,6 +158,22 @@
                                        </div>
                                     </div>
                                  </div>
+                                 <div onclick="createCaptcha()">
+
+                                    <div id="captcha" style="width: 150px;">
+
+                                    </div>
+                                    <span style="color: blue;">
+                                       Reload
+                                    </span>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-12">
+                                       <input type="text" placeholder="Captcha" id="cpatchaTextBox" class="form-control"
+                                          style="width: 250px;" required />
+                                    </div>
+                                 </div>
+
                                  <div class="col-12">
                                     <div class="form-group">
                                        <button class="btn btn-primary" type="submit" id="submit-btn">Send
@@ -233,6 +273,55 @@
    <script src="../assets/js/bundle.js?v1.0.0"></script>
    <script src="../assets/js/scripts.js?v1.0.0"></script>
    <script>
+      const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+      var code;
+      function createCaptcha() {
+         //clear the contents of captcha div first 
+         document.getElementById('captcha').innerHTML = "";
+         var charsArray =
+            "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
+         var lengthOtp = 6;
+         var captcha = [];
+         for (var i = 0; i < lengthOtp; i++) {
+            //below code will not allow Repetition of Characters
+            var index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+            if (captcha.indexOf(charsArray[index]) == -1)
+               captcha.push(charsArray[index]);
+            else i--;
+         }
+         var canv = document.createElement("canvas");
+         canv.id = "captcha";
+         canv.width = 100;
+         canv.height = 50;
+         var ctx = canv.getContext("2d");
+         ctx.font = "25px Georgia";
+         ctx.strokeText(captcha.join(""), 0, 30);
+         //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+         code = captcha.join("");
+         document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
+      }
+      function validateCaptcha() {
+         event.preventDefault();
+         const alt = (message, type) => {
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = [
+               `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+               `   <div>${message}</div>`,
+               '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+               '</div>'
+            ].join('');
+            alertPlaceholder.append(wrapper);
+         };
+         debugger
+         if (document.getElementById("cpatchaTextBox").value == code) {
+            return true;
+         } else {
+            alt('Invalid Captcha, Please try again.', 'danger');
+            createCaptcha();
+            return false;
+         }
+      }
+
       function sanitizeHTML(str) {
          return str.replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
@@ -245,7 +334,7 @@
          const charCount = document.getElementById('char-count');
          const charMax = document.getElementById('char-max').dataset.charMax;
          const textBox = document.getElementById('textarea-box');
-         const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+
 
          textBox.addEventListener('input', () => {
             charCount.textContent = textBox.value.length;
@@ -264,7 +353,7 @@
 
          form.addEventListener('submit', async (event) => {
             event.preventDefault();
-
+            if (!validateCaptcha()) { return null }
             // Validate form inputs
             const name = sanitizeHTML(form['user-name'].value.trim());
             const email = sanitizeHTML(form['user-email'].value.trim());
@@ -296,16 +385,21 @@
                   appendAlert('Message sent successfully!', 'success');
                   form.reset();
                   charCount.textContent = '0';
+                  createCaptcha()
                } else {
                   appendAlert('Failed to send the message. Please try again.', 'danger');
+                  createCaptcha()
                }
             } catch (error) {
                console.error('Error:', error);
                appendAlert('An error occurred. Please try again.', 'danger');
+               createCaptcha()
             }
          });
       });
    </script>
+
+
 </body>
 
 </html>
