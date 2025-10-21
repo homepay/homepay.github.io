@@ -9,7 +9,7 @@
    <title>Home - HomePay</title>
    <link rel="stylesheet" href="assets/css/style-business-expance-tracker.css?v1.0.0" />
    <style>
-      body {
+      html {
          scroll-behavior: smooth;
       }
 
@@ -242,148 +242,235 @@
                </div>
             </div>
          </section>
-         <section class="nk-section nk-feature-section ">
+         <section class="nk-section nk-feature-section">
             <div class="container">
                <div class="row justify-content-center">
                   <div class="col-lg-8 col-xxl-6">
                      <div class="nk-section-head pb-7 text-center">
-                        <span class="nk-section-subtitle">Products & Services</span>
+                        <span class="nk-section-subtitle text-uppercase text-primary fw-semibold">Products &
+                           Services</span>
                         <h2 class="nk-section-title">Discover Products</h2>
                         <p class="nk-section-text">
-                           Unleash the power of our platform's features for streamlined <br> real-time
-                           payment proccessing.
+                           Explore HomePay’s core platforms that power secure, real-time payments and authentication —
+                           enabling cross-border disbursements and interoperable card scheme infrastructure.
                         </p>
-                        <ul class="nk-btn-group justify-content-center pt-5" hidden>
-                           <li>
-                              <a href="about" class="btn btn-primary">More Details</a>
-                           </li>
-                           <li>
-                              <a href="contact" class="btn btn-outline-primary">Contact Us</a>
-                           </li>
-                        </ul>
                      </div>
                   </div>
                </div>
-               <div class="row gap g-5">
-                  <div class="col-mb-9 col-lg-6" data-aos="fade-up" data-aos-delay="50">
-                     <div class="text-center">
-                        <div class="mb-3 mb-md-5">
-                           <img src="images/services/remit.svg" width="180px" alt="cover" />
+
+               <div class="row g-4 pt-4">
+                  <!-- Unified Remittance API -->
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+                     <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card text-center">
+                        <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-2">
+                           <em class="icon ni ni-send me-2" style="font-size:1.2rem;"></em>
+                           <span>Unified Remittance API</span>
                         </div>
-                        <div class="mb-4">
-                           <h4 class="text-capitalize">Unified Remittance API</h4>
-                           <p class="fs-16 line-clamp-2 fw-medium">
-                              Powering direct remittance disbursements to banks and MFS in Bangladesh — all through one
-                              seamless API integration.
-                           </p>
-                        </div>
-                        <a href="#remittance" class="btn-link d-inline-block"><span>Learn
-                              More</span><em class="icon ni ni-arrow-right"></em></a>
+                        <h3 class="mt-2 h5 fw-bold text-slate-900">Cross-Border Disbursement Gateway</h3>
+                        <p class="mt-2 fs-14 text-slate-700">
+                           Powering instant payouts to banks and mobile wallets in Bangladesh via one secure, scalable
+                           API.
+                        </p>
+                        <a href="#remittance" class="btn-link d-inline-block mt-3">
+                           <span>Learn More</span><em class="icon ni ni-arrow-right"></em>
+                        </a>
                      </div>
                   </div>
-                  <div class="col-mb-9 col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                     <div class="text-center">
-                        <div class="mb-3 mb-md-5">
-                           <img src="images/services/ds.svg" width="180px" alt="cover" />
+
+                  <!-- Interoperable Directory Server -->
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                     <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card text-center">
+                        <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-2">
+                           <em class="icon ni ni-network me-2" style="font-size:1.2rem;"></em>
+                           <span>Interoperable Directory Server</span>
                         </div>
-                        <div class="mb-4">
-                           <h4 class="text-capitalize">3DS Card Authentication</h4>
-                           <p class="fs-16 line-clamp-2 fw-medium">
-                              The directory service is designed to comply with the EMVCo protocol, supporting all card
-                              brands.
-                           </p>
+                        <h3 class="mt-2 h5 fw-bold text-slate-900">Infrastructure for New Card Schemes</h3>
+                        <p class="mt-2 fs-14 text-slate-700">
+                           EMVCo-aligned 3DS Directory Server bridging issuers and acquirers for interoperable
+                           authentication.
+                        </p>
+                        <a href="#ds" class="btn-link d-inline-block mt-3">
+                           <span>Learn More</span><em class="icon ni ni-arrow-right"></em>
+                        </a>
+                     </div>
+                  </div>
+
+                  <!-- DevOps & Cloud Services -->
+                  <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                     <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card text-center">
+                        <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-2">
+                           <em class="icon ni ni-cloud me-2" style="font-size:1.2rem;"></em>
+                           <span>DevOps & Cloud Services</span>
                         </div>
-                        <a href="#ds" class="btn-link d-inline-block"><span>Learn
-                              More</span><em class="icon ni ni-arrow-right"></em></a>
+                        <h3 class="mt-2 h5 fw-bold text-slate-900">Managed Azure & API Infrastructure</h3>
+                        <p class="mt-2 fs-14 text-slate-700">
+                           Secure, scalable Azure environments for SaaS — landing zones, networking, CI/CD, security,
+                           observability,
+                           and 24×7 operations.
+                        </p>
+                        <a href="#devops" class="btn-link d-inline-block mt-3">
+                           <span>Learn More</span><em class="icon ni ni-arrow-right"></em>
+                        </a>
                      </div>
                   </div>
                </div>
+
             </div>
          </section>
          <section class="nk-section pb-lg-7 pt-7 pt-lg-120">
             <div class="container">
                <div class="nk-section-content d-flex flex-column gap-7 gap-lg-120">
-                  <div id="remittance" class="row gy-5 gy-lg-0 align-items-lg-center justify-content-lg-between">
-                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
-                        <div class="nk-feature-overview-img mb-5 mb-lg-0">
-                           <img src="images/services/remit.svg" alt="cover-base"
-                              class="base animate animate-shakeY animate-duration-12" />
-                        </div>
-                     </div>
-                     <div class="col-lg-6 col-xl-5">
-                        <div class="nk-section-head pb-0">
-                           <!-- <div class="media-group align-items-center mb-5">
-                              <div class="media media-md media-circle media-middle text-bg-danger-soft">
-                                 <em class="icon ni ni-filter-fill"></em>
-                              </div>
-                              <div class="media-text">
-                                 <div class="nk-section-subtitle text-danger">
-                                    Funnel Report
-                                 </div>
-                              </div>
-                           </div> -->
+                  <div id="remittance" class="row gy-5 gy-lg-6" style="scroll-margin-top: 80px;">
+                     <!-- Header -->
+                     <div class="col-12" data-aos="fade-up" data-aos-delay="50">
+                        <div class="nk-section-head pb-0 text-center text-lg-start">
                            <h2 class="nk-section-title mb-0">
                               <span style="color:#084514;">Unified</span>
                               <span style="color: #06731c;">Remittance API</span>
                            </h2>
-                           <ul class="nk-list-dot d-flex flex-column gap-3 gap-lg-4 pt-4">
-                              <li class="nk-list-dot-item ps-3 p-0">
-                                 <p class="fs-18">
-                                    Our white label solution provides a Unified Payment API that enables global Money
-                                    Transfer Operators (MTOs) to disburse remittances directly into Bangladesh —
-                                    securely, instantly, and without the complexity of managing multiple integrations.
-                                 </p>
-                              </li>
-                              <li class="nk-list-dot-item ps-3 p-0">
-                                 <p class="fs-18">
-                                    Connected to a wide network of banks and Mobile Financial Service (MFS) providers,
-                                    the API serves as a single access point for delivering funds to bank accounts and
-                                    mobile wallets nationwide.
-                                 </p>
-                              </li>
-                              <li class="nk-list-dot-item ps-3 p-0">
-                                 <p class="fs-18">
-                                    Since its launch in 2021, the platform has helped partners scale quickly,
-                                    minimize technical overhead, and offer fast, reliable remittance payouts to
-                                    recipients across Bangladesh.
-                                 </p>
-                              </li>
+                           <p class="mt-3 fs-16 text-gray-800">
+                              HomePay’s Unified Remittance API simplifies cross-border payouts to Bangladesh by offering
+                              a single, secure integration for Money Transfer Operators (MTOs). Built on a nationwide
+                              network of banks and mobile financial services, the platform ensures instant, compliant,
+                              and scalable fund delivery across all payment channels.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
+                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
+                              <em class="icon ni ni-link me-2"></em><span>Unified Payment API</span>
+                           </div>
+                           <h3 class="mt-2 h5 fw-bold text-slate-900">One Integration, Instant Disbursements</h3>
+                           <p class="mt-2 fs-14 text-slate-700">
+                              Enable global MTOs to disburse into Bangladesh—securely, instantly, and without juggling
+                              multiple integrations.
+                           </p>
+                           <ul class="mt-3 fs-14 text-slate-700">
+                              <li>Single API for payouts</li>
+                              <li>Secure &amp; fast processing</li>
+                              <li>Lower integration overhead</li>
+                              <li>Developer-friendly onboarding</li>
+                           </ul>
+                        </div>
+                     </div>
+
+                     <!-- Card 2: Nationwide Network -->
+                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
+                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
+                              <em class="icon ni ni-globe me-2"></em><span>Nationwide Network</span>
+                           </div>
+                           <h3 class="mt-2 h5 fw-bold text-slate-900">Banks &amp; Mobile Wallets via One Gateway</h3>
+                           <p class="mt-2 fs-14 text-slate-700">
+                              Connected to banks and MFS providers—deliver funds to bank accounts and mobile wallets
+                              across Bangladesh.
+                           </p>
+                           <ul class="mt-3 fs-14 text-slate-700">
+                              <li>Bank + MFS coverage</li>
+                              <li>Account &amp; wallet payouts</li>
+                              <li>Single access point</li>
+                              <li>Operational simplification</li>
+                           </ul>
+                        </div>
+                     </div>
+
+                     <!-- Card 3: Proven at Scale -->
+                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
+                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
+                              <em class="icon ni ni-activity me-2"></em><span>Proven at Scale</span>
+                           </div>
+                           <h3 class="mt-2 h5 fw-bold text-slate-900">Operating Since 2021</h3>
+                           <p class="mt-2 fs-14 text-slate-700">
+                              Partners scale quickly while reducing technical overhead—offering fast, reliable payouts
+                              nationwide.
+                           </p>
+                           <ul class="mt-3 fs-14 text-slate-700">
+                              <li>Rapid partner onboarding</li>
+                              <li>Reduced engineering effort</li>
+                              <li>Reliable, nationwide delivery</li>
+                              <li>Designed for growth</li>
                            </ul>
                         </div>
                      </div>
                   </div>
-                  <div id="ds"
-                     class="row gy-5 gy-lg-0 flex-row-reverse align-items-lg-center justify-content-lg-between">
-                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="50">
-                        <div class="nk-feature-overview-img mb-5 mb-lg-0">
-                           <img src="images/services/ds.svg" alt="cover-base"
-                              class="base animate animate-shakeY animate-duration-12" />
-                        </div>
-                     </div>
-                     <div class="col-lg-6 col-xl-5">
-                        <div class="nk-section-head pb-0">
+                  <div id="ds" class="row gy-5 gy-lg-6" style="scroll-margin-top: 80px;">
+                     <!-- Header -->
+                     <div class="col-12" data-aos="fade-up" data-aos-delay="50">
+                        <div class="nk-section-head pb-0 text-center text-lg-start">
                            <h2 class="nk-section-title mb-0">
                               <span style="color:#1b3b5e;">Directory</span>
                               <span style="color: #29578c;">Service</span>
                            </h2>
-                           <ul class="nk-list-dot d-flex flex-column gap-3 gap-lg-4 pt-4">
-                              <li class="nk-list-dot-item ps-3 p-0">
-                                 <p class="fs-18">
-                                    The Directory Service is specifically tailored to streamline 3D Secure (3DS)
-                                    transactions across any card network that adheres to EMVCo standards, ensuring
-                                    optimal security and regulatory compliance. This solution plays a vital role in
-                                    authenticating cardholders during card-not-present transactions, a critical
-                                    component of today's e-commerce and online banking environments. By verifying the
-                                    identity of cardholders in real-time, the Directory Service helps mitigate fraud
-                                    effectively while enhancing user trust and confidence, making it an essential tool
-                                    for modern digital transactions.
-                                 </p>
-                              </li>
+                           <p class="mt-3 fs-16 text-gray-800">
+                              HomePay’s Interoperable Directory Server is a scheme-agnostic routing and registry layer
+                              that sits between issuers and merchant/acquirer banks. Built to EMVCo principles, it
+                              accelerates new card scheme launches with message orchestration, directory data
+                              management, certified integrations, and production-ready operations.
+                           </p>
+                        </div>
+                     </div>
+
+                     <!-- Card 1: Interoperability & Routing -->
+                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
+                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
+                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
+                              <em class="icon ni ni-shuffle me-2"></em><span>Interoperability &amp; Routing</span>
+                           </div>
+                           <h3 class="mt-2 h5 fw-bold text-slate-900">Scheme-Agnostic Directory Layer</h3>
+                           <p class="mt-2 fs-14 text-slate-700">
+                              Orchestrates issuer ⇄ acquirer/merchant messaging with standards-aligned routing and
+                              policy controls.
+                           </p>
+                           <ul class="mt-3 fs-14 text-slate-700">
+                              <li>Requestor ⇄ DS ⇄ ACS message handling</li>
+                              <li>Directory metadata (BIN ranges, endpoints, keys)</li>
+                              <li>Smart routing &amp; rule-based policies</li>
+                              <li>Versioning &amp; backward compatibility</li>
+                           </ul>
+                        </div>
+                     </div>
+
+                     <!-- Card 2: Scheme Enablement Toolkit -->
+                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
+                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
+                              <em class="icon ni ni-layers me-2"></em><span>Scheme Enablement Toolkit</span>
+                           </div>
+                           <h3 class="mt-2 h5 fw-bold text-slate-900">Launch &amp; Certification Accelerator</h3>
+                           <p class="mt-2 fs-14 text-slate-700">
+                              Everything needed to stand up a new card scheme quickly with confidence.
+                           </p>
+                           <ul class="mt-3 fs-14 text-slate-700">
+                              <li>Conformance test suites &amp; simulators</li>
+                              <li>Reference APIs/SDKs for requestors &amp; ACS</li>
+                              <li>Sandbox with sample transactions</li>
+                              <li>Certification artifacts &amp; reporting</li>
+                           </ul>
+                        </div>
+                     </div>
+
+                     <!-- Card 3: Operations & Compliance -->
+                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
+                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
+                              <em class="icon ni ni-activity me-2"></em><span>Operations &amp; Compliance</span>
+                           </div>
+                           <h3 class="mt-2 h5 fw-bold text-slate-900">SLA-Backed, Secure, Observable</h3>
+                           <p class="mt-2 fs-14 text-slate-700">
+                              Production-grade DS with security, uptime, and visibility built in.
+                           </p>
+                           <ul class="mt-3 fs-14 text-slate-700">
+                              <li>HA/DR, multi-region deployment</li>
+                              <li>HSM-backed key management; signing/encryption</li>
+                              <li>End-to-end logging, dashboards &amp; alerts</li>
+                              <li>EMVCo alignment</li>
                            </ul>
                         </div>
                      </div>
                   </div>
-                  <div id="devops" class="row gy-5 gy-lg-6">
+                  <div id="devops" class="row gy-5 gy-lg-6" style="scroll-margin-top: 80px;">
                      <!-- Header -->
                      <div class="col-12" data-aos="fade-up" data-aos-delay="50">
                         <div class="nk-section-head pb-0 text-center text-lg-start">
@@ -496,7 +583,8 @@
                            </div>
                            <h3 class="mt-2 h5 fw-bold text-slate-700">Kotlin &amp; Flutter Engineering</h3>
                            <p class="mt-2 fs-14 text-slate-700">
-                              Deliver fast, reliable Android apps for fintech and regtech use-cases, built with native
+                              Deliver fast, reliable Android apps for fintech and regtech use-cases, built with
+                              native
                               Kotlin or cross-platform Flutter.
                            </p>
                            <ul class="mt-3 fs-14 text-slate-700 list-disc list-inside">
@@ -529,10 +617,7 @@
                         </div>
                      </div>
                   </div>
-
-
                </div>
-            </div>
          </section>
          <!--<section class="nk-section bg-gray-300">
             <div class="container">
