@@ -8,6 +8,29 @@
    <link rel="shortcut icon" href="https://homepay.github.io/favicon.png" />
    <title>About - HomePay</title>
    <link rel="stylesheet" href="../assets/css/style.css?v1.0.0" />
+   <style>
+      .bg-primary-gradient-soft {
+         background: linear-gradient(135deg, #eef4ff 0%, #f8fbff 100%);
+      }
+
+      section.nk-section a.btn-primary {
+         font-weight: 600;
+         letter-spacing: 0.02em;
+      }
+
+      .btn-primary {
+         background-color: #1A73E8;
+         /* Professional blue */
+         border-color: #1A73E8;
+         color: #fff;
+      }
+
+      .btn-primary:hover {
+         background-color: #1664C4;
+         /* Slightly darker hover */
+         border-color: #1664C4;
+      }
+   </style>
 </head>
 
 <body class="nk-body" data-navbar-collapse="xl">
@@ -41,7 +64,6 @@
                                     <ul class=" px-3 px-lg-0 mx-auto">
                                        <li class=" p-0"><a href="/#remittance" class="nk-nav-link"> Remittance API
                                           </a></li>
-                                       <li class=" p-0"><a href="/#ds" class="nk-nav-link"> Directory Server </a></li>
                                        <li class=" p-0"><a href="/#devops" class="nk-nav-link"> DevOps Services </a>
                                        </li>
                                     </ul>
@@ -212,7 +234,17 @@
                </div>
             </div>
          </section>
-
+         <section class="nk-section bg-primary-gradient-soft py-7">
+            <div class="container text-center">
+               <h2 class="nk-section-title mb-3 text-slate-900">Get in Touch</h2>
+               <p class="fs-16 text-gray-700 mb-5">
+                  Have a question or partnership inquiry? We’d love to hear from you.
+               </p>
+               <a href="mailto:info@homepay.io" class="btn btn-primary px-5 py-3">
+                  <em class="icon ni ni-mail me-1"></em> Contact Us
+               </a>
+            </div>
+         </section>
 
          <section class="nk-section" hidden>
             <div class="nk-mask blur-1 right center"></div>
@@ -316,80 +348,24 @@
 
       </main>
       <footer class="nk-footer">
-         <div class="nk-footer-top">
-            <div class="container">
-               <div class="nk-footer-content row justify-content-xl-between">
-                  <div class="col-md-8 col-lg-4 col-xxl-4">
-                     <div class="nk-footer-brand pb-5 pb-lg-0">
-                        <div class="nk-footer-brand-info mb-4">
-                           <div class="nk-footer-logo">
-                              <a href="/" class="logo-link">
-                                 <div class="logo-wrap">
-                                    <img class="logo-img" src="https://homepay.github.io/homepay.svg" width="200px"
-                                       srcset="
-                                       https://homepay.github.io/homepay.svg 2x
-                               " alt="brand-logo" />
-                                 </div>
-                              </a>
-                           </div>
-                           <p>
-                              <!--Empowering global financial innovation through seamless solutions and unwavering
-                              commitment.-->
-                           </p>
-                        </div>
-                        <!--<ul class="nk-footer-social">
-                           <li>
-                              <a href="https://www.linkedin.com/company/homepayllc"><em
-                                    class="icon ni ni-linkedin"></em></a>
-                           </li>
-                           <li>
-                              <a href="https://www.youtube.com/@homepay-io"><em class="icon ni ni-youtube"></em></a>
-                           </li>
-                        </ul>-->
-                     </div>
-                  </div>
-                  <div class="col-lg-8 col-xxl-6">
-                     <div class="row justify-content-between">
-                        <div class="col-sm-5">
-
-                        </div>
-                        <div class="col-sm-5">
-                           <div class="nk-footer-info">
-                              <address>
-                                 <h5 class="title"><em class="icon ni ni-map-pin"></em> Contact</h5>
-                                 <h6>HomePay.io
-                                 </h6>
-                                 <p>
-                                    <a href="mailto:info@homepay.io"> <em class="icon ni ni-mail-fill"></em>
-                                       info@homepay.io </a>
-                                 </p>
-                              </address>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-
-               </div>
-            </div>
-         </div>
          <div class="nk-footer-bottom">
             <div class="container">
                <div class="nk-footer-content row justify-content-between">
                   <div class="col-lg-6 px-0">
-                     <p class="nk-footer-copyright-text text-center">
+                     <a href="/" class="logo-link">
+                        <div class="logo-wrap">
+                           <img class="logo-img" src="https://homepay.github.io/homepay.svg" width="120px" srcset="
+                                    https://homepay.github.io/homepay.svg 2x
+                            " alt="brand-logo" />
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-6 px-0">
+                     <p class="nk-footer-copyright-text text-lg-end">
                         &copy; 2016 - <span id="currentYear"></span><a class="fs-16" href="/" target="_blank">
                            <b>HomePay.io
                            </b> </a>. All Rights Reserved.
                      </p>
-                  </div>
-                  <div class="col-lg-6 px-0">
-                     <ul class="nk-footer-copyright justify-content-center justify-content-lg-end">
-                        <li><a class="nk-footer-text" href="#">All Rights</a></li>
-                        <li>
-                           <a class="nk-footer-text" href="#">Terms & conditions</a>
-                        </li>
-                        <li><a class="nk-footer-text" href="#">Privacy Policy</a></li>
-                     </ul>
                   </div>
                </div>
             </div>
