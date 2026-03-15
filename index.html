@@ -2,629 +2,927 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8" />
-   <meta name="author" content="Softnio" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="shortcut icon" href="https://homepay.github.io/favicon.png" />
-   <title>HomePay offers secure, scalable infrastructure that powers cross-border connectivity, API-driven
-      platforms, and cloud-managed services.</title>
-   <link rel="stylesheet" href="assets/css/style-business-expance-tracker.css?v1.0.0" />
-   <style>
-      html {
-         scroll-behavior: smooth;
-      }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blaze | The Technical Rail for Bangladesh Remittance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.png">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding-top: 4rem;
+        }
 
-      #blaze {
-         padding-top: 100px;
-      }
+        .text-gradient {
+            background: linear-gradient(to right, #2dd4bf, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-      .rounded-2xl {
-         border-radius: 1rem;
-      }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
 
-      .border-slate-200 {
-         border-color: #e5e7eb;
-      }
+        .code-window {
+            font-family: 'JetBrains Mono', monospace;
+            background: #010409;
+            border: 1px solid rgba(45, 212, 191, 0.2);
+        }
 
-      .text-primary {
-         color: #3566c2;
-         display: inline-flex;
-         align-items: center;
-         line-height: 1.3;
-      }
+        /* DATA FLOW ANIMATION */
+        .rail {
+            height: 1px;
+            background: rgba(45, 212, 191, 0.15);
+            position: relative;
+            width: 100%;
+        }
 
-      .text-primary em.icon {
-         font-size: 0.95rem;
-         opacity: 0.8;
-         margin-right: 0.4rem;
-         position: relative;
-         top: -1px;
-      }
+        .data-packet {
+            position: absolute;
+            height: 2px;
+            width: 80px;
+            background: linear-gradient(90deg, transparent, #2dd4bf, #fff, #2dd4bf, transparent);
+            filter: drop-shadow(0 0 10px #2dd4bf);
+            animation: flow 2.5s infinite ease-in-out;
+        }
 
-      /* Muted enterprise blue */
-      .text-slate-700 {
-         color: #374151;
-      }
+        .data-packet-blue {
+            background: linear-gradient(90deg, transparent, #3b82f6, #fff, #3b82f6, transparent);
+            filter: drop-shadow(0 0 10px #3b82f6);
+        }
 
-      .text-slate-900 {
-         color: #111827;
-      }
+        @keyframes flow {
+            0% {
+                left: -20%;
+                opacity: 0;
+            }
 
-      .rounded-2xl:hover {
-         box-shadow: 0 6px 20px rgba(0, 0, 0, .06);
-         transition: box-shadow .2s ease;
-      }
+            50% {
+                opacity: 1;
+            }
 
-      .hover-card {
-         border-radius: 1rem;
-         transition: all .25s ease;
-      }
+            100% {
+                left: 120%;
+                opacity: 0;
+            }
+        }
 
-      .hover-card:hover {
-         box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
-         transform: translateY(-4px);
-      }
+        /* HUB ANIMATION */
+        .logo-hub {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-      /* Subtitle alignment */
-      .text-sm.fw-semibold.text-primary {
-         letter-spacing: 0.02em;
-         font-weight: 600;
-      }
+        .hub-ring {
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(45, 212, 191, 0.2);
+            border-radius: 50%;
+            animation: spin 10s linear infinite;
+        }
 
-      .h5 {
-         margin-top: 0.5rem;
-      }
+        .hub-ring-inner {
+            position: absolute;
+            inset: 15px;
+            border: 2px dashed rgba(45, 212, 191, 0.4);
+            border-radius: 50%;
+            animation: spin-reverse 15s linear infinite;
+        }
 
-      .hover-card h3 {
-         padding-top: 0.8rem;
-         margin-top: 0.6rem;
-      }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
 
-      .hover-card ul {
-         list-style-type: disc !important;
-         padding-left: 1.25rem !important;
-         margin: 0.5rem 0 0 0;
-      }
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-      .hover-card li {
-         display: list-item;
-         margin-bottom: 0.25rem;
-      }
+        @keyframes spin-reverse {
+            from {
+                transform: rotate(360deg);
+            }
 
-      .bg-primary-gradient-soft {
-         background: linear-gradient(135deg, #eef4ff 0%, #f8fbff 100%);
-      }
+            to {
+                transform: rotate(0deg);
+            }
+        }
 
-      section.nk-section a.btn-primary {
-         font-weight: 600;
-         letter-spacing: 0.02em;
-      }
+        #contactModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
 
-      .btn-primary {
-         background-color: #1A73E8;
-         /* Professional blue */
-         border-color: #1A73E8;
-         color: #fff;
-      }
+        /* SaturnX Floating Menu Style */
+        .nav-pill {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1100px;
+            background: rgba(15, 23, 42, 0.7);
+            /* Translucent dark background */
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            padding: 0.6rem 2rem;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
 
-      .btn-primary:hover {
-         background-color: #1664C4;
-         /* Slightly darker hover */
-         border-color: #1664C4;
-      }
+        .nav-pill a {
+            position: relative;
+        }
 
-      .btn-outline-warning {
-         color: #E89B1E;
-         border-color: #E89B1E;
-      }
+        .nav-pill a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #2dd4bf;
+            border-radius: 50%;
+            transform: translateX(-50%) scale(0);
+            transition: transform 0.3s ease;
+        }
 
-      .btn-outline-warning:hover {
-         background-color: #E89B1E;
-         color: #fff;
-      }
+        .nav-pill a:hover::after {
+            transform: translateX(-50%) scale(1);
+        }
 
-      /*#remittance {
-         padding-top: 100px;
-      }
+        /* Subtle glow on hover */
+        .nav-pill:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+        }
 
-      #ds {
-         padding-top: 120px;
-      }*/
-   </style>
+        /* SaturnX Gradient Button */
+        .contact-btn {
+            background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+            color: #020617;
+            padding: 0.6rem 1.4rem;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(45, 212, 191, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* Mobile Menu Overlay */
+        #mobileMenu {
+            display: none;
+            position: fixed;
+            top: 5.5rem;
+            /* Just below the nav pill */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            padding: 2rem;
+            z-index: 999;
+        }
+
+        /* Show menu class */
+        #mobileMenu.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* Hamburger Icon */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        .contact-btn {
+            display: inline-block;
+            /* Crucial for <a> tags to respect padding */
+            text-align: center;
+            background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+            color: #020617;
+            padding: 0.6rem 1.4rem;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+
+        /* ----- */
+    </style>
 </head>
 
-<body class="nk-body" data-navbar-collapse="xl">
-   <div class="preloader">
-      <div class="loader"></div>
-   </div>
-   <div class="nk-app-root home-business-expense-tracker">
-      <header class="nk-header">
-         <div class="nk-header-main">
-            <div class="container">
-               <div class="nk-header-wrap">
-                  <div class="nk-header-logo">
-                     <a href="/" class="logo-link">
-                        <div class="logo-wrap">
-                           <img class="logo-img" src="https://homepay.github.io/logo.svg" width="150px" srcset="
-                           https://homepay.github.io/logo.svg 2x
-                      " alt="brand-logo" />
-                        </div>
-                     </a>
-                  </div>
-                  <nav class="nk-header-menu nk-navbar">
-                     <div>
-                        <ul class="nk-nav">
-                           <li class="nk-nav-item has-sub">
-                              <a href="/" class="nk-nav-link"><span class="nk-nav-text">Home</span></a>
-                           </li>
-                           <li class="nk-nav-item has-sub"><a href="#" class="nk-nav-link nk-nav-toggle"><span
-                                    class="nk-nav-text">Services</span></a>
-                              <ul class="nk-nav-sub col-12">
-                                 <li class="nk-nav-item">
-                                    <ul class=" px-3 px-lg-0 mx-auto">
-                                       <li class=" p-0"><a href="/#remittance" class="nk-nav-link"> Remittance API
-                                          </a></li>
-                                       <li class=" p-0"><a href="/#devops" class="nk-nav-link"> DevOps Services </a>
-                                       </li>
-                                    </ul>
-                                 </li>
+<body class="antialiased">
 
-                              </ul>
-                           </li>
-                           <!--<li class="nk-nav-item has-sub">
-                              <a href="/#partners" class="nk-nav-link"><span class="nk-nav-text">Partners</span></a>
-                           </li>-->
-                           <li class="nk-nav-item">
-                              <a href="/about" class="nk-nav-link"><span class="nk-nav-text">About</span></a>
-                           </li>
-                           <!--<li class="nk-nav-item">
-                              <a href="/contact" class="nk-nav-link"><span class="nk-nav-text">Contact</span></a>
-                           </li>-->
-                        </ul>
-                     </div>
-                  </nav>
-                  <div class="nk-header-action">
-                     <ul class="nk-btn-group sm justify-content-center">
-                        <li class="nk-navbar-toggle"><button
-                              class="btn btn-outline-dark navbar-toggle rounded-1 h-100 p-2"><em class="icon ni ni-menu"
-                                 style="font-family: Nioicon, Bangla754, sans-serif;"></em></button></li>
-                     </ul>
-                  </div>
-               </div>
+    <!-- Navigation -->
+    <nav class="nav-pill flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <img src="blaze-logo.png" alt="Blaze" class="h-6 w-auto">
+        </div>
+
+        <div class="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+            <a href="#solutions" class="hover:text-white transition">Technology</a>
+            <a href="#mto-model" class="hover:text-white transition">MTO Rail</a>
+            <a href="#mfs-model" class="hover:text-white transition">MFS Mesh</a>
+            <a href="#specs" class="hover:text-white transition">Standards</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="mailto:info@homepay.io?subject=Contacting Blaze Support" class="contact-btn inline-block">
+                Contact
+            </a>
+            <div class="menu-icon md:hidden text-white text-2xl" onclick="toggleMobileMenu()">
+                ☰
             </div>
-         </div>
-      </header>
-      <main class="nk-pages">
-         <section class="nk-banner nk-banner-business-expance-tracker bg-primary-gradient-soft">
-            <div class="nk-banner-wrap">
-               <div class="container">
-                  <div class="row flex-row-reverse align-items-center justify-content-between">
-                     <div class="col-lg-6">
-                        <div class="nk-banner-img mb-5 mb-lg-0" data-aos="fade-in">
-                           <img src="images/promo-banner/banner-cover.svg" alt="banner-cover" />
+        </div>
+    </nav>
 
+    <div id="mobileMenu" class="md:hidden">
+        <div class="flex flex-col gap-6 text-center text-[12px] font-bold uppercase tracking-[0.2em] text-slate-300">
+            <a href="#solutions" onclick="toggleMobileMenu()">Technology</a>
+            <a href="#mto-model" onclick="toggleMobileMenu()">MTO Rail</a>
+            <a href="#mfs-model" onclick="toggleMobileMenu()">MFS Mesh</a>
+            <a href="#specs" onclick="toggleMobileMenu()">Security</a>
+        </div>
+    </div>
 
-                        </div>
-                     </div>
-                     <div class="col-lg-6">
-                        <div class="nk-banner-content">
-                           <h4 class="mb-2 mb-md-3" data-aos="fade-up">
-                              Connecting global transactional platforms through Cloud and SaaS infrastructure
-                           </h4>
-                           <p class=" nk-section-text" data-aos="fade-up" data-aos-delay="50">
-                              HomePay offers secure, scalable infrastructure that powers cross-border connectivity,
-                              API-driven platforms, and cloud-managed services.
-                           </p>
-                           <ul class="nk-btn-group pt-8">
-                              <li data-aos="fade-up" data-aos-delay="150">
-                                 <a href="#solutions" class="btn btn-primary"><em
-                                       class="icon ni ni-layers me-1"></em>Explore Solutions</a>
-                                 <a href="mailto:info@homepay.io" class="btn btn-outline-warning">
-                                    <em class="icon ni ni-mail me-1"></em>Talk to Us</a>
-                              </li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <section class="nk-section nk-brand-section pt-0">
-            <div class="container">
-               <div class="nk-section-content text-center">
-                  <h4 class="fw-normal text-gray-800 mb-5" data-aos="fade-up">
-                     Global digital wallets, banks, and fintechs are leveraging our Payment API to unlock
-                     seamless, secure, and scalable cross-border transactions
-                     <span class="text-base fw-semibold"></span>
+    <!-- Hero Section -->
+    <div class="relative w-full bg-[#020617] overflow-hidden">
 
-                  </h4>
-                  <div class="row justify-content-center" style="filter: grayscale(100%);">
-                     <div class="col-xxl-12 col-xl-10 col-lg-1">
-                        <div class="row gy-3 align-items-center justify-content-center justify-content-lg-between">
-                           <div class="col-4 col-sm-3 col-lg-1" data-aos="fade-up" data-aos-delay="50">
-                              <div class="nk-brand">
-                                 <a href="https://www.paypal.com/bd/home" target="_blank"><img
-                                       src="images/partners/pp.svg" alt="brand-logo" /></a>
-                              </div>
-                           </div>
-                           <div class="col-4 col-sm-3 col-lg-2" data-aos="fade-up" data-aos-delay="100">
-                              <div class="nk-brand">
-                                 <a href="https://www.skrill.com/en/" target="_blank"><img
-                                       src="images/partners/skrill.svg" alt="brand-logo" /></a>
-                              </div>
-                           </div>
-                           <div class="col-4 col-sm-3 col-lg-2" data-aos="fade-up" data-aos-delay="150">
-                              <div class="nk-brand">
-                                 <a href="https://www.taptapsend.com" target="_blank"><img
-                                       src="images/partners/taptapsend.svg" alt="brand-logo" /></a>
-                              </div>
-                           </div>
-                           <div class="col-5 col-sm-3 col-lg-2" data-aos="fade-up" data-aos-delay="200">
-                              <div class="nk-brand">
-                                 <a href="https://tranglo.com" target="_blank"><img src="images/partners/tranglo.svg"
-                                       alt="brand-logo" /></a>
-                              </div>
-                           </div>
-                           <div class="col-4 col-sm-3 col-lg-2" data-aos="fade-up" data-aos-delay="200">
-                              <div class="nk-brand">
-                                 <a href="https://currencyclear.com" target="_blank"><img src="images/partners/cc.svg"
-                                       alt="brand-logo" /></a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-         <section class="nk-section nk-feature-section">
-            <div id="solutions" class="container" style="scroll-margin-top: 80px;">
-               <div class="row justify-content-center">
-                  <div class="col-lg-8 col-xxl-6">
-                     <div class="nk-section-head pb-7 text-center">
-                        <span class="nk-section-subtitle text-uppercase text-primary fw-semibold">Products &
-                           Services</span>
-                        <h2 class="nk-section-title">Discover Products</h2>
-                        <p class="nk-section-text">
-                           Explore HomePay’s core platforms that power secure, real-time payments —
-                           enabling seamless cross-border disbursements.
-                        </p>
-                     </div>
-                  </div>
-               </div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(45,212,191,0.08)_0%,_transparent_70%)] -z-10">
+        </div>
 
-               <div class="row g-4 pt-4">
-                  <!-- Unified Remittance API -->
-                  <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="50">
-                     <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card text-center">
-                        <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-2">
-                           <em class="icon ni ni-send me-2" style="font-size:1.2rem;color:#084514;"></em>
-                           <span style="color:#084514;">Unified <span style="color: #06731c;">Remittance
-                                 API</span></span>
-                        </div>
-                        <h3 class="mt-2 h5 fw-bold text-slate-700">Cross-Border Disbursement Gateway</h3>
-                        <p class="mt-2 fs-14 text-slate-700">
-                           Powering instant payouts to banks and mobile wallets in Bangladesh via one secure, scalable
-                           API.
-                        </p>
-                        <a href="#remittance" class="btn-link d-inline-block mt-3">
-                           <span style="color:#084514;">Learn More</span><em style="color:#084514;"
-                              class="icon ni ni-arrow-right"></em>
+        <section id="hero" class="pt-32 pb-20 px-6 max-w-7xl mx-auto relative">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <div data-aos="fade-right">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                        <span class="text-[10px] font-black text-teal-400 uppercase tracking-widest">Next-Gen
+                            Disbursement Rail</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-8 text-white">
+                        <span class="text-gradient">Remittance Engine</span> for Bangladesh
+                    </h1>
+                    <p class="text-lg text-slate-400 mb-10 max-w-lg leading-relaxed">
+                        Blaze is the mission-critical technical rail connecting global volume to local endpoints.
+                        <span class="text-white font-semibold">Integrate once to reach every bank and wallet in
+                            Bangladesh</span>—instantly.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="mailto:info@homepay.io?subject=Inquiry regarding Blaze Network"
+                            class="bg-teal-500 text-slate-900 px-10 py-4 rounded-2xl font-bold hover:bg-teal-400 transition shadow-lg shadow-teal-500/20 text-center">
+                            Get Started
                         </a>
-                     </div>
-                  </div>
-
-                  <!-- DevOps & Cloud Services -->
-                  <div class="col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="150">
-                     <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card text-center">
-                        <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-2">
-                           <em class="icon ni ni-cloud me-2" style="font-size:1.2rem;color:#fc9003;"></em>
-                           <span style="color:#fc9003;">DevOps & <span style="color:#fc6b03;"> Cloud
-                                 Services</span></span>
-                        </div>
-                        <h3 class="mt-2 h5 fw-bold text-slate-700">Managed Azure & API Infrastructure</h3>
-                        <p class="mt-2 fs-14 text-slate-700">
-                           Managed Azure infrastructure for SaaS — covering CI/CD, security, observability, and uptime.
-                        </p>
-                        <a href="#devops" class="btn-link d-inline-block mt-3">
-                           <span style="color:#fc6b03;">Learn More</span><em class="icon ni ni-arrow-right"
-                              style="color:#fc6b03;"></em>
+                        <a href="#specs"
+                            class="px-10 py-4 rounded-2xl font-bold border border-white/10 text-white hover:bg-white/5 transition text-center">
+                            View Specs
                         </a>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
+
+                <div class="relative" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-teal-500/20 blur-[100px] -z-10"></div>
+
+                    <div class="glass-card rounded-3xl border-white/10 overflow-hidden shadow-2xl">
+                        <div class="bg-white/5 px-6 py-4 border-b border-white/5 flex items-center justify-between">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                            </div>
+                            <span class="text-[10px] font-mono text-slate-500 tracking-widest uppercase">POST
+                                /v1/disburse</span>
+                        </div>
+
+                        <div
+                            class="p-8 font-mono text-[11px] sm:text-[13px] leading-relaxed overflow-x-auto text-slate-300 min-h-[260px]">
+                            <pre id="typing-container" class="whitespace-pre-wrap"></pre><span
+                                class="animate-pulse text-teal-400 font-bold text-lg">_</span>
+                        </div>
+                    </div>
+
+                    <div id="success-badge"
+                        class="absolute -bottom-6 -right-6 bg-[#020617] p-4 border border-teal-500/30 rounded-2xl shadow-xl hidden sm:block opacity-0 transition-opacity duration-500">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center">
+                                <span class="text-teal-400 text-xs">✓</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black text-white uppercase tracking-tighter">API Response</p>
+                                <p class="text-[9px] text-teal-400 font-mono">200 OK - Processed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-32 px-6 max-w-7xl mx-auto relative">
+
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.03)_0%,_transparent_70%)] -z-10">
+        </div>
+
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-6 text-white">
+                Engineered for <span class="text-gradient">Scale</span>
+            </h2>
+            <p class="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed font-light">
+                A mission-critical technical layer that decouples financial complexity from technical execution.
+                <span class="text-white font-medium italic">High volume. Low latency. Zero friction.</span>
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
+                data-aos="fade-up">
+                <div
+                    class="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/10 blur-[80px] group-hover:bg-teal-500/20 transition-colors">
+                </div>
+                <div class="relative z-10">
+                    <div
+                        class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-8 border border-teal-500/20 group-hover:scale-110 transition-all duration-500">
+                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]">⚖️</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-teal-400 transition-colors text-white">
+                        Zero Financial Touch</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm font-light">
+                        We remain a neutral technical rail. We never touch the funds; settlement is handled directly
+                        between the financial partners via your existing arrangements.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
+                data-aos="fade-up" data-aos-delay="50">
+                <div
+                    class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-[80px] group-hover:bg-blue-500/20 transition-colors">
+                </div>
+                <div class="relative z-10">
+                    <div
+                        class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 group-hover:scale-110 transition-all duration-500">
+                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">🕸️</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-blue-400 transition-colors text-white">
+                        Instant Network Inheritance</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm font-light">
+                        For MFS: The day you connect to Blaze, you inherit our pre-integrated ecosystem of global MTOs
+                        and local banks. No more building 1-to-1 connections.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
+                data-aos="fade-up" data-aos-delay="100">
+                <div
+                    class="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/10 blur-[80px] group-hover:bg-teal-500/20 transition-colors">
+                </div>
+                <div class="relative z-10">
+                    <div
+                        class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-8 border border-teal-500/20 group-hover:scale-110 transition-all duration-500">
+                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]">🌐</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-teal-400 transition-colors text-white">
+                        Universal Dispatch API</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm font-light">
+                        For MTOs: Integrate a single JSON schema to reach every bank account and mobile wallet in
+                        Bangladesh. We manage the technical fragmentation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
+                data-aos="fade-up" data-aos-delay="150">
+                <div
+                    class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-[80px] group-hover:bg-blue-500/20 transition-colors">
+                </div>
+                <div class="relative z-10">
+                    <div
+                        class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 group-hover:scale-110 transition-all duration-500">
+                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">🔌</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-blue-400 transition-colors text-white">
+                        Decoupled Integration</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm font-light">
+                        Stop maintaining 50+ different bank APIs. Blaze provides a clean abstraction layer that handles
+                        field mapping, retries, and protocol conversion.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
+                data-aos="fade-up" data-aos-delay="200">
+                <div
+                    class="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/10 blur-[80px] group-hover:bg-teal-500/20 transition-colors">
+                </div>
+                <div class="relative z-10">
+                    <div
+                        class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-8 border border-teal-500/20 group-hover:scale-110 transition-all duration-500">
+                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]">🚀</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-teal-400 transition-colors text-white">
+                        Real-Time Routing</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm font-light">
+                        Infrastructure optimized for high-volume technical switching. Achieve millisecond technical
+                        routing for both disbursement and aggregation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
+                data-aos="fade-up" data-aos-delay="250">
+                <div
+                    class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-[80px] group-hover:bg-blue-500/20 transition-colors">
+                </div>
+                <div class="relative z-10">
+                    <div
+                        class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 group-hover:scale-110 transition-all duration-500">
+                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">📈</span>
+                    </div>
+                    <h3
+                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-blue-400 transition-colors text-white">
+                        Growth Without Code</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm font-light">
+                        Expand your intake network without writing a single new line of code. As Blaze adds new Banks
+                        and MTOs, they become instantly available to you.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MTO Models -->
+    <section id="mto-model" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-extrabold tracking-tight">MTO Technical Gateway</h2>
+            <p class="text-slate-500 mt-4 max-w-xl mx-auto">One API call routes your global volume to any specific bank
+                or wallet endpoint in Bangladesh.</p>
+        </div>
+
+        <div class="glass-card p-12 md:p-16 rounded-[4rem] border-teal-500/20 shadow-[0_0_80px_rgba(45,212,191,0.05)]"
+            data-aos="zoom-in">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+
+                <div class="flex flex-col gap-3 w-full lg:w-44 z-10">
+                    <div
+                        class="text-[10px] text-teal-500 font-bold uppercase tracking-widest mb-2 text-center lg:text-left">
+                        Initiators</div>
+                    <div
+                        class="bg-[#020617] p-3 border border-white/10 rounded-xl text-center shadow-lg text-xs font-semibold">
+                        PayPal</div>
+                    <div
+                        class="bg-[#020617] p-3 border border-white/10 rounded-xl text-center shadow-lg text-xs font-semibold">
+                        Skrill</div>
+                    <div
+                        class="bg-[#020617] p-3 border border-white/10 rounded-xl text-center shadow-lg text-xs font-semibold">
+                        Other MTOs</div>
+                </div>
+
+                <div class="flex-1 w-full hidden md:flex flex-col gap-8">
+                    <div class="rail">
+                        <div class="data-packet" style="animation-delay: 0s"></div>
+                    </div>
+                    <div class="rail">
+                        <div class="data-packet" style="animation-delay: 0.8s"></div>
+                    </div>
+                    <div class="rail">
+                        <div class="data-packet" style="animation-delay: 1.6s"></div>
+                    </div>
+                </div>
+
+                <div class="logo-hub shrink-0">
+                    <div class="hub-ring"></div>
+                    <div class="hub-ring-inner"></div>
+                    <img src="blaze-logo.png" class="h-8 w-auto z-20 brightness-125">
+                </div>
+
+                <div class="flex-1 w-full hidden md:flex flex-col gap-8">
+                    <div class="rail">
+                        <div class="data-packet" style="animation-delay: 0.4s"></div>
+                    </div>
+                    <div class="rail">
+                        <div class="data-packet" style="animation-delay: 1.2s"></div>
+                    </div>
+                    <div class="rail">
+                        <div class="data-packet" style="animation-delay: 2s"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 w-full lg:w-72 z-10">
+                    <div
+                        class="col-span-2 text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1 text-center">
+                        Live Endpoints</div>
+
+                    <div
+                        class="p-2.5 bg-teal-500/10 border border-teal-500/20 rounded-lg text-[10px] font-bold text-center text-teal-400 uppercase">
+                        bKash</div>
+                    <div
+                        class="p-2.5 bg-teal-500/10 border border-teal-500/20 rounded-lg text-[10px] font-bold text-center text-teal-400 uppercase">
+                        Nagad</div>
+                    <div
+                        class="p-2.5 bg-teal-500/10 border border-teal-500/20 rounded-lg text-[10px] font-bold text-center text-teal-400 uppercase">
+                        Upay</div>
+
+                    <div
+                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
+                        Mutual Trust Bank</div>
+                    <div
+                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
+                        Sonali Bank</div>
+                    <div
+                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
+                        Krishi Bank</div>
+
+                    <div
+                        class="col-span-2 p-2 bg-white/5 border border-dashed border-white/20 rounded-lg text-[9px] text-center text-slate-500">
+                        50+ OTHER LOCAL BANKS
+                    </div>
+                </div>
 
             </div>
-         </section>
-         <section class="nk-section pb-lg-7 pt-7 pt-lg-120">
-            <div class="container">
-               <div class="nk-section-content d-flex flex-column gap-7 gap-lg-120">
-                  <div id="remittance" class="row gy-5 gy-lg-6" style="scroll-margin-top: 80px;">
-                     <!-- Header -->
-                     <div class="col-12" data-aos="fade-up" data-aos-delay="50">
-                        <div class="nk-section-head pb-0 text-center text-lg-start">
-                           <h2 class="nk-section-title mb-0">
-                              <span style="color:#084514;">Unified</span>
-                              <span style="color: #06731c;">Remittance API</span>
-                           </h2>
-                           <p class="mt-3 fs-16 text-gray-800">
-                              HomePay’s Unified Remittance API simplifies cross-border payouts to Bangladesh by offering
-                              a single, secure integration for Money Transfer Operators (MTOs). Built on a nationwide
-                              network of banks and mobile financial services, the platform ensures instant, compliant,
-                              and scalable fund delivery across all payment channels.
-                           </p>
-                        </div>
-                     </div>
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
-                              <em class="icon ni ni-link me-2"></em><span>Unified Payment API</span>
-                           </div>
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">One Integration, Instant Disbursements</h3>
-                           <p class="mt-2 fs-14 text-slate-700">
-                              Enable global MTOs to disburse into Bangladesh—securely, instantly, and without juggling
-                              multiple integrations.
-                           </p>
-                           <ul class="mt-3 fs-14 text-slate-700">
-                              <li>Single API for payouts</li>
-                              <li>Secure &amp; fast processing</li>
-                              <li>Lower integration overhead</li>
-                              <li>Developer-friendly onboarding</li>
-                           </ul>
-                        </div>
-                     </div>
+        </div>
+    </section>
 
-                     <!-- Card 2: Nationwide Network -->
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
-                              <em class="icon ni ni-globe me-2"></em><span>Nationwide Network</span>
-                           </div>
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">Banks &amp; Mobile Wallets via One Gateway</h3>
-                           <p class="mt-2 fs-14 text-slate-700">
-                              Connected to banks and MFS providers—deliver funds to bank accounts and mobile wallets
-                              across Bangladesh.
-                           </p>
-                           <ul class="mt-3 fs-14 text-slate-700">
-                              <li>Bank + MFS coverage</li>
-                              <li>Account &amp; wallet payouts</li>
-                              <li>Single access point</li>
-                              <li>Operational simplification</li>
-                           </ul>
-                        </div>
-                     </div>
+    <!-- MFS Model -->
+    <section id="mfs-model" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-extrabold tracking-tight text-blue-400">MFS Aggregator Mesh</h2>
+            <p class="text-slate-500 mt-4 max-w-xl mx-auto">
+                Don't just integrate an API—inherit an ecosystem. The moment an MFS connects to Blaze, the entire
+                network of pre-integrated Banks and MTOs is ready for activation.
+            </p>
+        </div>
 
-                     <!-- Card 3: Proven at Scale -->
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-inline-flex align-items-center mb-1">
-                              <em class="icon ni ni-activity me-2"></em><span>Proven at Scale</span>
-                           </div>
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">Operating Since 2017</h3>
-                           <p class="mt-2 fs-14 text-slate-700">
-                              Partners scale quickly while reducing technical overhead—offering fast, reliable payouts
-                              nationwide.
-                           </p>
-                           <ul class="mt-3 fs-14 text-slate-700">
-                              <li>Rapid partner onboarding</li>
-                              <li>Reduced engineering effort</li>
-                              <li>Reliable, nationwide delivery</li>
-                              <li>Designed for growth</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-                  <div id="devops" class="row gy-5 gy-lg-6" style="scroll-margin-top: 80px;">
-                     <!-- Header -->
-                     <div class="col-12" data-aos="fade-up" data-aos-delay="50">
-                        <div class="nk-section-head pb-0 text-center text-lg-start">
-                           <h2 class="nk-section-title mb-0">
-                              <span style="color:#fc9003;">Dev</span>
-                              <span style="color:#fc6b03;">Ops</span>
-                           </h2>
-                           <p class="mt-3 fs-16 text-gray-800">
-                              We build, operate, and support modern, secure, and scalable systems across Azure, .NET,
-                              React, and mobile ecosystems—
-                              helping fintech and SaaS businesses move fast with confidence.
-                           </p>
-                        </div>
-                     </div>
+        <div class="glass-card p-12 md:p-16 rounded-[4rem] border-blue-500/20 shadow-[0_0_80px_rgba(59,130,246,0.05)]"
+            data-aos="zoom-in">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
 
-                     <!-- Card 1 -->
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-flex align-items-center mb-1">
-                              <em class="icon ni ni-cloud me-2" style="font-size: 1.1rem;"></em>
-                              <span>Cloud Services</span>
-                           </div>
+                <div class="grid grid-cols-2 gap-3 w-full lg:w-80 z-10">
+                    <div
+                        class="col-span-2 text-[10px] text-blue-500 font-bold uppercase tracking-widest mb-1 text-center lg:text-left pl-1">
+                        Network Sources</div>
 
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">Azure Cloud Architecture &amp; DevOps</h3>
+                    <div
+                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
+                        Trust Bank</div>
+                    <div
+                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
+                        Mutual Trust Bank</div>
+                    <div
+                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
+                        City Bank</div>
 
-                           <p class="mt-2 fs-14 text-slate-700">
-                              Design and manage secure, compliant, and cost-efficient Azure infrastructures — from
-                              landing zones and networking to automation, CI/CD, and observability.
-                           </p>
+                    <div
+                        class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-[10px] font-bold text-center text-blue-400 uppercase">
+                        Remitly</div>
+                    <div
+                        class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-[10px] font-bold text-center text-blue-400 uppercase">
+                        Ria</div>
+                    <div
+                        class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-[10px] font-bold text-center text-blue-400 uppercase">
+                        TerraPay</div>
 
-                           <ul class="mt-3 fs-14 text-slate-700 list-disc list-inside">
-                              <li>App Services, AKS, SQL Database, Storage</li>
-                              <li>Application Gateway, VNet, Private Link</li>
-                              <li>Key Vault, Managed Identity, Terraform</li>
-                              <li>App Insights &amp; Log Analytics Monitoring</li>
-                           </ul>
-                        </div>
-                     </div>
+                    <div
+                        class="col-span-2 p-2 bg-blue-500/5 border border-dashed border-blue-500/20 rounded-lg text-[9px] text-center text-slate-500 uppercase tracking-tighter">
+                        15+ OTHER SETTLEMENT BANKS
+                    </div>
+                </div>
 
-                     <!-- Card 2 -->
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-flex align-items-center mb-1">
-                              <em class="icon ni ni-cpu me-2" style="font-size: 1.1rem;"></em>
-                              <span>Backend</span>
-                           </div>
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">.NET & SQL Server Engineering</h3>
-                           <p class="mt-2 fs-14 text-slate-700">
-                              Build high-throughput, fault-tolerant APIs using .NET Core and SQL Server—optimized for
-                              financial transactions,
-                              scalability, and data integrity.
-                           </p>
-                           <ul class="mt-3 fs-14 text-slate-700 list-disc list-inside">
-                              <li>Clean Architecture &amp; CQRS patterns</li>
-                              <li>gRPC &amp; RESTful API integration</li>
-                              <li>Entity Framework Core &amp; Dapper</li>
-                              <li>Automated testing &amp; performance tuning</li>
-                           </ul>
-                        </div>
-                     </div>
+                <div class="flex-1 w-full hidden md:flex flex-col gap-10">
+                    <div class="rail">
+                        <div class="data-packet data-packet-blue" style="animation-delay: 0s"></div>
+                    </div>
+                    <div class="rail">
+                        <div class="data-packet data-packet-blue" style="animation-delay: 1.2s"></div>
+                    </div>
+                </div>
 
-                     <!-- Card 3 -->
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-flex align-items-center mb-1">
-                              <em class="icon ni ni-monitor me-2" style="font-size: 1.1rem;"></em>
-                              <span>Web UI</span>
-                           </div>
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">React, HTML &amp; CSS UI Engineering</h3>
-                           <p class="mt-2 fs-14 text-slate-700">
-                              Create responsive, accessible, and high-performance front-ends for dashboards, portals,
-                              and embedded financial apps.
-                           </p>
-                           <ul class="mt-3 fs-14 text-slate-700 list-disc list-inside">
-                              <li>React with Hooks &amp; Context API</li>
-                              <li>Tailwind CSS &amp; component libraries</li>
-                              <li>API integration &amp; state management</li>
-                              <li>Cross-browser and mobile optimization</li>
-                           </ul>
-                        </div>
-                     </div>
+                <div class="logo-hub shrink-0">
+                    <div class="hub-ring" style="border-color: rgba(59, 130, 246, 0.3)"></div>
+                    <div class="hub-ring-inner" style="border-color: rgba(59, 130, 246, 0.5)"></div>
+                    <img src="blaze-logo.png" class="h-8 w-auto z-20 brightness-110">
+                </div>
 
-                     <!-- Card 4 -->
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-flex align-items-center mb-1">
-                              <em class="icon ni ni-apple me-2" style="font-size: 1.1rem;"></em>
-                              <span>iPhone App</span>
-                           </div>
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">iOS Native &amp; Hybrid Solutions</h3>
-                           <p class="mt-2 fs-14 text-slate-700">
-                              Build secure and intuitive iPhone apps aligned with App Store standards—integrated with
-                              backend APIs and payment gateways.
-                           </p>
-                           <ul class="mt-3 fs-14 text-slate-700 list-disc list-inside">
-                              <li>Swift &amp; SwiftUI development</li>
-                              <li>REST / gRPC API integration</li>
-                              <li>Apple Pay &amp; biometric auth</li>
-                              <li>App Store deployment &amp; compliance</li>
-                           </ul>
-                        </div>
-                     </div>
+                <div class="flex-1 w-full hidden md:flex flex-col gap-10">
+                    <div class="rail">
+                        <div class="data-packet data-packet-blue" style="animation-delay: 0.6s"></div>
+                    </div>
+                </div>
 
-                     <!-- Card 5 -->
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-flex align-items-center mb-1">
-                              <em class="icon ni ni-android me-2" style="font-size: 1.1rem;"></em>
-                              <span>Android App</span>
-                           </div>
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">Kotlin &amp; Flutter Engineering</h3>
-                           <p class="mt-2 fs-14 text-slate-700">
-                              Deliver fast, reliable Android apps for fintech and regtech use-cases, built with
-                              native
-                              Kotlin or cross-platform Flutter.
-                           </p>
-                           <ul class="mt-3 fs-14 text-slate-700 list-disc list-inside">
-                              <li>Material UI &amp; Jetpack Components</li>
-                              <li>API integration &amp; offline sync</li>
-                              <li>Security &amp; encryption best practices</li>
-                              <li>Play Store publishing &amp; analytics</li>
-                           </ul>
-                        </div>
-                     </div>
+                <div class="flex flex-col gap-3 w-full lg:w-44 z-10">
+                    <div class="text-[10px] text-center font-bold text-slate-500 uppercase tracking-widest mb-1">MFS
+                        Delivery</div>
+                    <div
+                        class="p-4 bg-blue-600 text-white rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.3)] text-center font-black italic tracking-tighter text-lg">
+                        NAGAD
+                    </div>
+                    <div
+                        class="p-3 bg-white/5 border border-white/10 rounded-xl text-[10px] text-center font-medium text-slate-400">
+                        Other MFS
+                    </div>
+                </div>
 
-                     <!-- Card 6 -->
-                     <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
-                        <div class="rounded-2xl border border-slate-200 p-4 p-lg-5 h-100 hover-card">
-                           <div class="text-sm fw-semibold text-primary d-flex align-items-center mb-1">
-                              <em class="icon ni ni-support me-2" style="font-size: 1.1rem;"></em>
-                              <span>24×7 Support</span>
-                           </div>
-                           <h3 class="mt-2 h5 fw-bold text-slate-700">SLA-Backed Technical Operations</h3>
-                           <p class="mt-2 fs-14 text-slate-700">
-                              End-to-end production support with guaranteed SLAs — covering monitoring, incident
-                              response, and continuous improvement.
-                           </p>
-                           <ul class="mt-3 fs-14 text-slate-700 list-disc list-inside">
-                              <li>Runbooks, on-call &amp; escalation</li>
-                              <li>Proactive monitoring &amp; alerting</li>
-                              <li>Post-incident review &amp; RCA</li>
-                              <li>Customer success alignment</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-         </section>
-         <section class="nk-section bg-primary-gradient-soft py-7">
-            <div class="container text-center">
-               <h2 class="nk-section-title mb-3 text-slate-900">Get in Touch</h2>
-               <p class="fs-16 text-gray-700 mb-5">
-                  Have a question or partnership inquiry? We’d love to hear from you.
-               </p>
-               <a href="mailto:info@homepay.io" class="btn btn-primary px-5 py-3">
-                  <em class="icon ni ni-mail me-1"></em> Contact Us
-               </a>
             </div>
-         </section>
-      </main>
-      <footer class="nk-footer">
-         <div class="nk-footer-bottom">
-            <div class="container">
-               <div class="nk-footer-content row justify-content-between">
-                  <div class="col-lg-6 px-0">
-                     <a href="/" class="logo-link">
-                        <div class="logo-wrap">
-                           <img class="logo-img" src="https://homepay.github.io/homepay.svg" width="120px" srcset="
-                                    https://homepay.github.io/homepay.svg 2x
-                            " alt="brand-logo" />
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section id="specs" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Network Activation & <span
+                    class="text-gradient">Standards</span></h2>
+            <p class="text-slate-500 max-w-2xl mx-auto italic">
+                Whether you are a <span class="text-teal-400 font-semibold">Global MTO reaching Bangladesh</span> or a
+                <span class="text-blue-400 font-semibold">Local MFS aggregating volume</span>, Blaze scales with you.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+            <div class="glass-card p-10 md:p-12 rounded-[3rem] border-white/5" data-aos="fade-right">
+                <div class="flex items-center justify-between mb-10">
+                    <h3 class="text-2xl font-bold flex items-center gap-3">
+                        <span class="w-2 h-8 bg-teal-500 rounded-full"></span>
+                        Onboarding Paths
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/5 hidden md:block"></div>
+
+                    <div class="space-y-8">
+                        <p
+                            class="text-[10px] font-black uppercase tracking-widest text-teal-400 border-b border-teal-500/20 pb-2">
+                            For Global MTOs</p>
+                        <div class="space-y-6">
+                            <div class="relative pl-6 border-l border-teal-500/30">
+                                <h4 class="text-sm font-bold">01. API Integration</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Connect to our unified disbursement endpoint
+                                    in the Sandbox.</p>
+                            </div>
+                            <div class="relative pl-6 border-l border-teal-500/30">
+                                <h4 class="text-sm font-bold">02. Technical KYB</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Security whitelisting and production
+                                    credentialing.</p>
+                            </div>
+                            <div class="relative pl-6 border-l border-teal-500/30">
+                                <h4 class="text-sm font-bold">03. Go Live</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Instant reach to all banks and wallets in the
+                                    mesh.</p>
+                            </div>
                         </div>
-                     </a>
-                  </div>
-                  <div class="col-lg-6 px-0">
-                     <p class="nk-footer-copyright-text text-lg-end">
-                        &copy; 2016 - <span id="currentYear"></span><a class="fs-16" href="/" target="_blank">
-                           <b>HomePay.io
-                           </b> </a>. All Rights Reserved.
-                     </p>
-                  </div>
-               </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <p
+                            class="text-[10px] font-black uppercase tracking-widest text-blue-400 border-b border-blue-500/20 pb-2">
+                            For Local MFS</p>
+                        <div class="space-y-6">
+                            <div class="relative pl-6 border-l border-blue-500/30">
+                                <h4 class="text-sm font-bold">01. Central Plug</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Single technical integration to the Blaze
+                                    Aggregator Hub.</p>
+                            </div>
+                            <div class="relative pl-6 border-l border-blue-500/30">
+                                <h4 class="text-sm font-bold">02. Partner Activation</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Our pre-integrated network of Banks and MTOs
+                                    becomes available the moment your settlement terms are finalized.</p>
+                            </div>
+                            <div class="relative pl-6 border-l border-blue-500/30">
+                                <h4 class="text-sm font-bold">03. Instant Scale</h4>
+                                <p class="text-[11px] text-slate-500 mt-1">Every existing and future Blaze partner can
+                                    now disburse to your wallet without a single line of new code.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-6 border-t border-white/5">
+                    <p class="text-[10px] text-slate-500 text-center uppercase tracking-widest font-bold">
+                        The Blaze Network Effect: Growth without new code.
+                    </p>
+                </div>
             </div>
-         </div>
-      </footer>
-      <a href="#" class="scroll-top shadow animate animate-infinite animate-pulse animate-duration-2"><em
-            class="icon ni ni-chevrons-up"></em></a>
 
-   </div>
-   <script src="./assets/js/bundle.js?v1.0.0"></script>
-   <script src="./assets/js/scripts.js?v1.0.0"></script>
-   <script>
-      document.querySelectorAll('.scroll-link').forEach(link => {
-         link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+            <div class="glass-card p-12 rounded-[3rem] border-blue-500/10" data-aos="fade-left">
+                <div class="flex justify-between items-center mb-10">
+                    <h3 class="text-2xl font-bold flex items-center gap-3">
+                        <span class="w-2 h-8 bg-blue-500 rounded-full"></span>
+                        Network Performance
+                    </h3>
+                    <span
+                        class="text-[10px] bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 font-bold uppercase tracking-widest">Enterprise
+                        SLA</span>
+                </div>
 
-            if (targetElement) {
-               const offset = (window.innerHeight - targetElement.offsetHeight) / 2;
-               const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-               const offsetPosition = elementPosition - offset;
+                <div class="space-y-4">
+                    <div
+                        class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl opacity-50 group-hover:opacity-100 transition">⏱️</span>
+                            <span class="text-sm font-medium text-slate-400">API Latency</span>
+                        </div>
+                        <div class="text-right font-mono">
+                            <span class="text-blue-400 font-bold">&lt; 200ms</span>
+                            <p class="text-[9px] text-slate-600 uppercase mt-1">Global Average</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl opacity-50 group-hover:opacity-100 transition">💎</span>
+                            <span class="text-sm font-medium text-slate-400">Uptime Reliability</span>
+                        </div>
+                        <div class="text-right font-mono">
+                            <span class="text-blue-400 font-bold">99.99%</span>
+                            <p class="text-[9px] text-slate-600 uppercase mt-1">Guaranteed SLA</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl opacity-50 group-hover:opacity-100 transition">🛡️</span>
+                            <span class="text-sm font-medium text-slate-400">Data Security</span>
+                        </div>
+                        <div class="text-right font-mono text-xs">
+                            <span class="text-blue-400 font-bold uppercase">AES-256 + TLS 1.3</span>
+                            <p class="text-[9px] text-slate-600 uppercase mt-1">Banking Standard</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl opacity-50 group-hover:opacity-100 transition">📊</span>
+                            <span class="text-sm font-medium text-slate-400">Max Throughput</span>
+                        </div>
+                        <div class="text-right font-mono">
+                            <span class="text-blue-400 font-bold">10,000+ TPS</span>
+                            <p class="text-[9px] text-slate-600 uppercase mt-1">Transactions/Sec</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-               window.scrollTo({
-                  top: offsetPosition,
-                  behavior: 'smooth'
-               });
+    <!-- Footer Section -->
+    <footer class="py-20 px-6 border-t border-white/5 bg-[#010409] relative overflow-hidden">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-64 bg-teal-500/5 blur-[100px] -z-10"></div>
+
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+
+            <div class="flex flex-col items-center md:items-start">
+                <div class="flex items-center gap-3 mb-4">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-blue-600 flex items-center justify-center shadow-lg">
+                        <span class="text-white font-black text-sm tracking-tighter">B</span>
+                    </div>
+                    <span class="text-2xl font-black tracking-tighter text-white uppercase">blaze</span>
+                </div>
+                <p class="text-slate-500 text-sm max-w-sm text-center md:text-left leading-relaxed">
+                    The unified technical rail for Bangladesh. <br>
+                    Connecting global volume to every local endpoint.
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center md:items-end gap-6">
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">
+                    Ready to integrate?
+                </p>
+                <a href="mailto:info@homepay.io"
+                    class="group relative px-12 py-4 bg-white/5 border border-white/10 rounded-2xl text-white font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition-all flex items-center gap-3">
+                    Contact Engineering
+                    <span class="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <p class="text-[9px] text-slate-700 uppercase tracking-widest font-bold">
+                    &copy; 2026 HomePay LLC. All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.querySelector('.menu-icon');
+            if (!menu.contains(e.target) && !icon.contains(e.target) && menu.classList.contains('active')) {
+                menu.classList.remove('active');
             }
-         });
-      });
-   </script>
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('typing-container');
+            const badge = document.getElementById('success-badge');
+
+            const codeSnippet = `{
+  "txnNo": "CBTXXXXXXXX005",
+  "sender": {
+    "name": "TOM MODDY",
+    "amount": 100,
+    "currency": "USD"
+  },
+  "recipient": {
+    "name": "NAZRUL ISLAM",
+    "accountNo": "123XXXXXXX077",
+    "routingNo": "XXXXXXXXX",
+    "amount": 10000,
+    "currency": "BDT"
+  }
+}`;
+
+            let index = 0;
+
+            function typeCode() {
+                if (index < codeSnippet.length) {
+                    container.textContent += codeSnippet.charAt(index);
+                    index++;
+                    setTimeout(typeCode, 10);
+                } else {
+                    // Typing is done! Show the success badge
+                    badge.classList.remove('opacity-0');
+                    badge.classList.add('opacity-100');
+                }
+            }
+
+            // Start typing after a short delay
+            setTimeout(typeCode, 800);
+        });
+    </script>
 </body>
 
 </html>
