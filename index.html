@@ -263,6 +263,66 @@
         }
 
         /* ----- */
+
+        /* Vertical Data Packet for Mobile */
+        .data-packet-vertical {
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, #2dd4bf, #fff, #2dd4bf, transparent);
+            filter: drop-shadow(0 0 8px #2dd4bf);
+            animation: flow-vertical 2s infinite ease-in-out;
+            left: -0.5px;
+        }
+
+        @keyframes flow-vertical {
+            0% {
+                top: -20%;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 120%;
+                opacity: 0;
+            }
+        }
+
+        /* Vertical Blue Data Packet for MFS Section */
+        .data-packet-vertical-blue {
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, transparent, #3b82f6, #fff, #3b82f6, transparent);
+            filter: drop-shadow(0 0 8px #3b82f6);
+            animation: flow-vertical 2s infinite ease-in-out;
+            left: -0.5px;
+        }
+
+        /* Ensure Desktop packets have the blue class if needed */
+        .data-packet-blue {
+            background: linear-gradient(to right, transparent, #3b82f6, #fff, #3b82f6, transparent) !important;
+            filter: drop-shadow(0 0 8px #3b82f6) !important;
+        }
+
+        @keyframes flow-vertical {
+            0% {
+                top: -20%;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 120%;
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
@@ -546,6 +606,10 @@
                         Other MTOs</div>
                 </div>
 
+                <div class="flex md:hidden h-20 w-px bg-white/5 relative">
+                    <div class="data-packet-vertical"></div>
+                </div>
+
                 <div class="flex-1 w-full hidden md:flex flex-col gap-8">
                     <div class="rail">
                         <div class="data-packet" style="animation-delay: 0s"></div>
@@ -561,7 +625,9 @@
                 <div class="logo-hub shrink-0">
                     <div class="hub-ring"></div>
                     <div class="hub-ring-inner"></div>
-                    <img src="blaze-logo.png" class="h-8 w-auto z-20 brightness-125">
+                    <div class="relative z-20 flex items-center justify-center">
+                        <img src="blaze-logo.png" class="h-8 w-auto z-20 brightness-125">
+                    </div>
                 </div>
 
                 <div class="flex-1 w-full hidden md:flex flex-col gap-8">
@@ -576,11 +642,14 @@
                     </div>
                 </div>
 
+                <div class="flex md:hidden h-20 w-px bg-white/5 relative">
+                    <div class="data-packet-vertical" style="animation-delay: 1s"></div>
+                </div>
+
                 <div class="grid grid-cols-2 gap-3 w-full lg:w-72 z-10">
                     <div
                         class="col-span-2 text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-1 text-center">
                         Live Endpoints</div>
-
                     <div
                         class="p-2.5 bg-teal-500/10 border border-teal-500/20 rounded-lg text-[10px] font-bold text-center text-teal-400 uppercase">
                         bKash</div>
@@ -590,7 +659,6 @@
                     <div
                         class="p-2.5 bg-teal-500/10 border border-teal-500/20 rounded-lg text-[10px] font-bold text-center text-teal-400 uppercase">
                         Upay</div>
-
                     <div
                         class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
                         Mutual Trust Bank</div>
@@ -600,11 +668,9 @@
                     <div
                         class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
                         Krishi Bank</div>
-
                     <div
                         class="col-span-2 p-2 bg-white/5 border border-dashed border-white/20 rounded-lg text-[9px] text-center text-slate-500">
-                        50+ OTHER LOCAL BANKS
-                    </div>
+                        50+ OTHER LOCAL BANKS</div>
                 </div>
 
             </div>
@@ -629,7 +695,6 @@
                     <div
                         class="col-span-2 text-[10px] text-blue-500 font-bold uppercase tracking-widest mb-1 text-center lg:text-left pl-1">
                         Network Sources</div>
-
                     <div
                         class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
                         Trust Bank</div>
@@ -639,7 +704,6 @@
                     <div
                         class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
                         City Bank</div>
-
                     <div
                         class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-[10px] font-bold text-center text-blue-400 uppercase">
                         Remitly</div>
@@ -649,11 +713,14 @@
                     <div
                         class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-[10px] font-bold text-center text-blue-400 uppercase">
                         TerraPay</div>
-
                     <div
                         class="col-span-2 p-2 bg-blue-500/5 border border-dashed border-blue-500/20 rounded-lg text-[9px] text-center text-slate-500 uppercase tracking-tighter">
                         15+ OTHER SETTLEMENT BANKS
                     </div>
+                </div>
+
+                <div class="flex md:hidden h-16 w-px bg-white/5 relative">
+                    <div class="data-packet-vertical-blue"></div>
                 </div>
 
                 <div class="flex-1 w-full hidden md:flex flex-col gap-10">
@@ -668,7 +735,13 @@
                 <div class="logo-hub shrink-0">
                     <div class="hub-ring" style="border-color: rgba(59, 130, 246, 0.3)"></div>
                     <div class="hub-ring-inner" style="border-color: rgba(59, 130, 246, 0.5)"></div>
-                    <img src="blaze-logo.png" class="h-8 w-auto z-20 brightness-110">
+                    <div class="relative z-20 flex items-center justify-center">
+                        <img src="blaze-logo.png" class="h-8 w-auto z-20 brightness-125">
+                    </div>
+                </div>
+
+                <div class="flex md:hidden h-16 w-px bg-white/5 relative">
+                    <div class="data-packet-vertical-blue" style="animation-delay: 0.6s"></div>
                 </div>
 
                 <div class="flex-1 w-full hidden md:flex flex-col gap-10">
