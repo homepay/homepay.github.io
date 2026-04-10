@@ -13,6 +13,19 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+.text-gradient-blue {
+    background: linear-gradient(to right, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
 .glass-card {
     background: rgba(255, 255, 255, 0.01);
     backdrop-filter: blur(20px);
