@@ -51,3 +51,83 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start typing after a short delay
     setTimeout(typeCode, 800);
 });
+
+// Join Network Modal
+function showFormError(msg) {
+    const el = document.getElementById('formError');
+    el.textContent = msg;
+    el.classList.remove('hidden');
+    setTimeout(() => el.classList.add('hidden'), 4000);
+}
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKY1JzGjHQ7KAONguw9IaTPPTbpn06QTzGCyamFk5orJAPez3JAActdnkovgoP-Hw/exec';
+
+document.getElementById('joinForm')
+    .addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const btn = document.getElementById('submitBtn');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        const blockedDomains = [
+            'gmail.com', 'yahoo.com', 'hotmail.com',
+            'outlook.com', 'icloud.com', 'aol.com',
+            'protonmail.com', 'mail.com', 'ymail.com',
+            'live.com', 'msn.com', 'me.com'
+        ];
+
+        const emailValue = document.getElementById('formEmail').value;
+        const emailDomain = emailValue.split('@')[1]?.toLowerCase();
+
+        if (blockedDomains.includes(emailDomain)) {
+            showFormError('Please use your company email address.');
+            btn.textContent = 'Submit Interest';
+            btn.disabled = false;
+            return;
+        }
+
+        // Get Turnstile token
+        const turnstileToken = document.querySelector(
+            '[name="cf-turnstile-response"]')?.value;
+
+        if (!turnstileToken) {
+            showFormError('Please complete the security check.');
+            btn.textContent = 'Submit Interest';
+            btn.disabled = false;
+            return;
+        }
+
+        const payload = {
+            honeypot: document.getElementById('honeypot').value,
+            joinAs: document.getElementById('joinAs').value,
+            organization: document.getElementById('organization').value,
+            website: document.getElementById('website').value,
+            region: document.getElementById('region').value,
+            email: document.getElementById('formEmail').value,
+            description: document.getElementById('description').value,
+            cfTurnstileResponse: turnstileToken
+        };
+
+        try {
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            });
+
+            document.getElementById('joinForm').classList.add('hidden');
+            document.getElementById('joinSuccess').classList.remove('hidden');
+
+        } catch (err) {
+            btn.textContent = 'Submit Interest';
+            btn.disabled = false;
+            showFormError('Something went wrong. Please try again.');
+        }
+    });
+
+// Close modal on background click
+document.getElementById('joinModal')
+    .addEventListener('click', function (e) {
+        if (e.target === this)
+            this.style.display = 'none';
+    });

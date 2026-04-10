@@ -35,6 +35,16 @@ body {
     color: #475569;
 }
 
+#joinModal select {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+#joinModal select option {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
 .glass-card {
     background: rgba(255, 255, 255, 0.01);
     backdrop-filter: blur(20px);
