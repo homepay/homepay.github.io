@@ -20,26 +20,19 @@ body {
 }
 
 .stat-value {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 900;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     line-height: 1;
+    margin-bottom: 0.75rem;
 }
 
-.gradient-border {
-    background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
-    padding: 1px;
-    border-radius: 1.5rem;
-    opacity: 1;
-    box-shadow: 0 0 40px -10px rgba(45, 212, 191, 0.2),
-                0 0 80px -20px rgba(59, 130, 246, 0.15);
-}
-
-.gradient-border-inner {
-    background: #020617;
-    border-radius: calc(1.5rem - 1px);
-    width: 100%;
-    height: 100%;
+.stat-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #475569;
 }
 
 .glass-card {

@@ -128,36 +128,32 @@
     </div>
 
     <!-- Stats Section -->
-    <section id="stats" class="w-full bg-[#020617] py-16 px-6">
+    <section id="stats" class="py-16 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="gradient-border w-full" data-aos="fade-up">
-                <div class="gradient-border-inner">
-                    <div class="grid grid-cols-1 md:grid-cols-3">
-                        <!-- UPDATE: Replace with real transaction count -->
-                        <div class="px-10 py-12 text-center border-b md:border-b-0 md:border-r border-white/5">
-                            <div class="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-4 mx-auto">
-                                <span class="text-teal-400 text-sm">⇄</span>
-                            </div>
-                            <div class="stat-value text-gradient">1.2M+</div>
-                            <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-3">Transactions Processed</div>
-                        </div>
-                        <!-- UPDATE: Replace with real GPV -->
-                        <div class="px-10 py-12 text-center border-b md:border-b-0 md:border-r border-white/5">
-                            <div class="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-4 mx-auto">
-                                <span class="text-teal-400 text-sm">$</span>
-                            </div>
-                            <div class="stat-value text-gradient">$94M+</div>
-                            <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-3">Gross Payment Volume</div>
-                        </div>
-                        <!-- UPDATE: Replace with real avg disbursement time -->
-                        <div class="px-10 py-12 text-center">
-                            <div class="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4 mx-auto">
-                                <span class="text-blue-400 text-sm">⚡</span>
-                            </div>
-                            <div class="stat-value text-gradient-blue">~11s</div>
-                            <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-3">Avg. Disbursement Time</div>
-                        </div>
-                    </div>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-0">
+                <div class="flex-1 text-center py-8 md:py-0" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-value text-gradient">3.5M+</div>
+                    <div class="stat-label">Transactions Processed</div>
+                </div>
+                <div
+                    class="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-white/10 to-transparent flex-shrink-0">
+                </div>
+                <div
+                    class="block md:hidden w-24 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mx-auto">
+                </div>
+                <div class="flex-1 text-center py-8 md:py-0" data-aos="fade-up" data-aos-delay="150">
+                    <div class="stat-value text-gradient">$454M+</div>
+                    <div class="stat-label">Gross Payment Volume</div>
+                </div>
+                <div
+                    class="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-white/10 to-transparent flex-shrink-0">
+                </div>
+                <div
+                    class="block md:hidden w-24 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mx-auto">
+                </div>
+                <div class="flex-1 text-center py-8 md:py-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-value text-gradient-blue">~05s</div>
+                    <div class="stat-label">Avg. Disbursement Time</div>
                 </div>
             </div>
         </div>
