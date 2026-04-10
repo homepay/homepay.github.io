@@ -15,6 +15,9 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    const yearEl = document.getElementById('copyright-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     const container = document.getElementById('typing-container');
     const badge = document.getElementById('success-badge');
 
