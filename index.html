@@ -404,6 +404,11 @@
 
             </div>
         </div>
+
+        <div id="mto-diagram-wrap" class="mt-8 relative rounded-3xl overflow-hidden border border-white/5"
+            style="background:#060f1e;">
+            <canvas id="mto-canvas"></canvas>
+        </div>
     </section>
 
     <!-- MFS Model -->
@@ -809,6 +814,285 @@
         </div>
     </div>
     <script src="/scripts/script.js"></script>
+    <script>
+(function() {
+  const canvas = document.getElementById('mto-canvas');
+  const wrap = document.getElementById('mto-diagram-wrap');
+  const ctx = canvas.getContext('2d');
+
+  const TEAL = '#2dd4bf';
+  const BLUE = '#3b82f6';
+  const TEAL_DIM = 'rgba(45,212,191,0.12)';
+  const BLUE_DIM = 'rgba(59,130,246,0.12)';
+  let isMobile = false;
+
+  // tx = horizontal depth from edge (0=far edge, 1=near center)
+  // ty = vertical position (0=top, 1=bottom)
+  const leftNodes = [
+    { label:'PayPal',     color:TEAL, ty:0.22, tx:0.18 },
+    { label:'Skrill',     color:TEAL, ty:0.50, tx:0.28 },
+    { label:'Other MTOs', color:TEAL, ty:0.78, tx:0.16, muted:true },
+  ];
+
+  const rightNodes = [
+    { label:'bKash',           color:TEAL, ty:0.12, tx:0.18 },
+    { label:'Nagad',           color:TEAL, ty:0.26, tx:0.28 },
+    { label:'Upay',            color:TEAL, ty:0.40, tx:0.22 },
+    { label:'Mutual Trust',    color:BLUE, ty:0.54, tx:0.26 },
+    { label:'Sonali Bank',     color:BLUE, ty:0.66, tx:0.18 },
+    { label:'Krishi Bank',     color:BLUE, ty:0.78, tx:0.24 },
+    { label:'50+ Local Banks', color:BLUE, ty:0.90, tx:0.16, muted:true },
+  ];
+
+  const offsets = Array(12).fill(0).map(
+    (_, i) => i * -25
+  );
+
+  function drawRoundRect(x, y, w, h, r, fill, stroke, dash) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) {
+      ctx.strokeStyle = stroke;
+      ctx.lineWidth = 1;
+      ctx.setLineDash(dash ? [4,3] : []);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  }
+
+  function drawNode(x, y, label, color, muted, isRight) {
+    const pad = 14;
+    ctx.font = `700 ${isMobile ? 10 : 12}px "Plus Jakarta Sans", sans-serif`;
+    const tw = ctx.measureText(label).width;
+    const w = tw + pad * 2;
+    const h = 34;
+    const nx = isRight ? x - w : x;
+    const ny = y - h / 2;
+
+    const fill = muted
+      ? 'rgba(255,255,255,0.02)'
+      : color === TEAL
+        ? 'rgba(45,212,191,0.08)'
+        : 'rgba(59,130,246,0.08)';
+
+    const stroke = muted
+      ? 'rgba(255,255,255,0.08)'
+      : color === TEAL
+        ? 'rgba(45,212,191,0.3)'
+        : 'rgba(59,130,246,0.3)';
+
+    drawRoundRect(nx, ny, w, h, 8, fill, stroke, muted);
+
+    ctx.fillStyle = muted ? '#475569' : color;
+    ctx.font = `700 ${isMobile ? 10 : 12}px "Plus Jakarta Sans", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(label, nx + w / 2, y);
+
+    return { x: isRight ? nx : nx + w, y };
+  }
+
+  function drawCurve(x1, y1, x2, y2, color, offset) {
+    const mx = x1 + (x2 - x1) * 0.5;
+
+    // Dim static line
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.bezierCurveTo(mx, y1, mx, y2, x2, y2);
+    ctx.strokeStyle = color === TEAL ? TEAL_DIM : BLUE_DIM;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+    ctx.stroke();
+
+    // Animated dash
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.bezierCurveTo(mx, y1, mx, y2, x2, y2);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([8, 8]);
+    ctx.lineDashOffset = offset;
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  function drawDotGrid(W, H) {
+    const spacing = 24;
+    ctx.fillStyle = 'rgba(99,102,241,0.1)';
+    for (let x = spacing; x < W; x += spacing) {
+      for (let y = spacing; y < H; y += spacing) {
+        ctx.beginPath();
+        ctx.arc(x, y, 1, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  function draw() {
+    const W = wrap.offsetWidth;
+    isMobile = W < 600;
+    canvas.width = W;
+    canvas.style.width = W + 'px';
+
+    if (W < 600) {
+      const H = 520;
+      canvas.height = H;
+      canvas.style.height = H + 'px';
+      ctx.clearRect(0, 0, W, H);
+      drawDotGrid(W, H);
+
+      const hubW = 110;
+      const hubH = 50;
+      const hubX = (W - hubW) / 2;
+      const hubY = H * 0.42 - hubH / 2;
+      const hubCX = hubX + hubW / 2;
+      const hubCY = hubY + hubH / 2;
+
+      leftNodes.forEach((n, i) => {
+        const y = 60 + i * 80;
+        const edge = drawNode(20, y, n.label,
+          n.color, n.muted, false);
+        drawCurve(edge.x, y, hubX,
+          hubY + hubH * (i+1)/(leftNodes.length+1),
+          n.color, offsets[i]);
+      });
+
+      rightNodes.forEach((n, i) => {
+        const y = 30 + i * 68;
+        const edge = drawNode(W - 20, y, n.label,
+          n.color, n.muted, true);
+        drawCurve(hubX + hubW,
+          hubY + hubH * (i+1)/(rightNodes.length+1),
+          edge.x, y, n.color, offsets[i+3]);
+      });
+
+      const grad = ctx.createLinearGradient(
+        hubX, hubY, hubX + hubW, hubY + hubH);
+      grad.addColorStop(0, '#2dd4bf');
+      grad.addColorStop(1, '#3b82f6');
+      drawRoundRect(hubX, hubY, hubW, hubH,
+        10, grad, null, false);
+      ctx.fillStyle = '#fff';
+      ctx.font = '900 14px "Plus Jakarta Sans"';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('blaze', hubCX, hubCY - 6);
+      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.font = '600 7px "Plus Jakarta Sans"';
+      ctx.fillText('NETWORK HUB', hubCX, hubCY + 8);
+
+      offsets.forEach((_, i) => { offsets[i] -= 0.3; });
+      requestAnimationFrame(draw);
+      return;
+    }
+
+    const H = 580;
+    canvas.height = H;
+    canvas.style.height = H + 'px';
+
+    ctx.clearRect(0, 0, W, H);
+    drawDotGrid(W, H);
+
+    const hubW = 150;
+    const hubH = 68;
+    const hubX = (W - hubW) / 2;
+    const hubY = (H - hubH) / 2;
+    const hubCX = hubX + hubW / 2;
+    const hubCY = hubY + hubH / 2;
+
+    const PAD = 30;
+
+    // Draw curves FIRST (behind nodes and hub)
+
+    // Left nodes → left edge of hub, spread vertically
+    leftNodes.forEach((n, i) => {
+      const y = H * n.ty;
+      const nodeX = PAD + Math.round(W * n.tx * 0.35);
+      const edgeX = nodeX + 80; // approximate right edge
+      const hy = hubY + hubH * (i + 1) / (leftNodes.length + 1);
+      drawCurve(edgeX, y, hubX, hy, n.color, offsets[i]);
+    });
+
+    // Hub right edge → right nodes, spread vertically
+    rightNodes.forEach((n, i) => {
+      const y = H * n.ty;
+      const nodeX = W - PAD - Math.round(W * n.tx * 0.35);
+      const edgeX = nodeX - 80; // approximate left edge
+      const hy = hubY + hubH * (i + 1) / (rightNodes.length + 1);
+      drawCurve(hubX + hubW, hy, edgeX, y, n.color, offsets[i + 3]);
+    });
+
+    // Draw hub
+    const grad = ctx.createLinearGradient(
+      hubX, hubY, hubX + hubW, hubY + hubH);
+    grad.addColorStop(0, '#2dd4bf');
+    grad.addColorStop(1, '#3b82f6');
+    drawRoundRect(hubX, hubY, hubW, hubH, 12, grad, null, false);
+
+    // Hub glow
+    ctx.shadowColor = 'rgba(45,212,191,0.3)';
+    ctx.shadowBlur = 20;
+    drawRoundRect(hubX, hubY, hubW, hubH, 12, grad, null, false);
+    ctx.shadowBlur = 0;
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = '900 17px "Plus Jakarta Sans", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('blaze', hubCX, hubCY - 8);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = '600 8px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText('NETWORK HUB', hubCX, hubCY + 10);
+
+    // Draw nodes ON TOP of curves
+    leftNodes.forEach((n, i) => {
+      const y = H * n.ty;
+      const nodeX = PAD + Math.round(W * n.tx * 0.35);
+      drawNode(nodeX, y, n.label, n.color, n.muted, false);
+    });
+
+    rightNodes.forEach((n, i) => {
+      const y = H * n.ty;
+      const nodeX = W - PAD - Math.round(W * n.tx * 0.35);
+      drawNode(nodeX, y, n.label, n.color, n.muted, true);
+    });
+
+    // Bottom label
+    ctx.fillStyle = '#1e293b';
+    ctx.font = '700 10px "Plus Jakarta Sans", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(
+      'CONNECTING GLOBAL VOLUME TO EVERY LOCAL ENDPOINT',
+      W / 2, H - 16);
+
+    // Advance animation
+    offsets.forEach((_, i) => { offsets[i] -= 0.3; });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('load', () => {
+    requestAnimationFrame(draw);
+  });
+
+  window.addEventListener('resize', () => {
+    cancelAnimationFrame(draw);
+    requestAnimationFrame(draw);
+  });
+
+})();
+    </script>
 </body>
 
 </html>

@@ -341,6 +341,125 @@ body {
     }
 }
 
+#mto-d3-diagram {
+    min-height: 820px;
+}
+
+.mto-node {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.mto-initiator {
+    background: rgba(45,212,191,0.08);
+    border: 1px solid rgba(45,212,191,0.25);
+    color: #e2e8f0;
+}
+
+.mto-teal {
+    background: rgba(45,212,191,0.08);
+    border: 1px solid rgba(45,212,191,0.3);
+    color: #2dd4bf;
+}
+
+.mto-blue {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.25);
+    color: #60a5fa;
+}
+
+.mto-muted {
+    background: rgba(255,255,255,0.02);
+    border: 1px dashed rgba(255,255,255,0.08);
+    color: #475569;
+}
+
+@media (max-width: 768px) {
+    #mto-d3-diagram {
+        min-height: 600px;
+    }
+    #node-paypal      { left: 2% !important; top: 8%  !important; }
+    #node-skrill      { left: 2% !important; top: 22% !important; }
+    #node-othermtos   { left: 2% !important; top: 36% !important; }
+    #node-bkash       { right: 2% !important; top: 8%  !important; }
+    #node-nagad       { right: 2% !important; top: 22% !important; }
+    #node-upay        { right: 2% !important; top: 36% !important; }
+    #node-mutualtrust { right: 2% !important; top: 50% !important; }
+    #node-sonali      { right: 2% !important; top: 63% !important; }
+    #node-krishi      { right: 2% !important; top: 76% !important; }
+    #node-others      { right: 2% !important; top: 88% !important; }
+    #node-blaze       { top: 48% !important; }
+}
+
+/* MTO Diagram Boxes */
+.initiator-box {
+    background: rgba(99,102,241,0.12);
+    border: 1px solid rgba(99,102,241,0.35);
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.initiator-muted {
+    background: rgba(99,102,241,0.05);
+    border: 1px dashed rgba(99,102,241,0.15);
+    color: #475569;
+}
+
+.endpoint-box {
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.endpoint-teal {
+    background: rgba(45,212,191,0.08);
+    border: 1px solid rgba(45,212,191,0.25);
+    color: #2dd4bf;
+}
+
+.endpoint-indigo {
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.25);
+    color: #a5b4fc;
+}
+
+/* Animated mobile vertical connector */
+.mobile-connector {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(99,102,241,0.8), transparent);
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-connector::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.8), transparent);
+    animation: mobileFlow 1.5s linear infinite;
+}
+
+@keyframes mobileFlow {
+    to { top: 100%; }
+}
+
 .cf-turnstile {
     display: flex;
     justify-content: center;
