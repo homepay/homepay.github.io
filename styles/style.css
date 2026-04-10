@@ -1,0 +1,310 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #020617;
+    color: #f8fafc;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding-top: 4rem;
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #2dd4bf, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.code-window {
+    font-family: 'JetBrains Mono', monospace;
+    background: #010409;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+/* DATA FLOW ANIMATION */
+.rail {
+    height: 1px;
+    background: rgba(45, 212, 191, 0.15);
+    position: relative;
+    width: 100%;
+}
+
+.data-packet {
+    position: absolute;
+    height: 2px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, #2dd4bf, #fff, #2dd4bf, transparent);
+    filter: drop-shadow(0 0 10px #2dd4bf);
+    animation: flow 2.5s infinite ease-in-out;
+}
+
+.data-packet-blue {
+    background: linear-gradient(90deg, transparent, #3b82f6, #fff, #3b82f6, transparent);
+    filter: drop-shadow(0 0 10px #3b82f6);
+}
+
+@keyframes flow {
+    0% {
+        left: -20%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+/* HUB ANIMATION */
+.logo-hub {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hub-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    border-radius: 50%;
+    animation: spin 10s linear infinite;
+}
+
+.hub-ring-inner {
+    position: absolute;
+    inset: 15px;
+    border: 2px dashed rgba(45, 212, 191, 0.4);
+    border-radius: 50%;
+    animation: spin-reverse 15s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-reverse {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+#contactModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SaturnX Floating Menu Style */
+.nav-pill {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1100px;
+    background: rgba(15, 23, 42, 0.7);
+    /* Translucent dark background */
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 0.6rem 2rem;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+.nav-pill a {
+    position: relative;
+}
+
+.nav-pill a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #2dd4bf;
+    border-radius: 50%;
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-pill a:hover::after {
+    transform: translateX(-50%) scale(1);
+}
+
+/* Subtle glow on hover */
+.nav-pill:hover {
+    border-color: rgba(45, 212, 191, 0.4);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* SaturnX Gradient Button */
+.contact-btn {
+    background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+    color: #020617;
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(45, 212, 191, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Mobile Menu Overlay */
+#mobileMenu {
+    display: none;
+    position: fixed;
+    top: 5.5rem;
+    /* Just below the nav pill */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    padding: 2rem;
+    z-index: 999;
+}
+
+/* Show menu class */
+#mobileMenu.active {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Hamburger Icon */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+}
+
+.contact-btn {
+    display: inline-block;
+    /* Crucial for <a> tags to respect padding */
+    text-align: center;
+    background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+    color: #020617;
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+/* ----- */
+
+/* Vertical Data Packet for Mobile */
+.data-packet-vertical {
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, #2dd4bf, #fff, #2dd4bf, transparent);
+    filter: drop-shadow(0 0 8px #2dd4bf);
+    animation: flow-vertical 2s infinite ease-in-out;
+    left: -0.5px;
+}
+
+@keyframes flow-vertical {
+    0% {
+        top: -20%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 120%;
+        opacity: 0;
+    }
+}
+
+/* Vertical Blue Data Packet for MFS Section */
+.data-packet-vertical-blue {
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, #3b82f6, #fff, #3b82f6, transparent);
+    filter: drop-shadow(0 0 8px #3b82f6);
+    animation: flow-vertical 2s infinite ease-in-out;
+    left: -0.5px;
+}
+
+/* Ensure Desktop packets have the blue class if needed */
+.data-packet-blue {
+    background: linear-gradient(to right, transparent, #3b82f6, #fff, #3b82f6, transparent) !important;
+    filter: drop-shadow(0 0 8px #3b82f6) !important;
+}
+
+@keyframes flow-vertical {
+    0% {
+        top: -20%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 120%;
+        opacity: 0;
+    }
+}
