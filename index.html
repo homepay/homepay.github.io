@@ -332,83 +332,9 @@
             </p>
         </div>
 
-        <div class="glass-card p-12 md:p-16 rounded-[4rem] border-blue-500/20 shadow-[0_0_80px_rgba(59,130,246,0.05)]"
-            data-aos="zoom-in">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
-
-                <div class="grid grid-cols-2 gap-3 w-full lg:w-80 z-10">
-                    <div
-                        class="col-span-2 text-[10px] text-blue-500 font-bold uppercase tracking-widest mb-1 text-center lg:text-left pl-1">
-                        Network Sources</div>
-                    <div
-                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
-                        Trust Bank</div>
-                    <div
-                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
-                        Mutual Trust Bank</div>
-                    <div
-                        class="p-2.5 bg-white/5 border border-white/10 rounded-lg text-[10px] text-center leading-tight">
-                        City Bank</div>
-                    <div
-                        class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-[10px] font-bold text-center text-blue-400 uppercase">
-                        Remitly</div>
-                    <div
-                        class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-[10px] font-bold text-center text-blue-400 uppercase">
-                        Ria</div>
-                    <div
-                        class="p-2.5 bg-blue-500/10 border border-blue-500/20 rounded-lg text-[10px] font-bold text-center text-blue-400 uppercase">
-                        TerraPay</div>
-                    <div
-                        class="col-span-2 p-2 bg-blue-500/5 border border-dashed border-blue-500/20 rounded-lg text-[9px] text-center text-slate-500 uppercase tracking-tighter">
-                        15+ OTHER SETTLEMENT BANKS
-                    </div>
-                </div>
-
-                <div class="flex md:hidden h-16 w-px bg-white/5 relative">
-                    <div class="data-packet-vertical-blue"></div>
-                </div>
-
-                <div class="flex-1 w-full hidden md:flex flex-col gap-10">
-                    <div class="rail">
-                        <div class="data-packet data-packet-blue" style="animation-delay: 0s"></div>
-                    </div>
-                    <div class="rail">
-                        <div class="data-packet data-packet-blue" style="animation-delay: 1.2s"></div>
-                    </div>
-                </div>
-
-                <div class="logo-hub shrink-0">
-                    <div class="hub-ring" style="border-color: rgba(59, 130, 246, 0.3)"></div>
-                    <div class="hub-ring-inner" style="border-color: rgba(59, 130, 246, 0.5)"></div>
-                    <div class="relative z-20 flex items-center justify-center">
-                        <img src="blaze-logo.png" class="h-8 w-auto z-20 brightness-125">
-                    </div>
-                </div>
-
-                <div class="flex md:hidden h-16 w-px bg-white/5 relative">
-                    <div class="data-packet-vertical-blue" style="animation-delay: 0.6s"></div>
-                </div>
-
-                <div class="flex-1 w-full hidden md:flex flex-col gap-10">
-                    <div class="rail">
-                        <div class="data-packet data-packet-blue" style="animation-delay: 0.6s"></div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-3 w-full lg:w-44 z-10">
-                    <div class="text-[10px] text-center font-bold text-slate-500 uppercase tracking-widest mb-1">MFS
-                        Delivery</div>
-                    <div
-                        class="p-4 bg-blue-600 text-white rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.3)] text-center font-black italic tracking-tighter text-lg">
-                        NAGAD
-                    </div>
-                    <div
-                        class="p-3 bg-white/5 border border-white/10 rounded-xl text-[10px] text-center font-medium text-slate-400">
-                        Other MFS
-                    </div>
-                </div>
-
-            </div>
+        <div id="mfs-diagram-wrap" class="mt-8 relative rounded-3xl overflow-hidden border border-white/5"
+            style="background:#060f1e;">
+            <canvas id="mfs-canvas"></canvas>
         </div>
     </section>
 
@@ -999,6 +925,223 @@
 
   window.addEventListener('resize', () => {
     cancelAnimationFrame(draw);
+    requestAnimationFrame(draw);
+  });
+
+})();
+    </script>
+    <script>
+(function() {
+  const canvas = document.getElementById('mfs-canvas');
+  const wrap = document.getElementById('mfs-diagram-wrap');
+  const ctx = canvas.getContext('2d');
+
+  const BLUE = '#3b82f6';
+  const BLUE_DIM = 'rgba(59,130,246,0.12)';
+  const BLUE_MID = 'rgba(59,130,246,0.08)';
+
+  const leftNodes = [
+    { label:'Trust Bank',       color:BLUE, ty:0.12, tx:0.18 },
+    { label:'Mutual Trust',     color:BLUE, ty:0.24, tx:0.28 },
+    { label:'City Bank',        color:BLUE, ty:0.36, tx:0.22 },
+    { label:'Remitly',          color:BLUE, ty:0.50, tx:0.30 },
+    { label:'Ria',              color:BLUE, ty:0.64, tx:0.20 },
+    { label:'TerraPay',         color:BLUE, ty:0.76, tx:0.26 },
+    { label:'15+ Other Banks',  color:BLUE, ty:0.88, tx:0.16, muted:true },
+  ];
+
+  const rightNodes = [
+    { label:'Nagad',     color:BLUE, ty:0.35, tx:0.20 },
+    { label:'Other MFS', color:BLUE, ty:0.65, tx:0.16, muted:true },
+  ];
+
+  const offsets = Array(12).fill(0).map(
+    (_, i) => i * -25
+  );
+
+  function drawRoundRect(x, y, w, h, r, fill, stroke, dash) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) {
+      ctx.strokeStyle = stroke;
+      ctx.lineWidth = 1;
+      ctx.setLineDash(dash ? [4,3] : []);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  }
+
+  function drawNode(x, y, label, color, muted, isRight) {
+    const pad = 14;
+    ctx.font = `700 ${isMobile ? 10 : 12}px "Plus Jakarta Sans", sans-serif`;
+    const tw = ctx.measureText(label).width;
+    const w = tw + pad * 2;
+    const h = 34;
+    const nx = isRight ? x - w : x;
+    const ny = y - h / 2;
+
+    const fill = muted
+      ? 'rgba(255,255,255,0.02)'
+      : 'rgba(59,130,246,0.08)';
+
+    const stroke = muted
+      ? 'rgba(255,255,255,0.08)'
+      : 'rgba(59,130,246,0.3)';
+
+    drawRoundRect(nx, ny, w, h, 8, fill, stroke, muted);
+
+    ctx.fillStyle = muted ? '#475569' : BLUE;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(label, nx + w / 2, y);
+
+    return { x: isRight ? nx : nx + w, y };
+  }
+
+  function drawCurve(x1, y1, x2, y2, color, offset) {
+    const mx = x1 + (x2 - x1) * 0.5;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.bezierCurveTo(mx, y1, mx, y2, x2, y2);
+    ctx.strokeStyle = BLUE_DIM;
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.bezierCurveTo(mx, y1, mx, y2, x2, y2);
+    ctx.strokeStyle = BLUE;
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([8, 8]);
+    ctx.lineDashOffset = offset;
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  function drawDotGrid(W, H) {
+    const spacing = 24;
+    ctx.fillStyle = 'rgba(59,130,246,0.08)';
+    for (let x = spacing; x < W; x += spacing) {
+      for (let y = spacing; y < H; y += spacing) {
+        ctx.beginPath();
+        ctx.arc(x, y, 1, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+
+  let isMobile = false;
+
+  function draw() {
+    const W = wrap.offsetWidth;
+    isMobile = W < 600;
+    const H = isMobile ? 520 : 580;
+
+    canvas.width = W;
+    canvas.height = H;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+
+    ctx.clearRect(0, 0, W, H);
+    drawDotGrid(W, H);
+
+    const hubW = isMobile ? 110 : 150;
+    const hubH = isMobile ? 52 : 68;
+    const hubX = (W - hubW) / 2;
+    const hubY = (H - hubH) / 2;
+    const hubCX = hubX + hubW / 2;
+    const hubCY = hubY + hubH / 2;
+    const PAD = 30;
+
+    if (isMobile) {
+      leftNodes.forEach((n, i) => {
+        const y = 60 + i * 68;
+        const edge = drawNode(20, y, n.label,
+          n.color, n.muted, false);
+        drawCurve(edge.x, y, hubX,
+          hubY + hubH * (i+1)/(leftNodes.length+1),
+          n.color, offsets[i]);
+      });
+
+      rightNodes.forEach((n, i) => {
+        const y = H * 0.35 + i * 120;
+        const edge = drawNode(W - 20, y, n.label,
+          n.color, n.muted, true);
+        drawCurve(hubX + hubW,
+          hubY + hubH * (i+1)/(rightNodes.length+1),
+          edge.x, y, n.color, offsets[i+7]);
+      });
+    } else {
+      // Left nodes
+      leftNodes.forEach((n, i) => {
+        const y = H * n.ty;
+        const nodeX = PAD + Math.round(W * n.tx * 0.35);
+        const edge = drawNode(nodeX, y, n.label,
+          n.color, n.muted, false);
+        const hy = hubY + hubH * (i+1) / (leftNodes.length+1);
+        drawCurve(edge.x, y, hubX, hy,
+          n.color, offsets[i]);
+      });
+
+      // Right nodes
+      rightNodes.forEach((n, i) => {
+        const y = H * n.ty;
+        const nodeX = W - PAD - Math.round(W * n.tx * 0.35);
+        const edge = drawNode(nodeX, y, n.label,
+          n.color, n.muted, true);
+        const hy = hubY + hubH * (i+1) / (rightNodes.length+1);
+        drawCurve(hubX + hubW, hy, edge.x, y,
+          n.color, offsets[i+7]);
+      });
+    }
+
+    // Draw hub
+    const grad = ctx.createLinearGradient(
+      hubX, hubY, hubX + hubW, hubY + hubH);
+    grad.addColorStop(0, '#3b82f6');
+    grad.addColorStop(1, '#1d4ed8');
+    drawRoundRect(hubX, hubY, hubW, hubH,
+      12, grad, null, false);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `900 ${isMobile ? 14 : 17}px "Plus Jakarta Sans", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('blaze', hubCX, hubCY - 8);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = '600 8px "Plus Jakarta Sans", sans-serif';
+    ctx.fillText('NETWORK HUB', hubCX, hubCY + 10);
+
+    // Bottom label
+    ctx.fillStyle = '#1e293b';
+    ctx.font = '700 10px "Plus Jakarta Sans", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(
+      'CONNECTING GLOBAL VOLUME TO EVERY LOCAL MFS ENDPOINT',
+      W / 2, H - 16);
+
+    offsets.forEach((_, i) => { offsets[i] -= 0.5; });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('load', () => {
+    requestAnimationFrame(draw);
+  });
+
+  window.addEventListener('resize', () => {
     requestAnimationFrame(draw);
   });
 
