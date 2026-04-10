@@ -796,7 +796,7 @@
       const hubCY = hubY + hubH / 2;
 
       leftNodes.forEach((n, i) => {
-        const y = 60 + i * 80;
+        const y = H * 0.25 + i * 60;
         const edge = drawNode(20, y, n.label,
           n.color, n.muted, false);
         drawCurve(edge.x, y, hubX,
@@ -827,6 +827,14 @@
       ctx.fillStyle = 'rgba(255,255,255,0.5)';
       ctx.font = '600 7px "Plus Jakarta Sans"';
       ctx.fillText('NETWORK HUB', hubCX, hubCY + 8);
+
+      // Bottom label
+      ctx.fillStyle = '#1e293b';
+      ctx.font = '700 10px "Plus Jakarta Sans", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(
+        'CONNECTING GLOBAL VOLUME TO EVERY LOCAL ENDPOINT',
+        W / 2, H - 16);
 
       offsets.forEach((_, i) => { offsets[i] -= 0.5; });
       requestAnimationFrame(draw);
