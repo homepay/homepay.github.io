@@ -341,9 +341,19 @@ body {
     }
 }
 
+.cf-turnstile {
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 768px) {
+    #joinModal {
+        align-items: flex-start;
+        padding-top: 5rem;
+    }
+
     #joinModal > div {
-        max-height: 90vh;
+        max-height: 85vh;
         overflow-y: auto;
         padding: 1.5rem;
         border-radius: 1.5rem;
