@@ -128,29 +128,38 @@
     </div>
 
     <!-- Stats Section -->
-    <section id="stats" class="w-full bg-[#020617] py-0">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-10">
-                <!-- UPDATE: Replace with real transaction count -->
-                <div class="glass-card rounded-3xl p-12 text-center w-full" style="min-height:180px" data-aos="fade-up" data-aos-delay="0">
-                    <div class="stat-value text-gradient">1.2M+</div>
-                    <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-4">Transactions Processed</div>
-                    <div class="text-[11px] text-slate-600 mt-1">Cumulative disbursements routed</div>
-                </div>
-                <!-- UPDATE: Replace with real GPV -->
-                <div class="glass-card rounded-3xl p-12 text-center w-full" style="min-height:180px" data-aos="fade-up" data-aos-delay="150">
-                    <div class="stat-value text-gradient">$94M+</div>
-                    <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-4">Gross Payment Volume</div>
-                    <div class="text-[11px] text-slate-600 mt-1">Total USD equivalent settled</div>
-                </div>
-                <!-- UPDATE: Replace with real avg disbursement time -->
-                <div class="glass-card rounded-3xl p-12 text-center w-full" style="min-height:180px" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-value text-gradient-blue">~11s</div>
-                    <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-4">Avg. Disbursement Time</div>
-                    <div class="text-[11px] text-slate-600 mt-1">End-to-end settlement speed</div>
+    <section id="stats" class="w-full bg-[#020617] py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="gradient-border w-full" data-aos="fade-up">
+                <div class="gradient-border-inner">
+                    <div class="grid grid-cols-1 md:grid-cols-3">
+                        <!-- UPDATE: Replace with real transaction count -->
+                        <div class="px-10 py-12 text-center border-b md:border-b-0 md:border-r border-white/5">
+                            <div class="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-4 mx-auto">
+                                <span class="text-teal-400 text-sm">⇄</span>
+                            </div>
+                            <div class="stat-value text-gradient">1.2M+</div>
+                            <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-3">Transactions Processed</div>
+                        </div>
+                        <!-- UPDATE: Replace with real GPV -->
+                        <div class="px-10 py-12 text-center border-b md:border-b-0 md:border-r border-white/5">
+                            <div class="w-8 h-8 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-4 mx-auto">
+                                <span class="text-teal-400 text-sm">$</span>
+                            </div>
+                            <div class="stat-value text-gradient">$94M+</div>
+                            <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-3">Gross Payment Volume</div>
+                        </div>
+                        <!-- UPDATE: Replace with real avg disbursement time -->
+                        <div class="px-10 py-12 text-center">
+                            <div class="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4 mx-auto">
+                                <span class="text-blue-400 text-sm">⚡</span>
+                            </div>
+                            <div class="stat-value text-gradient-blue">~11s</div>
+                            <div class="text-[11px] font-black uppercase tracking-widest text-slate-500 mt-3">Avg. Disbursement Time</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
 

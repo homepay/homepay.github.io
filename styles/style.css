@@ -26,6 +26,22 @@ body {
     line-height: 1;
 }
 
+.gradient-border {
+    background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+    padding: 1px;
+    border-radius: 1.5rem;
+    opacity: 1;
+    box-shadow: 0 0 40px -10px rgba(45, 212, 191, 0.2),
+                0 0 80px -20px rgba(59, 130, 246, 0.15);
+}
+
+.gradient-border-inner {
+    background: #020617;
+    border-radius: calc(1.5rem - 1px);
+    width: 100%;
+    height: 100%;
+}
+
 .glass-card {
     background: rgba(255, 255, 255, 0.01);
     backdrop-filter: blur(20px);
