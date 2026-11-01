@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blaze | Global money. Local connections.</title>
+    <title>Blaze | Global money. Local networks.</title>
     <meta name="description"
-        content="Blaze connects international remittance companies to banks, mobile wallets and local payout networks through one integration. Starting in Bangladesh. Connecting frontier markets.">
+        content="One integration connects international remittance providers to local banks, mobile wallets and payout partners. The trusted payment network connecting global remittances to local financial ecosystems.">
     <link rel="shortcut icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Bengali font, only for the taka sign on the wallet phone -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@600&text=৳&display=swap"
         rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -29,6 +32,7 @@
             <div class="nav__links">
                 <a href="#how">How it works</a>
                 <a href="#for">Who it's for</a>
+                <a href="#faq">FAQ</a>
                 <a href="#specs">Specs</a>
             </div>
 
@@ -49,6 +53,7 @@
             <nav class="container" aria-label="Mobile">
                 <a href="#how">How it works</a>
                 <a href="#for">Who it's for</a>
+                <a href="#faq">FAQ</a>
                 <a href="#specs">Specs</a>
                 <a href="mailto:info@homepay.io?subject=Contacting%20Blaze%20Support">Contact</a>
             </nav>
@@ -63,11 +68,12 @@
                 <p class="eyebrow eyebrow--live"><span class="live-dot" aria-hidden="true"></span>Live in Bangladesh
                 </p>
                 <hgroup class="hero__heading">
-                    <h1 class="hero__title"><span>Global money.</span> <span>Local connections.</span></h1>
-                    <p class="hero__subtitle">Starting in Bangladesh. Connecting frontier markets.</p>
+                    <h1 class="hero__title"><span>Global money.</span> <span>Local networks.</span></h1>
+                    <p class="hero__subtitle">The trusted payment network connecting global remittances to local
+                        financial ecosystems.</p>
                 </hgroup>
-                <p class="hero__lead">Blaze connects international remittance companies to banks, mobile&nbsp;wallets and
-                    local payout networks through one integration.</p>
+                <p class="hero__lead">One integration connects international remittance providers to local&nbsp;banks,
+                    mobile&nbsp;wallets and payout partners.</p>
                 <div class="hero__actions">
                     <button type="button" class="btn btn--primary" data-join>
                         Join the network
@@ -80,82 +86,32 @@
                 </div>
             </div>
 
-            <div class="payout-card">
-                <div class="payout-card__head">
-                    <div>
-                        <p class="payout-card__label">Sample payout</p>
-                        <p class="payout-card__id">CBTXXXXXXXX005</p>
-                    </div>
-                    <span class="status-pill">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M5 12.5l4.5 4.5L19 7.5" />
-                        </svg>
-                        Credited
-                    </span>
-                </div>
-
-                <div class="payout-card__amounts">
-                    <div>
-                        <p class="payout-card__label">Sent</p>
-                        <p class="payout-card__amount">USD 100.00</p>
-                    </div>
-                    <svg class="payout-card__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        aria-hidden="true">
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                    <div>
-                        <p class="payout-card__label">Received</p>
-                        <p class="payout-card__amount">BDT 10,000.00</p>
+            <figure class="hero__visual">
+                <img class="hero__photo" src="images/hero-dhaka.jpg" width="880" height="1100"
+                    fetchpriority="high"
+                    alt="Illustrated aerial view of Dhaka with the National Parliament House, the metro rail and the city skyline">
+                <div class="wallet-phone" role="img"
+                    aria-label="A wallet app showing 10,000 taka received from John Doe, sent as 100 US dollars from the United States">
+                    <div class="wallet-phone__screen" aria-hidden="true">
+                        <div class="wallet-phone__bar">
+                            <span>14:02</span><span class="wallet-phone__notch"></span><span>5G</span>
+                        </div>
+                        <p class="wallet-phone__app">Wallet</p>
+                        <span class="wallet-phone__check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12.5l4.5 4.5L19 7.5" />
+                            </svg>
+                        </span>
+                        <p class="wallet-phone__title">Money received</p>
+                        <p class="wallet-phone__amount">৳10,000.00</p>
+                        <p class="wallet-phone__sent">USD 100.00 sent from the US</p>
+                        <p class="wallet-phone__from"><span>From</span>John Doe</p>
+                        <p class="wallet-phone__time">Credited 14:02:11</p>
+                        <p class="wallet-phone__done">Done</p>
                     </div>
                 </div>
-
-                <dl class="payout-card__details">
-                    <div>
-                        <dt>Sender</dt>
-                        <dd>Albert Einstein</dd>
-                    </div>
-                    <div>
-                        <dt>Recipient</dt>
-                        <dd>Kazi Nazrul Islam</dd>
-                    </div>
-                    <div>
-                        <dt>Destination</dt>
-                        <dd>Bank account ending 077</dd>
-                    </div>
-                    <div>
-                        <dt>Settlement bank</dt>
-                        <dd>Your settlement bank</dd>
-                    </div>
-                </dl>
-
-                <div class="payout-card__timeline">
-                    <p class="payout-card__timeline-title">Timeline</p>
-                    <ol>
-                        <li>
-                            <span class="timeline-dot"></span>
-                            <span class="timeline-step">Request received</span>
-                            <span class="timeline-time">14:02:07.10</span>
-                        </li>
-                        <li>
-                            <span class="timeline-dot"></span>
-                            <span class="timeline-step">Sent to the bank</span>
-                            <span class="timeline-time">14:02:07.52</span>
-                        </li>
-                        <li>
-                            <span class="timeline-dot"></span>
-                            <span class="timeline-step">Credited by the bank</span>
-                            <span class="timeline-time">14:02:11.20</span>
-                        </li>
-                        <li class="is-final">
-                            <span class="timeline-dot"></span>
-                            <span class="timeline-step">Status returned to you</span>
-                            <span class="timeline-time">14:02:11.31</span>
-                        </li>
-                    </ol>
-                </div>
-            </div>
+            </figure>
         </section>
 
         <!-- Stats: update these numbers each month -->
@@ -360,7 +316,7 @@
                     </li>
                     <li><span class="steps__num">04</span>
                         <p>The bank settles in BDT into the wallet provider's account at that bank, using the Blaze
-                            report.</p>
+                            report or a webhook.</p>
                     </li>
                 </ol>
             </div>
@@ -416,7 +372,8 @@
                                 <li>Remittance companies on Blaze can choose you as their settlement bank, without
                                     each one integrating with you</li>
                                 <li>One connection to pay out to mobile wallets</li>
-                                <li>A portal report of what to settle with each wallet provider</li>
+                                <li>A portal report of what to settle with each wallet provider, plus a webhook if you
+                                    have one</li>
                                 <li>Settle for direct payouts with just a portal login</li>
                             </ul>
                         </div>
@@ -427,7 +384,7 @@
                                     wallets, or both.</li>
                                 <li>We set up the connection with your team. Settling only? A portal login is enough.
                                 </li>
-                                <li>Settle wallet payouts from the portal report.</li>
+                                <li>Settle wallet payouts using the portal report or a webhook.</li>
                             </ol>
                         </div>
                     </article>
@@ -460,8 +417,51 @@
             </div>
         </section>
 
+        <!-- FAQ -->
+        <section id="faq" class="section container">
+            <div class="section-head">
+                <p class="eyebrow">FAQ</p>
+                <h2 class="section-title">Before you connect</h2>
+            </div>
+
+            <div class="faq">
+                <details class="faq__item">
+                    <summary>Does Blaze hold our money?</summary>
+                    <p class="faq__answer">No. Blaze only carries payout requests and their status. The money always
+                        moves through banks: from your nostro account at your settlement bank, and for wallet payouts,
+                        into the wallet provider's settlement account at that bank.</p>
+                </details>
+                <details class="faq__item">
+                    <summary>Who chooses the settlement bank for each payout?</summary>
+                    <p class="faq__answer">You do, in each request. Blaze never moves a payout to a different bank on
+                        its own, because your funding and reconciliation depend on that choice.</p>
+                </details>
+                <details class="faq__item">
+                    <summary>Can we use a bank that isn't on Blaze yet?</summary>
+                    <p class="faq__answer">Yes. Pick from the banks already on Blaze, or ask us to add the bank where you
+                        hold your nostro account. You still integrate with Blaze only once.</p>
+                </details>
+                <details class="faq__item">
+                    <summary>How do wallet providers get settled?</summary>
+                    <p class="faq__answer">Banks settle in local currency into the wallet provider's settlement account
+                        at each bank, using the Blaze portal report, plus a webhook for banks that have one.</p>
+                </details>
+                <details class="faq__item">
+                    <summary>Who handles support and disputes?</summary>
+                    <p class="faq__answer">Blaze does. Remittance companies and wallet providers bring questions to us,
+                        and we resolve them with the other side of the payout, so you deal with one team.</p>
+                </details>
+                <details class="faq__item">
+                    <summary>Do you work outside Bangladesh?</summary>
+                    <p class="faq__answer">Bangladesh is live today, and the same setup can be repeated in other
+                        emerging markets. <button type="button" class="faq__link" data-join>Tell us where you need to
+                            pay out.</button></p>
+                </details>
+            </div>
+        </section>
+
         <!-- Specs -->
-        <section id="specs" class="section">
+        <section id="specs" class="section section--rule">
             <div class="container">
                 <div class="section-head">
                     <p class="eyebrow">Specs</p>
@@ -542,6 +542,7 @@
         <nav class="site-footer__links" aria-label="Footer">
             <a href="#how">How it works</a>
             <a href="#for">Who it's for</a>
+            <a href="#faq">FAQ</a>
             <a href="#specs">Specs</a>
         </nav>
         <p class="site-footer__copy">&copy; <span id="copyright-year"></span> HomePay LLC</p>
