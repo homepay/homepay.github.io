@@ -317,7 +317,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: clamp(40px, 6vw, 72px);
+    gap: clamp(40px, 5vw, 56px);
     padding-block: clamp(56px, 7vw, 96px) clamp(64px, 8vw, 104px);
 }
 
@@ -349,6 +349,7 @@ button {
 }
 
 .hero__subtitle {
+    max-width: 640px;
     font-size: clamp(20px, 2vw, 24px);
     line-height: 1.35;
     font-weight: 500;
@@ -371,148 +372,152 @@ button {
     padding-top: 4px;
 }
 
-/* Sample payout card */
+/* Hero visual: an illustration of Dhaka, with a wallet phone overlapping its right edge.
+   Height = 30% of the width above the phone + the phone's height (its width x 19 / 9). */
 
-.payout-card {
-    flex: 1 1 420px;
+.hero__visual {
+    position: relative;
+    flex: 1 1 360px;
     min-width: 0;
-    border: 1px solid var(--line);
+    max-width: 520px;
+    aspect-ratio: 100 / 106;
+    margin: 0;
+}
+
+.hero__photo {
+    width: 82%;
     border-radius: 16px;
-    background: #FFFFFF;
-    box-shadow: 0 1px 2px rgba(11, 27, 46, 0.04), 0 16px 40px rgba(11, 27, 46, 0.08);
-    overflow: hidden;
 }
 
-.payout-card__head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 20px 24px;
-    border-bottom: 1px solid var(--line);
+/* Sizes inside the phone scale with its width */
+.wallet-phone {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 36%;
+    aspect-ratio: 9 / 19;
+    padding: 7px;
+    border-radius: 28px;
+    background: var(--ink);
+    box-shadow: 0 1px 2px rgba(11, 27, 46, 0.08), 0 24px 48px rgba(11, 27, 46, 0.28);
+    container-type: inline-size;
 }
 
-.payout-card__label {
-    font-size: 13px;
-    color: var(--text-3);
-}
-
-.payout-card__id {
-    margin-top: 4px;
-    font-family: var(--mono);
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: var(--success-bg);
-    color: var(--success-text);
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.payout-card__amounts {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 12px 24px;
-    padding: 24px 24px 20px;
-}
-
-.payout-card__amount {
-    margin-top: 6px;
-    font-family: var(--mono);
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-}
-
-.payout-card__arrow {
-    margin-bottom: 6px;
-    color: #9AA8B6;
-}
-
-.payout-card__details {
-    padding: 0 24px 12px;
-}
-
-.payout-card__details div {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 12px 0;
-    border-top: 1px solid var(--line-soft);
-    font-size: 14px;
-}
-
-.payout-card__details dt {
-    color: var(--text-3);
-}
-
-.payout-card__details dd {
-    font-weight: 500;
-    text-align: right;
-}
-
-.payout-card__timeline {
-    padding: 20px 24px 24px;
-    border-top: 1px solid var(--line);
-    background: var(--band);
-}
-
-.payout-card__timeline-title {
-    margin-bottom: 14px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-2);
-}
-
-.payout-card__timeline ol {
+.wallet-phone__screen {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    font-size: 14px;
+    height: 100%;
+    padding: 7cqw 8cqw 8cqw;
+    border-radius: 22px;
+    background: #FFFFFF;
+    font-family: 'Instrument Sans', 'Noto Sans Bengali', sans-serif;
+    font-size: 6cqw;
+    line-height: 1.35;
 }
 
-.payout-card__timeline li {
+.wallet-phone__bar {
     display: flex;
     align-items: center;
-    gap: 12px;
-}
-
-.timeline-dot {
-    flex: none;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #9AA8B6;
-}
-
-.timeline-step {
-    flex: 1;
-}
-
-.timeline-time {
-    font-family: var(--mono);
-    font-size: 13px;
+    justify-content: space-between;
+    font-weight: 500;
     color: var(--text-3);
 }
 
-.payout-card__timeline .is-final {
+.wallet-phone__notch {
+    width: 34%;
+    height: 3.6cqw;
+    border-radius: 999px;
+    background: var(--ink);
+}
+
+.wallet-phone__app {
+    margin-top: 7cqw;
+    font-size: 8cqw;
     font-weight: 600;
 }
 
-.payout-card__timeline .is-final .timeline-dot {
-    background: var(--accent);
+.wallet-phone__check {
+    display: grid;
+    place-items: center;
+    width: 20cqw;
+    height: 20cqw;
+    margin: 9cqw auto 5cqw;
+    border-radius: 50%;
+    background: var(--success-bg);
+    color: var(--success-text);
 }
 
-.payout-card__timeline .is-final .timeline-time {
-    color: var(--ink);
+.wallet-phone__check svg {
+    width: 55%;
+    height: 55%;
+}
+
+.wallet-phone__title {
+    font-size: 7.5cqw;
+    font-weight: 600;
+    text-align: center;
+}
+
+.wallet-phone__amount {
+    margin-top: 2cqw;
+    font-size: 12.5cqw;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.wallet-phone__sent {
+    padding-bottom: 7cqw;
+    border-bottom: 1px solid var(--line);
+    color: var(--text-3);
+    text-align: center;
+}
+
+.wallet-phone__from {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6cqw;
+    font-size: 7cqw;
+    font-weight: 600;
+}
+
+.wallet-phone__from span {
+    font-size: 6cqw;
+    font-weight: 400;
+    color: var(--text-3);
+}
+
+.wallet-phone__time {
+    margin-top: 4cqw;
+    font-family: var(--mono);
+    font-size: 5.6cqw;
+    color: var(--money-text);
+}
+
+.wallet-phone__done {
+    margin-top: auto;
+    padding: 4.5cqw 0;
+    border-radius: 999px;
+    background: var(--accent);
+    font-size: 6.5cqw;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+/* Phones: a narrower picture and a bigger phone, 20% of the width above the phone */
+@media (max-width: 560px) {
+    .hero__visual {
+        aspect-ratio: 100 / 109;
+    }
+
+    .hero__photo {
+        width: 78%;
+    }
+
+    .wallet-phone {
+        width: 42%;
+    }
 }
 
 /* ---------- Stats ---------- */
@@ -580,6 +585,10 @@ button {
 .section--band {
     border-block: 1px solid var(--line);
     background: var(--band);
+}
+
+.section--rule {
+    border-top: 1px solid var(--line);
 }
 
 .section-head {
@@ -926,6 +935,72 @@ button {
     font-family: var(--mono);
     font-size: 11px;
     font-weight: 500;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq {
+    max-width: 800px;
+    border-top: 1px solid var(--line);
+}
+
+.faq__item {
+    border-bottom: 1px solid var(--line);
+}
+
+.faq__item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 22px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq__item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq__item summary:hover {
+    color: var(--accent);
+}
+
+/* Plus sign that becomes a minus while the answer is open */
+.faq__item summary::after {
+    content: "";
+    flex: none;
+    width: 14px;
+    height: 14px;
+    background:
+        linear-gradient(currentColor, currentColor) center / 14px 2px no-repeat,
+        linear-gradient(currentColor, currentColor) center / 2px 14px no-repeat;
+}
+
+.faq__item[open] summary::after {
+    background-size: 14px 2px, 0 0;
+}
+
+.faq__answer {
+    max-width: 680px;
+    padding-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-2);
+}
+
+.faq__link {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
 }
 
 /* ---------- Specs ---------- */
