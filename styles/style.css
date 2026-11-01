@@ -372,7 +372,7 @@ button {
     padding-top: 4px;
 }
 
-/* Hero visual: an illustration of Dhaka, with a wallet phone overlapping its right edge.
+/* Hero visual: an illustration of Old Dhaka, with a wallet phone overlapping its left edge.
    Height = 30% of the width above the phone + the phone's height (its width x 19 / 9). */
 
 .hero__visual {
@@ -386,13 +386,15 @@ button {
 
 .hero__photo {
     width: 82%;
+    margin-left: auto;
     border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(11, 27, 46, 0.06), 0 24px 56px -12px rgba(11, 27, 46, 0.3);
 }
 
 /* Sizes inside the phone scale with its width */
 .wallet-phone {
     position: absolute;
-    right: 0;
+    left: 0;
     bottom: 0;
     width: 36%;
     aspect-ratio: 9 / 19;
