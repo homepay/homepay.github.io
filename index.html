@@ -4,605 +4,670 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blaze | Payment Orchestration Network for Bangladesh</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Blaze | One connection for remittances into frontier markets</title>
+    <meta name="description"
+        content="Remittance companies, banks and mobile wallets each connect to Blaze once. Live in Bangladesh, our first market.">
     <link rel="shortcut icon" href="favicon.png">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
-<body class="antialiased">
+<body>
 
     <!-- Navigation -->
-    <nav class="nav-pill flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <img src="blaze-logo.png" alt="Blaze" class="h-6 w-auto">
-        </div>
-
-        <div class="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-            <a href="#solutions" class="hover:text-white transition">Technology</a>
-            <a href="#mto-model" class="hover:text-white transition">MTO Rail</a>
-            <a href="#mfs-model" class="hover:text-white transition">MFS Mesh</a>
-            <a href="#specs" class="hover:text-white transition">Standards</a>
-        </div>
-
-        <div class="flex items-center gap-4">
-            <a href="mailto:info@homepay.io?subject=Contacting Blaze Support" class="contact-btn inline-block">
-                Contact
+    <header class="site-header">
+        <nav class="nav container" aria-label="Main">
+            <a href="#top" class="nav__logo">
+                <img src="blaze-logo.png" alt="Blaze" width="104" height="26">
             </a>
-            <div class="menu-icon md:hidden text-white text-2xl" onclick="toggleMobileMenu()">
-                ☰
+
+            <div class="nav__links">
+                <a href="#how">How it works</a>
+                <a href="#for">Who it's for</a>
+                <a href="#network">Network</a>
+                <a href="#specs">Specs</a>
             </div>
+
+            <div class="nav__actions">
+                <a href="mailto:info@homepay.io?subject=Contacting%20Blaze%20Support" class="nav__contact">Contact</a>
+                <button type="button" class="btn btn--primary btn--small" data-join>Join the network</button>
+                <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu"
+                    aria-label="Open menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" class="mobile-menu" hidden>
+            <nav class="container" aria-label="Mobile">
+                <a href="#how">How it works</a>
+                <a href="#for">Who it's for</a>
+                <a href="#network">Network</a>
+                <a href="#specs">Specs</a>
+                <a href="mailto:info@homepay.io?subject=Contacting%20Blaze%20Support">Contact</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <div id="mobileMenu" class="md:hidden">
-        <div class="flex flex-col gap-6 text-center text-[12px] font-bold uppercase tracking-[0.2em] text-slate-300">
-            <a href="#solutions" onclick="toggleMobileMenu()">Technology</a>
-            <a href="#mto-model" onclick="toggleMobileMenu()">MTO Rail</a>
-            <a href="#mfs-model" onclick="toggleMobileMenu()">MFS Mesh</a>
-            <a href="#specs" onclick="toggleMobileMenu()">Standards</a>
-        </div>
-    </div>
+    <main>
 
-    <!-- Hero Section -->
-    <div class="relative w-full bg-[#020617] overflow-hidden">
+        <!-- Hero -->
+        <section id="top" class="hero container">
+            <div class="hero__copy">
+                <p class="eyebrow eyebrow--live"><span class="live-dot" aria-hidden="true"></span>Live in Bangladesh
+                </p>
+                <h1 class="hero__title">One connection for remittances into frontier markets</h1>
+                <p class="hero__lead">Bangladesh is our first market. Remittance companies, banks and mobile wallets
+                    each connect to Blaze once, instead of building a separate connection to every partner. Blaze
+                    carries each payout and its status, and the money always settles through local banks.</p>
+                <div class="hero__actions">
+                    <button type="button" class="btn btn--primary" data-join>
+                        Join the network
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </button>
+                    <a href="#how" class="btn btn--secondary">See how it works</a>
+                </div>
+            </div>
 
-        <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(45,212,191,0.08)_0%,_transparent_70%)] -z-10">
-        </div>
-
-        <section id="hero" class="pt-32 pb-8 px-6 max-w-7xl mx-auto relative">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-                <div data-aos="fade-right">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 mb-6">
-                        <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-                        <span class="text-[10px] font-black text-teal-400 uppercase tracking-widest">Next-Gen
-                            Disbursement Rail</span>
+            <div class="payout-card">
+                <div class="payout-card__head">
+                    <div>
+                        <p class="payout-card__label">Sample payout</p>
+                        <p class="payout-card__id">CBTXXXXXXXX005</p>
                     </div>
-                    <h1 class="text-5xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-8 text-white">
-                        <span class="text-gradient">Payment Orchestration Network</span> <br>
-                        for Bangladesh
-                    </h1>
-                    <p class="text-lg text-slate-400 mb-10 max-w-lg leading-relaxed">
-                        <span class="text-white font-semibold">Global MTOs</span> gain
-                        instant reach to Bangladesh; <span class="text-white font-semibold">Local Digital Wallets (MFS &
-                            PSP)</span> inherit
-                        instant volume and existing connectivity.
-                        One connection, infinite scale.
-                    </p>
-                    <div class="flex flex-wrap gap-4">
-                        <a onclick="document.getElementById('joinModal').style.display='flex'"
-                            class="bg-teal-500 text-slate-900 px-10 py-4 rounded-2xl font-bold hover:bg-teal-400 transition shadow-lg shadow-teal-500/20 text-center cursor-pointer">
-                            Join Network
-                        </a>
-                        <a href="#specs"
-                            class="px-10 py-4 rounded-2xl font-bold border border-white/10 text-white hover:bg-white/5 transition text-center">
-                            View Specs
-                        </a>
+                    <span class="status-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12.5l4.5 4.5L19 7.5" />
+                        </svg>
+                        Credited
+                    </span>
+                </div>
+
+                <div class="payout-card__amounts">
+                    <div>
+                        <p class="payout-card__label">Sent</p>
+                        <p class="payout-card__amount">USD 100.00</p>
+                    </div>
+                    <svg class="payout-card__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                    <div>
+                        <p class="payout-card__label">Received</p>
+                        <p class="payout-card__amount">BDT 10,000.00</p>
                     </div>
                 </div>
 
-                <div class="relative" data-aos="fade-left">
-                    <div class="absolute inset-0 bg-teal-500/20 blur-[100px] -z-10"></div>
+                <dl class="payout-card__details">
+                    <div>
+                        <dt>Sender</dt>
+                        <dd>Albert Einstein</dd>
+                    </div>
+                    <div>
+                        <dt>Recipient</dt>
+                        <dd>Kazi Nazrul Islam</dd>
+                    </div>
+                    <div>
+                        <dt>Destination</dt>
+                        <dd>Bank account ending 077</dd>
+                    </div>
+                    <div>
+                        <dt>Settlement bank</dt>
+                        <dd>Sonali Bank PLC</dd>
+                    </div>
+                </dl>
 
-                    <div class="glass-card rounded-3xl border-white/10 overflow-hidden shadow-2xl">
-                        <div class="bg-white/5 px-6 py-4 border-b border-white/5 flex items-center justify-between">
-                            <div class="flex gap-2">
-                                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                <div class="payout-card__timeline">
+                    <p class="payout-card__timeline-title">Timeline</p>
+                    <ol>
+                        <li>
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-step">Request received</span>
+                            <span class="timeline-time">14:02:07.10</span>
+                        </li>
+                        <li>
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-step">Sent to Sonali Bank PLC</span>
+                            <span class="timeline-time">14:02:07.52</span>
+                        </li>
+                        <li>
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-step">Credited by the bank</span>
+                            <span class="timeline-time">14:02:11.20</span>
+                        </li>
+                        <li class="is-final">
+                            <span class="timeline-dot"></span>
+                            <span class="timeline-step">Status returned to you</span>
+                            <span class="timeline-time">14:02:11.31</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats: update these numbers each month -->
+        <section class="stats" aria-label="Blaze in Bangladesh so far">
+            <div class="container">
+                <p class="stats__title">Bangladesh so far</p>
+                <dl class="stats__grid">
+                    <div>
+                        <dt>Payouts processed</dt>
+                        <dd>4.5M+</dd>
+                    </div>
+                    <div>
+                        <dt>Volume processed</dt>
+                        <dd>$539M+</dd>
+                    </div>
+                    <div>
+                        <dt>Average payout time</dt>
+                        <dd>~5 s</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section id="how" class="section container">
+            <div class="section-head">
+                <p class="eyebrow">How it works</p>
+                <h2 class="section-title">How payouts move through Blaze</h2>
+                <p class="section-lead">Blaze carries payout requests and statuses. The money always moves through
+                    banks, never through Blaze.</p>
+            </div>
+
+            <!-- Model 1: remittance companies to their settlement banks -->
+            <div class="model">
+                <div class="model__head">
+                    <p class="eyebrow">For remittance companies</p>
+                    <h3 class="model__title">One integration for all your settlement banks</h3>
+                    <p class="model__lead">You hold drawing arrangements with the Bangladeshi banks you choose. Blaze
+                        connects to each of them, so you integrate once.</p>
+                </div>
+
+                <figure class="flow">
+                    <div class="flow__scroll">
+                        <div class="flow__canvas" style="height: 344px" aria-hidden="true">
+                            <div class="flow__band" style="top: 24px; height: 136px"></div>
+                            <div class="flow__band flow__band--money" style="top: 184px; height: 136px"></div>
+
+                            <div class="flow__arrow" style="left: 184px; top: 79px; width: 127px"></div>
+                            <div class="flow__arrow flow__arrow--left flow__arrow--status"
+                                style="left: 185px; top: 103px; width: 127px"></div>
+                            <div class="flow__arrow" style="left: 472px; top: 79px; width: 127px"></div>
+                            <div class="flow__arrow flow__arrow--left flow__arrow--status"
+                                style="left: 473px; top: 103px; width: 127px"></div>
+                            <div class="flow__arrow" style="left: 792px; top: 91px; width: 103px"></div>
+                            <div class="flow__arrow flow__arrow--money" style="left: 184px; top: 251px; width: 415px">
                             </div>
-                            <span class="text-[10px] font-mono text-slate-500 tracking-widest uppercase">POST
-                                /v1/disburse</span>
-                        </div>
+                            <div class="flow__arrow flow__arrow--money" style="left: 792px; top: 251px; width: 103px">
+                            </div>
 
-                        <div
-                            class="p-8 font-mono text-[11px] sm:text-[13px] leading-relaxed overflow-x-auto text-slate-300 min-h-[260px]">
-                            <pre id="typing-container" class="whitespace-pre-wrap"></pre><span
-                                class="animate-pulse text-teal-400 font-bold text-lg">_</span>
+                            <div class="flow__card" style="left: 24px; top: 56px; width: 160px; height: 72px">
+                                <strong>Your system</strong><span>Remittance company</span>
+                            </div>
+                            <div class="flow__card flow__card--blaze"
+                                style="left: 312px; top: 56px; width: 160px; height: 72px">
+                                <strong>Blaze</strong><span>One integration</span>
+                            </div>
+                            <div class="flow__card" style="left: 600px; top: 56px; width: 192px; height: 72px">
+                                <strong>Settlement bank</strong><span>Named in each request</span>
+                            </div>
+                            <div class="flow__card flow__card--list"
+                                style="left: 896px; top: 56px; width: 200px; height: 232px">
+                                <strong>Recipient</strong>
+                                <span>Account at the same bank</span>
+                                <span>Account at another bank</span>
+                                <span>bKash</span>
+                                <span>Nagad, through Blaze</span>
+                            </div>
+                            <div class="flow__card flow__card--money"
+                                style="left: 24px; top: 216px; width: 160px; height: 72px">
+                                <strong>Your funds</strong><span>Remittance company</span>
+                            </div>
+                            <div class="flow__card flow__card--money"
+                                style="left: 600px; top: 216px; width: 192px; height: 72px">
+                                <strong>Your nostro account</strong><span>At the settlement bank</span>
+                            </div>
+
+                            <div class="flow__lane" style="top: 32px">Instructions</div>
+                            <div class="flow__lane flow__lane--money" style="top: 192px">Money</div>
+                            <div class="flow__label" style="left: 192px; top: 52px; width: 112px">payout request</div>
+                            <div class="flow__label flow__label--status" style="left: 220px; top: 116px; width: 56px">
+                                status</div>
+                            <div class="flow__label" style="left: 496px; top: 52px; width: 80px">forwarded</div>
+                            <div class="flow__label flow__label--status" style="left: 508px; top: 116px; width: 56px">
+                                status</div>
+                            <div class="flow__label" style="left: 816px; top: 64px; width: 56px">payout</div>
+                            <div class="flow__label flow__label--money" style="left: 348px; top: 224px; width: 88px">
+                                you fund it</div>
+                            <div class="flow__label flow__label--money" style="left: 820px; top: 224px; width: 48px">
+                                money</div>
                         </div>
                     </div>
+                    <figcaption class="flow__caption">You name the settlement bank in every request, so your funding
+                        and reconciliation stay in your hands.</figcaption>
+                </figure>
 
-                    <div id="success-badge"
-                        class="absolute -bottom-6 -right-6 bg-[#020617] p-4 border border-teal-500/30 rounded-2xl shadow-xl hidden sm:block opacity-0 transition-opacity duration-500">
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center">
-                                <span class="text-teal-400 text-xs">✓</span>
+                <ol class="steps">
+                    <li><span class="steps__num">01</span>
+                        <p>You send a payout request and name the settlement bank.</p>
+                    </li>
+                    <li><span class="steps__num">02</span>
+                        <p>Blaze forwards it to that bank.</p>
+                    </li>
+                    <li><span class="steps__num">03</span>
+                        <p>The bank pays the recipient from your nostro account.</p>
+                    </li>
+                    <li><span class="steps__num">04</span>
+                        <p>Blaze returns the final status to you.</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Model 2: banks and remittance companies to mobile wallets -->
+            <div class="model">
+                <div class="model__head">
+                    <p class="eyebrow">For mobile wallets</p>
+                    <h3 class="model__title">One connection to receive from every bank and remittance company</h3>
+                    <p class="model__lead">Bangladesh Bank lets mobile wallets receive remittances, but the foreign
+                        exchange has to settle through a bank. Blaze connects the senders to the wallets, and the banks
+                        settle.</p>
+                </div>
+
+                <figure class="flow">
+                    <div class="flow__scroll">
+                        <div class="flow__canvas" style="height: 448px" aria-hidden="true">
+                            <div class="flow__band" style="top: 24px; height: 240px"></div>
+                            <div class="flow__band flow__band--money" style="top: 288px; height: 136px"></div>
+
+                            <div class="flow__arrow" style="left: 200px; top: 91px; width: 111px"></div>
+                            <div class="flow__arrow" style="left: 488px; top: 91px; width: 111px"></div>
+                            <div class="flow__arrow" style="left: 200px; top: 195px; width: 399px"></div>
+                            <div class="flow__arrow" style="left: 792px; top: 143px; width: 111px"></div>
+                            <div class="flow__arrow flow__arrow--money" style="left: 488px; top: 355px; width: 415px">
                             </div>
-                            <div>
-                                <p class="text-[10px] font-black text-white uppercase tracking-tighter">API Response</p>
-                                <p class="text-[9px] text-teal-400 font-mono">200 OK - Processed</p>
+
+                            <div class="flow__card" style="left: 24px; top: 56px; width: 176px; height: 72px">
+                                <strong>Remittance company</strong><span>Sends through a bank</span>
                             </div>
+                            <div class="flow__card" style="left: 312px; top: 56px; width: 176px; height: 72px">
+                                <strong>Bank</strong><span>Connected to Blaze</span>
+                            </div>
+                            <div class="flow__card" style="left: 24px; top: 160px; width: 176px; height: 72px">
+                                <strong>Remittance company</strong><span>Connected directly</span>
+                            </div>
+                            <div class="flow__card flow__card--blaze flow__card--list"
+                                style="left: 600px; top: 56px; width: 192px; height: 176px">
+                                <strong>Blaze</strong>
+                                <span>Checks the wallet account</span>
+                                <span>Keeps the settlement report</span>
+                            </div>
+                            <div class="flow__card flow__card--list"
+                                style="left: 904px; top: 56px; width: 192px; height: 176px">
+                                <strong>Wallet provider</strong>
+                                <span>Nagad today</span>
+                                <span>Credits the beneficiary's wallet</span>
+                            </div>
+                            <div class="flow__card flow__card--money"
+                                style="left: 312px; top: 320px; width: 176px; height: 72px">
+                                <strong>Nostro account</strong><span>of the remittance company, at the bank</span>
+                            </div>
+                            <div class="flow__card flow__card--money"
+                                style="left: 904px; top: 320px; width: 192px; height: 72px">
+                                <strong>Settlement account</strong><span>of the wallet provider, at the same bank</span>
+                            </div>
+
+                            <div class="flow__lane" style="top: 32px">Instructions</div>
+                            <div class="flow__lane flow__lane--money" style="top: 296px">Money</div>
+                            <div class="flow__label" style="left: 232px; top: 64px; width: 48px">sends</div>
+                            <div class="flow__label" style="left: 516px; top: 64px; width: 56px">payout</div>
+                            <div class="flow__label" style="left: 284px; top: 168px; width: 232px">direct, names its
+                                settlement bank</div>
+                            <div class="flow__label" style="left: 820px; top: 116px; width: 56px">payout</div>
+                            <div class="flow__label flow__label--money" style="left: 548px; top: 328px; width: 296px">
+                                bank settles in BDT, using the Blaze report</div>
                         </div>
+                    </div>
+                    <figcaption class="flow__caption">Banks see in the Blaze portal exactly what to settle with each
+                        wallet provider, and the wallet provider sees every transaction. A bank that only settles for
+                        direct payouts needs just a portal login.</figcaption>
+                </figure>
+
+                <ol class="steps">
+                    <li><span class="steps__num">01</span>
+                        <p>A bank, or a remittance company connected directly, sends a wallet payout. Direct requests
+                            name the settlement bank.</p>
+                    </li>
+                    <li><span class="steps__num">02</span>
+                        <p>Blaze checks the wallet account, then sends the payout to the wallet provider.</p>
+                    </li>
+                    <li><span class="steps__num">03</span>
+                        <p>The wallet provider credits the beneficiary's wallet.</p>
+                    </li>
+                    <li><span class="steps__num">04</span>
+                        <p>The bank settles in BDT into the wallet provider's account at that bank, using the Blaze
+                            report.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Who it's for -->
+        <section id="for" class="section section--band">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Who it's for</p>
+                    <h2 class="section-title">What each partner gets</h2>
+                    <p class="section-lead">Whichever side of the payout you are on, you connect once.</p>
+                </div>
+
+                <div class="partners">
+                    <article class="partner-card">
+                        <div class="partner-card__head">
+                            <p class="eyebrow">Remittance companies</p>
+                            <h3 class="partner-card__title">Pay out across Bangladesh with one integration</h3>
+                        </div>
+                        <div class="partner-card__block">
+                            <p class="partner-card__label">What you get</p>
+                            <ul class="checklist">
+                                <li>One integration for all your settlement banks</li>
+                                <li>You choose the bank for each payout. Your nostro, FX rates and reconciliation stay
+                                    yours.</li>
+                                <li>Payouts to bank accounts, bKash and Nagad</li>
+                                <li>One support team. Blaze resolves questions and disputes with the banks.</li>
+                            </ul>
+                        </div>
+                        <p class="note"><strong>Paying into Nagad?</strong> Connect to Blaze directly for faster wallet
+                            payouts, and settle through any bank where you hold a nostro account.</p>
+                        <div class="partner-card__block partner-card__start">
+                            <p class="partner-card__label">How to start</p>
+                            <ol class="start-steps">
+                                <li>Integrate with Blaze in the sandbox.</li>
+                                <li>Set up drawing arrangements with your settlement banks. Pick banks already on
+                                    Blaze, or ask us to add yours.</li>
+                                <li>Go live, naming the settlement bank in each request.</li>
+                            </ol>
+                        </div>
+                    </article>
+
+                    <article class="partner-card">
+                        <div class="partner-card__head">
+                            <p class="eyebrow">Banks</p>
+                            <h3 class="partner-card__title">Serve remittance companies and pay out to wallets</h3>
+                        </div>
+                        <div class="partner-card__block">
+                            <p class="partner-card__label">What you get</p>
+                            <ul class="checklist">
+                                <li>Remittance companies on Blaze can choose you as their settlement bank, without
+                                    each one integrating with you</li>
+                                <li>One connection to pay out to mobile wallets</li>
+                                <li>A portal report of what to settle with each wallet provider</li>
+                                <li>Settle for direct payouts with just a portal login</li>
+                            </ul>
+                        </div>
+                        <div class="partner-card__block partner-card__start">
+                            <p class="partner-card__label">How to start</p>
+                            <ol class="start-steps">
+                                <li>Tell us how you want to work with Blaze: as a settlement bank, paying out to
+                                    wallets, or both.</li>
+                                <li>We set up the connection with your team. Settling only? A portal login is enough.
+                                </li>
+                                <li>Settle wallet payouts from the portal report.</li>
+                            </ol>
+                        </div>
+                    </article>
+
+                    <article class="partner-card">
+                        <div class="partner-card__head">
+                            <p class="eyebrow">Mobile wallets and payment providers</p>
+                            <h3 class="partner-card__title">Receive remittances from everyone through one connection
+                            </h3>
+                        </div>
+                        <div class="partner-card__block">
+                            <p class="partner-card__label">What you get</p>
+                            <ul class="checklist">
+                                <li>One connection to receive from every bank and remittance company on Blaze</li>
+                                <li>Account checks before each payout, for close to zero disputes</li>
+                                <li>Every transaction and its analytics in one portal</li>
+                                <li>Blaze handles support and disputes with the senders</li>
+                            </ul>
+                        </div>
+                        <div class="partner-card__block partner-card__start">
+                            <p class="partner-card__label">How to start</p>
+                            <ol class="start-steps">
+                                <li>Connect to Blaze once.</li>
+                                <li>Keep a settlement account at each bank that sends to you.</li>
+                                <li>Receive payouts and track them in the portal.</li>
+                            </ol>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Network -->
+        <section id="network" class="section container">
+            <div class="section-head">
+                <p class="eyebrow">Network</p>
+                <h2 class="section-title">Live in Bangladesh</h2>
+                <p class="section-lead">Bangladesh is our first market. These partners are connected through Blaze
+                    today.</p>
+            </div>
+
+            <div class="network">
+                <div class="network__col">
+                    <h3 class="network__head"><span>Remittance companies</span><span class="network__count">7</span>
+                    </h3>
+                    <div class="network__body">
+                        <p class="network__group">Through settlement banks</p>
+                        <ul class="network__list">
+                            <li>PayPal</li>
+                            <li>Skrill</li>
+                            <li>Taptap Send</li>
+                            <li>Tranglo</li>
+                        </ul>
+                        <p class="network__group">Direct to Nagad</p>
+                        <ul class="network__list">
+                            <li>TerraPay</li>
+                            <li>Ria</li>
+                            <li>Remitly</li>
+                        </ul>
+                        <p class="network__more">More in the pipeline</p>
+                    </div>
+                </div>
+
+                <div class="network__col network__col--wide">
+                    <h3 class="network__head"><span>Banks</span><span class="network__count">14</span></h3>
+                    <div class="network__body">
+                        <p class="network__legend"><span class="dot" aria-hidden="true"></span>Also a settlement bank
+                            for remittance companies</p>
+                        <ul class="network__list network__list--banks">
+                            <li class="is-settlement">Sonali Bank PLC<span class="sr-only">, also a settlement
+                                    bank</span></li>
+                            <li>Trust Bank PLC</li>
+                            <li class="is-settlement">Mutual Trust Bank PLC<span class="sr-only">, also a settlement
+                                    bank</span></li>
+                            <li class="is-settlement">Bangladesh Krishi Bank<span class="sr-only">, also a settlement
+                                    bank</span></li>
+                            <li>City Bank PLC</li>
+                            <li>Eastern Bank PLC</li>
+                            <li>Pubali Bank PLC</li>
+                            <li>National Bank PLC</li>
+                            <li>Southeast Bank PLC</li>
+                            <li>NCC Bank PLC</li>
+                            <li>Al-Arafah Islami Bank PLC</li>
+                            <li>Agrani Bank PLC</li>
+                            <li>Bank Asia PLC</li>
+                            <li>IFIC Bank PLC</li>
+                        </ul>
+                        <p class="network__more">All 14 pay out to Nagad through Blaze.</p>
+                        <p class="network__more">More settlement banks in the pipeline</p>
+                    </div>
+                </div>
+
+                <div class="network__col network__col--narrow">
+                    <h3 class="network__head"><span>Mobile wallets</span><span class="network__count">1</span></h3>
+                    <div class="network__body">
+                        <p class="network__group">Receives from the 14 banks and 3 direct remittance companies</p>
+                        <ul class="network__list">
+                            <li>Nagad</li>
+                        </ul>
+                        <p class="network__more">More wallets in the pipeline</p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- Stats Section -->
-    <section id="stats" class="py-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-0">
-                <div class="flex-1 text-center py-8 md:py-0" data-aos="fade-up" data-aos-delay="0">
-                    <div class="stat-value text-gradient">4.5M+</div>
-                    <div class="stat-label">Transactions Processed</div>
+        <!-- Specs -->
+        <section id="specs" class="section section--rule">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Specs</p>
+                    <h2 class="section-title">Technical details</h2>
                 </div>
-                <div
-                    class="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-white/10 to-transparent flex-shrink-0">
+
+                <dl class="specs">
+                    <div>
+                        <dt>API response time</dt>
+                        <dd class="specs__value">Under 200 ms</dd>
+                        <dd class="specs__note">Global average</dd>
+                    </div>
+                    <div>
+                        <dt>Uptime</dt>
+                        <dd class="specs__value">99.99%</dd>
+                        <dd class="specs__note">Covered by SLA</dd>
+                    </div>
+                    <div>
+                        <dt>Encryption</dt>
+                        <dd class="specs__value">AES-256 + TLS 1.3</dd>
+                        <dd class="specs__note">Banking standard</dd>
+                    </div>
+                    <div>
+                        <dt>Capacity</dt>
+                        <dd class="specs__value">10,000+ TPS</dd>
+                        <dd class="specs__note">Transactions per second</dd>
+                    </div>
+                    <div>
+                        <dt>Testing</dt>
+                        <dd class="specs__value">Sandbox</dd>
+                        <dd class="specs__note">Test before you go live</dd>
+                    </div>
+                    <div>
+                        <dt>Portal</dt>
+                        <dd class="specs__value">Reports + analytics</dd>
+                        <dd class="specs__note">Settlement reports and transaction analytics</dd>
+                    </div>
+                    <div>
+                        <dt>Disputes</dt>
+                        <dd class="specs__value">Near zero</dd>
+                        <dd class="specs__note">Wallet accounts checked before every payout</dd>
+                    </div>
+                    <div>
+                        <dt>Support</dt>
+                        <dd class="specs__value">One team</dd>
+                        <dd class="specs__note">Blaze handles support and disputes for every partner</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Call to action -->
+        <section id="join" class="cta">
+            <div class="container cta__inner">
+                <div class="cta__copy">
+                    <h2 class="cta__title">Connect to Blaze</h2>
+                    <p class="cta__lead">Tell us about your organization. We reply within 48 hours.</p>
                 </div>
-                <div
-                    class="block md:hidden w-24 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mx-auto">
-                </div>
-                <div class="flex-1 text-center py-8 md:py-0" data-aos="fade-up" data-aos-delay="150">
-                    <div class="stat-value text-gradient">$539M+</div>
-                    <div class="stat-label">Gross Payment Volume</div>
-                </div>
-                <div
-                    class="hidden md:block w-px h-16 bg-gradient-to-b from-transparent via-white/10 to-transparent flex-shrink-0">
-                </div>
-                <div
-                    class="block md:hidden w-24 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mx-auto">
-                </div>
-                <div class="flex-1 text-center py-8 md:py-0" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-value text-gradient-blue">~5s</div>
-                    <div class="stat-label">Avg. Disbursement Time</div>
+                <div class="cta__actions">
+                    <button type="button" class="btn btn--light" data-join>
+                        Join the network
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </button>
+                    <a href="mailto:info@homepay.io?subject=Contacting%20Blaze%20Support"
+                        class="cta__email">info@homepay.io</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Solutions Section -->
-    <section id="solutions" class="pt-16 pb-32 px-6 max-w-7xl mx-auto relative">
+    </main>
 
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.03)_0%,_transparent_70%)] -z-10">
-        </div>
-
-        <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-4xl md:text-6xl font-black tracking-tight mb-6 text-white">
-                One Layer <span class="text-gradient">Infinite Scale</span>
-            </h2>
-            <p class="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed font-light">
-                Built for the volume and velocity of cross-border payments. MTOs dispatch, banks receive, wallets credit
-                — all through one intelligent layer.
-                <span class="text-white font-medium italic">No bottlenecks. No middleware bloat. Just money moving
-                    fast.</span>
-            </p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
-                data-aos="fade-up">
-                <div
-                    class="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/10 blur-[80px] group-hover:bg-teal-500/20 transition-colors">
-                </div>
-                <div class="relative z-10">
-                    <div
-                        class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-8 border border-teal-500/20 group-hover:scale-110 transition-all duration-500">
-                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]">⚖️</span>
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-teal-400 transition-colors text-white">
-                        Your Rates, Your Margin</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm font-light">
-                        Keep 100% of your FX margin. MTOs and Partners maintain their own drawing arrangements directly
-                        with Bangladeshi banks — full control over rates, liquidity, and settlement. Blaze never touches
-                        your funds.
-                    </p>
-                </div>
-            </div>
-
-            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
-                data-aos="fade-up" data-aos-delay="50">
-                <div
-                    class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-[80px] group-hover:bg-blue-500/20 transition-colors">
-                </div>
-                <div class="relative z-10">
-                    <div
-                        class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 group-hover:scale-110 transition-all duration-500">
-                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">🕸️</span>
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-blue-400 transition-colors text-white">
-                        Instant Network Access</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm font-light">
-                        The day you connect to Blaze, your MFS platform gains instant access to every global MTO and
-                        local bank we work with. No redundant technical integrations. Your settlement arrangements stay
-                        direct — we just handle the technical complexity.
-                    </p>
-                </div>
-            </div>
-
-            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
-                data-aos="fade-up" data-aos-delay="100">
-                <div
-                    class="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/10 blur-[80px] group-hover:bg-teal-500/20 transition-colors">
-                </div>
-                <div class="relative z-10">
-                    <div
-                        class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-8 border border-teal-500/20 group-hover:scale-110 transition-all duration-500">
-                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]">🌐</span>
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-teal-400 transition-colors text-white">
-                        Integrate Once. Reach Everyone.</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm font-light">
-                        MTOs integrate once and reach every mobile wallet and bank account across Bangladesh. No
-                        per-bank SDKs, no format mapping, no protocol differences. Blaze normalizes the entire receiving
-                        landscape into a single clean API.
-                    </p>
-                </div>
-            </div>
-
-            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
-                data-aos="fade-up" data-aos-delay="150">
-                <div
-                    class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-[80px] group-hover:bg-blue-500/20 transition-colors">
-                </div>
-                <div class="relative z-10">
-                    <div
-                        class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 group-hover:scale-110 transition-all duration-500">
-                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">🔌</span>
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-blue-400 transition-colors text-white">
-                        Mission-Critical Reliability</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm font-light">
-                        Every disbursement is tracked, retried, and reconciled automatically. Built-in rail failover,
-                        real-time transaction visibility, and full audit trails ensure you always know where every cent
-                        stands — and nothing falls through the cracks.
-                    </p>
-                </div>
-            </div>
-
-            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
-                data-aos="fade-up" data-aos-delay="200">
-                <div
-                    class="absolute -top-24 -right-24 w-48 h-48 bg-teal-500/10 blur-[80px] group-hover:bg-teal-500/20 transition-colors">
-                </div>
-                <div class="relative z-10">
-                    <div
-                        class="w-14 h-14 bg-teal-500/10 rounded-2xl flex items-center justify-center mb-8 border border-teal-500/20 group-hover:scale-110 transition-all duration-500">
-                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]">🚀</span>
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-teal-400 transition-colors text-white">
-                        Real-Time Routing</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm font-light">
-                        Blaze routes high-volume disbursements intelligently across rails in real time — with automatic
-                        failover and smart queuing to ensure every transaction lands.
-                    </p>
-                </div>
-            </div>
-
-            <div class="glass-card p-10 rounded-[2.5rem] group transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.03] overflow-hidden"
-                data-aos="fade-up" data-aos-delay="250">
-                <div
-                    class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-[80px] group-hover:bg-blue-500/20 transition-colors">
-                </div>
-                <div class="relative z-10">
-                    <div
-                        class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-8 border border-blue-500/20 group-hover:scale-110 transition-all duration-500">
-                        <span class="text-2xl filter drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]">📈</span>
-                    </div>
-                    <h3
-                        class="text-xl font-bold mb-4 tracking-tight group-hover:text-blue-400 transition-colors text-white">
-                        Growth Without Code</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm font-light">
-                        Every new bank or MTO Blaze onboards becomes instantly available to you — no new integration, no
-                        new code. Your technical reach expands while you sleep.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- MTO Models -->
-    <section id="mto-model" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl font-extrabold tracking-tight">MTO Technical Gateway</h2>
-            <p class="text-slate-500 mt-4 max-w-xl mx-auto">One API call routes your global volume to any specific bank
-                or wallet endpoint in Bangladesh.</p>
-        </div>
-
-        <div id="mto-diagram-wrap" class="mt-8 relative rounded-3xl overflow-hidden border border-white/5"
-            style="background:#060f1e;">
-            <canvas id="mto-canvas"></canvas>
-        </div>
-    </section>
-
-    <!-- MFS Model -->
-    <section id="mfs-model" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl font-extrabold tracking-tight text-blue-400">MFS Aggregator Mesh</h2>
-            <p class="text-slate-500 mt-4 max-w-xl mx-auto">
-                Don't just integrate an API—inherit an ecosystem. The moment an MFS connects to Blaze, the entire
-                network of pre-integrated Banks and MTOs is ready for activation.
-            </p>
-        </div>
-
-        <div id="mfs-diagram-wrap" class="mt-8 relative rounded-3xl overflow-hidden border border-white/5"
-            style="background:#060f1e;">
-            <canvas id="mfs-canvas"></canvas>
-        </div>
-    </section>
-
-    <!-- Specs Section -->
-    <section id="specs" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Network Activation & <span
-                    class="text-gradient">Standards</span></h2>
-            <p class="text-slate-500 max-w-2xl mx-auto italic">
-                Whether you are a <span class="text-teal-400 font-semibold">Global MTO reaching Bangladesh</span> or a
-                <span class="text-blue-400 font-semibold">Local MFS aggregating volume</span>, Blaze scales with you.
-            </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12 items-start">
-
-            <div class="glass-card p-10 md:p-12 rounded-[3rem] border-white/5" data-aos="fade-right">
-                <div class="flex items-center justify-between mb-10">
-                    <h3 class="text-2xl font-bold flex items-center gap-3">
-                        <span class="w-2 h-8 bg-teal-500 rounded-full"></span>
-                        Onboarding Paths
-                    </h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-                    <div class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/5 hidden md:block"></div>
-
-                    <div class="space-y-8">
-                        <p
-                            class="text-[10px] font-black uppercase tracking-widest text-teal-400 border-b border-teal-500/20 pb-2">
-                            For Global MTOs</p>
-                        <div class="space-y-6">
-                            <div class="relative pl-6 border-l border-teal-500/30">
-                                <h4 class="text-sm font-bold text-white">01. API Integration</h4>
-                                <p class="text-[11px] text-slate-500 mt-1">Connect to our unified disbursement endpoint
-                                    in the Sandbox.</p>
-                            </div>
-                            <div class="relative pl-6 border-l border-teal-500/30">
-                                <h4 class="text-sm font-bold text-white">02. Drawing Arrangement</h4>
-                                <p class="text-[11px] text-slate-500 mt-1">Establish direct drawing with a local bank
-                                    for <span class="text-teal-400">optimal FX and settlement.</span></p>
-                            </div>
-                            <div class="relative pl-6 border-l border-teal-500/30">
-                                <h4 class="text-sm font-bold text-white">03. Go Live</h4>
-                                <p class="text-[11px] text-slate-500 mt-1">Instant technical routing to all banks and
-                                    wallets in the mesh.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-8">
-                        <p
-                            class="text-[10px] font-black uppercase tracking-widest text-blue-400 border-b border-blue-500/20 pb-2">
-                            For Local MFS</p>
-                        <div class="space-y-6">
-                            <div class="relative pl-6 border-l border-blue-500/30">
-                                <h4 class="text-sm font-bold">01. Central Plug</h4>
-                                <p class="text-[11px] text-slate-500 mt-1">Single technical integration to the Blaze
-                                    Aggregator Hub.</p>
-                            </div>
-                            <div class="relative pl-6 border-l border-blue-500/30">
-                                <h4 class="text-sm font-bold">02. Partner Activation</h4>
-                                <p class="text-[11px] text-slate-500 mt-1">Our pre-integrated network of Banks and MTOs
-                                    becomes available the moment your settlement terms are finalized.</p>
-                            </div>
-                            <div class="relative pl-6 border-l border-blue-500/30">
-                                <h4 class="text-sm font-bold">03. Instant Scale</h4>
-                                <p class="text-[11px] text-slate-500 mt-1">Every existing and future Blaze partner can
-                                    now disburse to your wallet without a single line of new code.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-10 pt-6 border-t border-white/5">
-                    <p class="text-[10px] text-slate-500 text-center uppercase tracking-widest font-bold">
-                        The Blaze Network Effect: Growth without new code.
-                    </p>
-                </div>
-            </div>
-
-            <div class="glass-card p-12 rounded-[3rem] border-blue-500/10" data-aos="fade-left">
-                <div class="flex justify-between items-center mb-10">
-                    <h3 class="text-2xl font-bold flex items-center gap-3">
-                        <span class="w-2 h-8 bg-blue-500 rounded-full"></span>
-                        Network Performance
-                    </h3>
-                    <span
-                        class="text-[10px] bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 font-bold uppercase tracking-widest">Enterprise
-                        SLA</span>
-                </div>
-
-                <div class="space-y-4">
-                    <div
-                        class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition group">
-                        <div class="flex items-center gap-4">
-                            <span class="text-xl opacity-50 group-hover:opacity-100 transition">⏱️</span>
-                            <span class="text-sm font-medium text-slate-400">API Latency</span>
-                        </div>
-                        <div class="text-right font-mono">
-                            <span class="text-blue-400 font-bold">&lt; 200ms</span>
-                            <p class="text-[9px] text-slate-600 uppercase mt-1">Global Average</p>
-                        </div>
-                    </div>
-                    <div
-                        class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition group">
-                        <div class="flex items-center gap-4">
-                            <span class="text-xl opacity-50 group-hover:opacity-100 transition">💎</span>
-                            <span class="text-sm font-medium text-slate-400">Uptime Reliability</span>
-                        </div>
-                        <div class="text-right font-mono">
-                            <span class="text-blue-400 font-bold">99.99%</span>
-                            <p class="text-[9px] text-slate-600 uppercase mt-1">Guaranteed SLA</p>
-                        </div>
-                    </div>
-                    <div
-                        class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition group">
-                        <div class="flex items-center gap-4">
-                            <span class="text-xl opacity-50 group-hover:opacity-100 transition">🛡️</span>
-                            <span class="text-sm font-medium text-slate-400">Data Security</span>
-                        </div>
-                        <div class="text-right font-mono text-xs">
-                            <span class="text-blue-400 font-bold uppercase">AES-256 + TLS 1.3</span>
-                            <p class="text-[9px] text-slate-600 uppercase mt-1">Banking Standard</p>
-                        </div>
-                    </div>
-                    <div
-                        class="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition group">
-                        <div class="flex items-center gap-4">
-                            <span class="text-xl opacity-50 group-hover:opacity-100 transition">📊</span>
-                            <span class="text-sm font-medium text-slate-400">Max Throughput</span>
-                        </div>
-                        <div class="text-right font-mono">
-                            <span class="text-blue-400 font-bold">10,000+ TPS</span>
-                            <p class="text-[9px] text-slate-600 uppercase mt-1">Transactions/Sec</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="border-t border-white/5 bg-[#010409] relative overflow-hidden">
-
-        <!-- Subtle background glow -->
-        <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(45,212,191,0.05)_0%,_transparent_60%)] pointer-events-none">
-        </div>
-
-        <!-- TOP CTA ROW -->
-        <div class="py-20 px-6 text-center relative">
-
-            <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 mb-6">
-                <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-                <span class="text-[10px] font-black text-teal-400 uppercase tracking-widest">Now Onboarding
-                    Partners</span>
-            </div>
-
-            <h2 class="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
-                Ready to join the<br>
-                <span class="text-gradient">Blaze Network?</span>
-            </h2>
-
-            <p class="text-slate-500 text-sm max-w-md mx-auto mb-10 leading-relaxed">
-                Connect once. Reach every bank, wallet and MFS provider in Bangladesh instantly.
-            </p>
-
-            <a onclick="document.getElementById('joinModal').style.display='flex'"
-                class="inline-flex items-center gap-3 bg-teal-500 text-slate-900 px-12 py-4 rounded-2xl font-bold hover:bg-teal-400 transition shadow-lg shadow-teal-500/20 cursor-pointer text-sm uppercase tracking-widest">
-                Join Network
-                <span>→</span>
-            </a>
-
-        </div>
-
-        <!-- DIVIDER -->
-        <div class="border-t border-white/5"></div>
-
-        <!-- BOTTOM BAR -->
-        <div class="py-8 px-6">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-
-                <!-- Logo -->
-                <img src="blaze-logo.png" alt="Blaze" class="h-6 w-auto">
-
-                <!-- Nav links -->
-                <div class="flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-500">
-                    <a href="#solutions" class="hover:text-white transition">Technology</a>
-                    <a href="#mto-model" class="hover:text-white transition">MTO Rail</a>
-                    <a href="#mfs-model" class="hover:text-white transition">MFS Mesh</a>
-                    <a href="#specs" class="hover:text-white transition">Standards</a>
-                </div>
-
-                <!-- Copyright -->
-                <p class="text-[10px] text-slate-700 uppercase tracking-widest font-bold">
-                    &copy; <span id="copyright-year"></span> HomePay LLC. All rights reserved.
-                </p>
-
-            </div>
-        </div>
-
+    <!-- Footer -->
+    <footer class="site-footer container">
+        <img src="blaze-logo.png" alt="Blaze" width="88" height="22">
+        <nav class="site-footer__links" aria-label="Footer">
+            <a href="#how">How it works</a>
+            <a href="#for">Who it's for</a>
+            <a href="#network">Network</a>
+            <a href="#specs">Specs</a>
+        </nav>
+        <p class="site-footer__copy">&copy; <span id="copyright-year"></span> HomePay LLC</p>
     </footer>
 
     <!-- Join Network Modal -->
-    <div id="joinModal" style="display:none"
-        class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center px-6">
+    <dialog id="joinModal" class="modal" aria-labelledby="joinTitle">
+        <div class="modal__panel">
+            <button type="button" class="modal__close" data-close-join aria-label="Close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+            </button>
 
-        <div class="glass-card rounded-3xl p-10 w-full max-w-lg relative border border-white/10">
-
-            <!-- Close button -->
-            <button onclick="document.getElementById('joinModal').style.display='none'"
-                class="absolute top-5 right-6 text-slate-500 hover:text-white text-xl transition">✕</button>
-
-            <!-- Header -->
-            <div class="mb-8">
-                <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 mb-4">
-                    <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-                    <span class="text-[10px] font-black text-teal-400 uppercase tracking-widest">Network Access</span>
-                </div>
-                <h2 class="text-2xl font-black text-white">Join the Blaze Network</h2>
-                <p class="text-slate-500 text-sm mt-2">Tell us about your organization and we'll be in touch within 48
-                    hours.</p>
+            <div class="modal__head">
+                <p class="eyebrow">Join the network</p>
+                <h2 id="joinTitle" class="modal__title">Tell us about your organization</h2>
+                <p class="modal__lead">We reply within 48 hours.</p>
             </div>
 
-            <!-- Form -->
-            <form id="joinForm" class="space-y-4">
+            <form id="joinForm" class="form">
 
                 <!-- Honeypot field — hidden from real users -->
-                <input type="text" name="honeypot" id="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+                <input type="text" name="honeypot" id="honeypot" class="form__honeypot" tabindex="-1"
+                    autocomplete="off" aria-hidden="true">
 
-                <div>
-                    <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 block mb-2">Join
-                        As</label>
-                    <select name="joinAs" id="joinAs" required
-                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-teal-500/50 transition">
-                        <option value="" disabled selected>Select type...</option>
-                        <option value="MTO">MTO — Money Transfer Operator</option>
+                <div class="field">
+                    <label for="joinAs">Join as</label>
+                    <select name="joinAs" id="joinAs" required>
+                        <option value="" disabled selected>Select type</option>
+                        <option value="MTO">Remittance company (MTO)</option>
                         <option value="Bank">Bank</option>
-                        <option value="MFS / PSP">MFS / PSP</option>
+                        <option value="MFS / PSP">Mobile wallet or payment provider (MFS / PSP)</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
 
-                <div>
-                    <label
-                        class="text-[10px] font-black uppercase tracking-widest text-slate-500 block mb-2">Organization
-                        Name</label>
-                    <input type="text" name="organization" id="organization" required
-                        placeholder="Your organization name"
-                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-teal-500/50 transition">
+                <div class="field">
+                    <label for="organization">Organization name</label>
+                    <input type="text" name="organization" id="organization" required autocomplete="organization"
+                        placeholder="Your organization name">
                 </div>
 
-                <div>
-                    <label
-                        class="text-[10px] font-black uppercase tracking-widest text-slate-500 block mb-2">Website</label>
-                    <input type="url" name="website" id="website" required placeholder="https://yourcompany.com"
-                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-teal-500/50 transition">
+                <div class="field">
+                    <label for="website">Website</label>
+                    <input type="url" name="website" id="website" required autocomplete="url"
+                        placeholder="https://yourcompany.com">
                 </div>
 
-                <div>
-                    <label
-                        class="text-[10px] font-black uppercase tracking-widest text-slate-500 block mb-2">Region</label>
-                    <select name="region" id="region" required
-                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-teal-500/50 transition">
-                        <option value="" disabled selected>Select region...</option>
+                <div class="field">
+                    <label for="region">Region</label>
+                    <select name="region" id="region" required>
+                        <option value="" disabled selected>Select region</option>
                         <option value="America">America</option>
                         <option value="Europe">Europe</option>
                         <option value="Middle East">Middle East</option>
@@ -613,537 +678,41 @@
                     </select>
                 </div>
 
-                <div>
-                    <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 block mb-2">Contact
-                        Email</label>
-                    <input type="email" name="email" id="formEmail" required placeholder="you@company.com"
-                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-teal-500/50 transition">
+                <div class="field">
+                    <label for="formEmail">Work email</label>
+                    <input type="email" name="email" id="formEmail" required autocomplete="email"
+                        placeholder="you@company.com">
                 </div>
 
-                <div>
-                    <label class="text-[10px] font-black uppercase tracking-widest text-slate-500 block mb-2">Tell Us
-                        About Your Interest</label>
+                <div class="field">
+                    <label for="description">What would you like to do with Blaze?</label>
                     <textarea name="description" id="description" rows="3" required
-                        placeholder="Brief description of your use case..."
-                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none focus:border-teal-500/50 transition resize-none"></textarea>
+                        placeholder="A short description of your use case"></textarea>
                 </div>
 
                 <!-- Cloudflare Turnstile widget -->
-                <div class="cf-turnstile" data-sitekey="0x4AAAAAAC5VnFcVKiC3jxis" data-theme="dark">
-                </div>
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAC5VnFcVKiC3jxis" data-theme="light"></div>
 
-                <div id="formError"
-                    class="hidden text-[11px] text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3 text-center">
-                </div>
+                <p id="formError" class="form__error" role="alert" hidden></p>
 
-                <button type="submit" id="submitBtn"
-                    class="w-full bg-teal-500 text-slate-900 py-4 rounded-2xl font-bold hover:bg-teal-400 transition mt-2">
-                    Submit Interest
-                </button>
-
+                <button type="submit" id="submitBtn" class="btn btn--primary btn--block">Send</button>
             </form>
 
             <!-- Success message -->
-            <div id="joinSuccess" class="hidden text-center py-8">
-                <div class="w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center mx-auto mb-4">
-                    <span class="text-teal-400 text-xl">✓</span>
-                </div>
-                <h3 class="text-white font-black text-lg">We'll be in touch!</h3>
-                <p class="text-slate-500 text-sm mt-2">Expect a response within 48 hours.</p>
+            <div id="joinSuccess" class="modal__success" hidden>
+                <span class="modal__success-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12.5l4.5 4.5L19 7.5" />
+                    </svg>
+                </span>
+                <h3>Thanks, we'll be in touch</h3>
+                <p>Expect a reply within 48 hours.</p>
             </div>
-
         </div>
-    </div>
-    <script src="/scripts/script.js"></script>
-    <script>
-        (function () {
-            const canvas = document.getElementById('mto-canvas');
-            const wrap = document.getElementById('mto-diagram-wrap');
-            const ctx = canvas.getContext('2d');
+    </dialog>
 
-            const TEAL = '#2dd4bf';
-            const BLUE = '#3b82f6';
-            const TEAL_DIM = 'rgba(45,212,191,0.12)';
-            const BLUE_DIM = 'rgba(59,130,246,0.12)';
-            let isMobile = false;
-
-            // tx = horizontal depth from edge (0=far edge, 1=near center)
-            // ty = vertical position (0=top, 1=bottom)
-            const leftNodes = [
-                { label: 'PayPal', color: TEAL, ty: 0.22, tx: 0.18 },
-                { label: 'Skrill', color: TEAL, ty: 0.50, tx: 0.28 },
-                { label: 'Other MTOs', color: TEAL, ty: 0.78, tx: 0.16, muted: true },
-            ];
-
-            const rightNodes = [
-                { label: 'bKash', color: TEAL, ty: 0.12, tx: 0.18 },
-                { label: 'Nagad', color: TEAL, ty: 0.26, tx: 0.28 },
-                { label: 'Upay', color: TEAL, ty: 0.40, tx: 0.22 },
-                { label: 'Mutual Trust', color: BLUE, ty: 0.54, tx: 0.26 },
-                { label: 'Sonali Bank', color: BLUE, ty: 0.66, tx: 0.18 },
-                { label: 'Krishi Bank', color: BLUE, ty: 0.78, tx: 0.24 },
-                { label: '50+ Local Banks', color: BLUE, ty: 0.90, tx: 0.16, muted: true },
-            ];
-
-            const offsets = Array(12).fill(0).map(
-                (_, i) => i * -25
-            );
-
-            function drawRoundRect(x, y, w, h, r, fill, stroke, dash) {
-                ctx.beginPath();
-                ctx.moveTo(x + r, y);
-                ctx.lineTo(x + w - r, y);
-                ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-                ctx.lineTo(x + w, y + h - r);
-                ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-                ctx.lineTo(x + r, y + h);
-                ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-                ctx.lineTo(x, y + r);
-                ctx.quadraticCurveTo(x, y, x + r, y);
-                ctx.closePath();
-                if (fill) { ctx.fillStyle = fill; ctx.fill(); }
-                if (stroke) {
-                    ctx.strokeStyle = stroke;
-                    ctx.lineWidth = 1;
-                    ctx.setLineDash(dash ? [4, 3] : []);
-                    ctx.stroke();
-                    ctx.setLineDash([]);
-                }
-            }
-
-            function drawNode(x, y, label, color, muted, isRight) {
-                const pad = 14;
-                ctx.font = `700 ${isMobile ? 10 : 12}px "Plus Jakarta Sans", sans-serif`;
-                const tw = ctx.measureText(label).width;
-                const w = tw + pad * 2;
-                const h = 34;
-                const nx = isRight ? x - w : x;
-                const ny = y - h / 2;
-
-                const fill = muted
-                    ? 'rgba(255,255,255,0.02)'
-                    : color === TEAL
-                        ? 'rgba(45,212,191,0.08)'
-                        : 'rgba(59,130,246,0.08)';
-
-                const stroke = muted
-                    ? 'rgba(255,255,255,0.08)'
-                    : color === TEAL
-                        ? 'rgba(45,212,191,0.3)'
-                        : 'rgba(59,130,246,0.3)';
-
-                drawRoundRect(nx, ny, w, h, 8, fill, stroke, muted);
-
-                ctx.fillStyle = muted ? '#475569' : color;
-                ctx.font = `700 ${isMobile ? 10 : 12}px "Plus Jakarta Sans", sans-serif`;
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(label, nx + w / 2, y);
-
-                return { x: isRight ? nx : nx + w, y };
-            }
-
-            function drawCurve(x1, y1, x2, y2, color, offset) {
-                const mx = x1 + (x2 - x1) * 0.5;
-
-                // Dim static line
-                ctx.beginPath();
-                ctx.moveTo(x1, y1);
-                ctx.bezierCurveTo(mx, y1, mx, y2, x2, y2);
-                ctx.strokeStyle = color === TEAL ? TEAL_DIM : BLUE_DIM;
-                ctx.lineWidth = 1;
-                ctx.setLineDash([]);
-                ctx.stroke();
-
-                // Animated dash
-                ctx.beginPath();
-                ctx.moveTo(x1, y1);
-                ctx.bezierCurveTo(mx, y1, mx, y2, x2, y2);
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 1.5;
-                ctx.setLineDash([8, 8]);
-                ctx.lineDashOffset = offset;
-                ctx.stroke();
-                ctx.setLineDash([]);
-            }
-
-            function drawDotGrid(W, H) {
-                const spacing = 24;
-                ctx.fillStyle = 'rgba(99,102,241,0.1)';
-                for (let x = spacing; x < W; x += spacing) {
-                    for (let y = spacing; y < H; y += spacing) {
-                        ctx.beginPath();
-                        ctx.arc(x, y, 1, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
-            }
-
-            function draw() {
-                const W = wrap.offsetWidth;
-                isMobile = W < 600;
-                canvas.width = W;
-                canvas.style.width = W + 'px';
-
-                if (W < 600) {
-                    const H = 520;
-                    canvas.height = H;
-                    canvas.style.height = H + 'px';
-                    ctx.clearRect(0, 0, W, H);
-                    drawDotGrid(W, H);
-
-                    const hubW = 110;
-                    const hubH = 50;
-                    const hubX = (W - hubW) / 2;
-                    const hubY = H * 0.42 - hubH / 2;
-                    const hubCX = hubX + hubW / 2;
-                    const hubCY = hubY + hubH / 2;
-
-                    leftNodes.forEach((n, i) => {
-                        const y = H * 0.25 + i * 60;
-                        const edge = drawNode(20, y, n.label,
-                            n.color, n.muted, false);
-                        drawCurve(edge.x, y, hubX,
-                            hubY + hubH * (i + 1) / (leftNodes.length + 1),
-                            n.color, offsets[i]);
-                    });
-
-                    rightNodes.forEach((n, i) => {
-                        const y = 30 + i * 68;
-                        const edge = drawNode(W - 20, y, n.label,
-                            n.color, n.muted, true);
-                        drawCurve(hubX + hubW,
-                            hubY + hubH * (i + 1) / (rightNodes.length + 1),
-                            edge.x, y, n.color, offsets[i + 3]);
-                    });
-
-                    const grad = ctx.createLinearGradient(
-                        hubX, hubY, hubX + hubW, hubY + hubH);
-                    grad.addColorStop(0, '#2dd4bf');
-                    grad.addColorStop(1, '#3b82f6');
-                    drawRoundRect(hubX, hubY, hubW, hubH,
-                        10, grad, null, false);
-                    ctx.fillStyle = '#fff';
-                    ctx.font = '900 14px "Plus Jakarta Sans"';
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.fillText('blaze', hubCX, hubCY - 6);
-                    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-                    ctx.font = '600 7px "Plus Jakarta Sans"';
-                    ctx.fillText('NETWORK HUB', hubCX, hubCY + 8);
-
-                    // Bottom label
-                    ctx.fillStyle = '#1e293b';
-                    ctx.font = '700 10px "Plus Jakarta Sans", sans-serif';
-                    ctx.textAlign = 'center';
-                    ctx.fillText(
-                        'CONNECTING GLOBAL VOLUME TO EVERY LOCAL ENDPOINT',
-                        W / 2, H - 16);
-
-                    offsets.forEach((_, i) => { offsets[i] -= 0.5; });
-                    requestAnimationFrame(draw);
-                    return;
-                }
-
-                const H = 580;
-                canvas.height = H;
-                canvas.style.height = H + 'px';
-
-                ctx.clearRect(0, 0, W, H);
-                drawDotGrid(W, H);
-
-                const hubW = 150;
-                const hubH = 68;
-                const hubX = (W - hubW) / 2;
-                const hubY = (H - hubH) / 2;
-                const hubCX = hubX + hubW / 2;
-                const hubCY = hubY + hubH / 2;
-
-                const PAD = 30;
-
-                // Left nodes
-                leftNodes.forEach((n, i) => {
-                    const y = H * n.ty;
-                    const nodeX = PAD + Math.round(W * n.tx * 0.35);
-                    const edge = drawNode(nodeX, y, n.label, n.color, n.muted, false);
-                    const hy = hubY + hubH * (i + 1) / (leftNodes.length + 1);
-                    drawCurve(edge.x, y, hubX, hy, n.color, offsets[i]);
-                });
-
-                // Right nodes
-                rightNodes.forEach((n, i) => {
-                    const y = H * n.ty;
-                    const nodeX = W - PAD - Math.round(W * n.tx * 0.35);
-                    const edge = drawNode(nodeX, y, n.label, n.color, n.muted, true);
-                    const hy = hubY + hubH * (i + 1) / (rightNodes.length + 1);
-                    drawCurve(hubX + hubW, hy, edge.x, y, n.color, offsets[i + 3]);
-                });
-
-                // Draw hub
-                const grad = ctx.createLinearGradient(
-                    hubX, hubY, hubX + hubW, hubY + hubH);
-                grad.addColorStop(0, '#2dd4bf');
-                grad.addColorStop(1, '#3b82f6');
-                drawRoundRect(hubX, hubY, hubW, hubH, 12, grad, null, false);
-
-                // Hub glow
-                ctx.shadowColor = 'rgba(45,212,191,0.3)';
-                ctx.shadowBlur = 20;
-                drawRoundRect(hubX, hubY, hubW, hubH, 12, grad, null, false);
-                ctx.shadowBlur = 0;
-
-                ctx.fillStyle = '#ffffff';
-                ctx.font = '900 17px "Plus Jakarta Sans", sans-serif';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText('blaze', hubCX, hubCY - 8);
-
-                ctx.fillStyle = 'rgba(255,255,255,0.5)';
-                ctx.font = '600 8px "Plus Jakarta Sans", sans-serif';
-                ctx.fillText('NETWORK HUB', hubCX, hubCY + 10);
-
-                // Bottom label
-                ctx.fillStyle = '#1e293b';
-                ctx.font = '700 10px "Plus Jakarta Sans", sans-serif';
-                ctx.textAlign = 'center';
-                ctx.fillText(
-                    'CONNECTING GLOBAL VOLUME TO EVERY LOCAL ENDPOINT',
-                    W / 2, H - 16);
-
-                // Advance animation
-                offsets.forEach((_, i) => { offsets[i] -= 0.5; });
-
-                requestAnimationFrame(draw);
-            }
-
-            window.addEventListener('load', () => {
-                requestAnimationFrame(draw);
-            });
-
-            window.addEventListener('resize', () => {
-                cancelAnimationFrame(draw);
-                requestAnimationFrame(draw);
-            });
-
-        })();
-    </script>
-    <script>
-        (function () {
-            const canvas = document.getElementById('mfs-canvas');
-            const wrap = document.getElementById('mfs-diagram-wrap');
-            const ctx = canvas.getContext('2d');
-
-            const BLUE = '#3b82f6';
-            const BLUE_DIM = 'rgba(59,130,246,0.12)';
-            const BLUE_MID = 'rgba(59,130,246,0.08)';
-
-            const leftNodes = [
-                { label: 'Trust Bank', color: BLUE, ty: 0.12, tx: 0.18 },
-                { label: 'Mutual Trust', color: BLUE, ty: 0.24, tx: 0.28 },
-                { label: 'City Bank', color: BLUE, ty: 0.36, tx: 0.22 },
-                { label: 'Remitly', color: BLUE, ty: 0.50, tx: 0.30 },
-                { label: 'Ria', color: BLUE, ty: 0.64, tx: 0.20 },
-                { label: 'TerraPay', color: BLUE, ty: 0.76, tx: 0.26 },
-                { label: '15+ Other Banks', color: BLUE, ty: 0.88, tx: 0.16, muted: true },
-            ];
-
-            const rightNodes = [
-                { label: 'Nagad', color: BLUE, ty: 0.35, tx: 0.20 },
-                { label: 'Other MFS', color: BLUE, ty: 0.65, tx: 0.16, muted: true },
-            ];
-
-            const offsets = Array(12).fill(0).map(
-                (_, i) => i * -25
-            );
-
-            function drawRoundRect(x, y, w, h, r, fill, stroke, dash) {
-                ctx.beginPath();
-                ctx.moveTo(x + r, y);
-                ctx.lineTo(x + w - r, y);
-                ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-                ctx.lineTo(x + w, y + h - r);
-                ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-                ctx.lineTo(x + r, y + h);
-                ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-                ctx.lineTo(x, y + r);
-                ctx.quadraticCurveTo(x, y, x + r, y);
-                ctx.closePath();
-                if (fill) { ctx.fillStyle = fill; ctx.fill(); }
-                if (stroke) {
-                    ctx.strokeStyle = stroke;
-                    ctx.lineWidth = 1;
-                    ctx.setLineDash(dash ? [4, 3] : []);
-                    ctx.stroke();
-                    ctx.setLineDash([]);
-                }
-            }
-
-            function drawNode(x, y, label, color, muted, isRight) {
-                const pad = 14;
-                ctx.font = `700 ${isMobile ? 10 : 12}px "Plus Jakarta Sans", sans-serif`;
-                const tw = ctx.measureText(label).width;
-                const w = tw + pad * 2;
-                const h = 34;
-                const nx = isRight ? x - w : x;
-                const ny = y - h / 2;
-
-                const fill = muted
-                    ? 'rgba(255,255,255,0.02)'
-                    : 'rgba(59,130,246,0.08)';
-
-                const stroke = muted
-                    ? 'rgba(255,255,255,0.08)'
-                    : 'rgba(59,130,246,0.3)';
-
-                drawRoundRect(nx, ny, w, h, 8, fill, stroke, muted);
-
-                ctx.fillStyle = muted ? '#475569' : BLUE;
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(label, nx + w / 2, y);
-
-                return { x: isRight ? nx : nx + w, y };
-            }
-
-            function drawCurve(x1, y1, x2, y2, color, offset) {
-                const mx = x1 + (x2 - x1) * 0.5;
-
-                ctx.beginPath();
-                ctx.moveTo(x1, y1);
-                ctx.bezierCurveTo(mx, y1, mx, y2, x2, y2);
-                ctx.strokeStyle = BLUE_DIM;
-                ctx.lineWidth = 1;
-                ctx.setLineDash([]);
-                ctx.stroke();
-
-                ctx.beginPath();
-                ctx.moveTo(x1, y1);
-                ctx.bezierCurveTo(mx, y1, mx, y2, x2, y2);
-                ctx.strokeStyle = BLUE;
-                ctx.lineWidth = 1.5;
-                ctx.setLineDash([8, 8]);
-                ctx.lineDashOffset = offset;
-                ctx.stroke();
-                ctx.setLineDash([]);
-            }
-
-            function drawDotGrid(W, H) {
-                const spacing = 24;
-                ctx.fillStyle = 'rgba(59,130,246,0.08)';
-                for (let x = spacing; x < W; x += spacing) {
-                    for (let y = spacing; y < H; y += spacing) {
-                        ctx.beginPath();
-                        ctx.arc(x, y, 1, 0, Math.PI * 2);
-                        ctx.fill();
-                    }
-                }
-            }
-
-            let isMobile = false;
-
-            function draw() {
-                const W = wrap.offsetWidth;
-                isMobile = W < 600;
-                const H = isMobile ? 520 : 580;
-
-                canvas.width = W;
-                canvas.height = H;
-                canvas.style.width = W + 'px';
-                canvas.style.height = H + 'px';
-
-                ctx.clearRect(0, 0, W, H);
-                drawDotGrid(W, H);
-
-                const hubW = isMobile ? 110 : 150;
-                const hubH = isMobile ? 52 : 68;
-                const hubX = (W - hubW) / 2;
-                const hubY = (H - hubH) / 2;
-                const hubCX = hubX + hubW / 2;
-                const hubCY = hubY + hubH / 2;
-                const PAD = 30;
-
-                if (isMobile) {
-                    leftNodes.forEach((n, i) => {
-                        const y = 60 + i * 68;
-                        const edge = drawNode(20, y, n.label,
-                            n.color, n.muted, false);
-                        drawCurve(edge.x, y, hubX,
-                            hubY + hubH * (i + 1) / (leftNodes.length + 1),
-                            n.color, offsets[i]);
-                    });
-
-                    rightNodes.forEach((n, i) => {
-                        const y = H * 0.35 + i * 120;
-                        const edge = drawNode(W - 20, y, n.label,
-                            n.color, n.muted, true);
-                        drawCurve(hubX + hubW,
-                            hubY + hubH * (i + 1) / (rightNodes.length + 1),
-                            edge.x, y, n.color, offsets[i + 7]);
-                    });
-                } else {
-                    // Left nodes
-                    leftNodes.forEach((n, i) => {
-                        const y = H * n.ty;
-                        const nodeX = PAD + Math.round(W * n.tx * 0.35);
-                        const edge = drawNode(nodeX, y, n.label,
-                            n.color, n.muted, false);
-                        const hy = hubY + hubH * (i + 1) / (leftNodes.length + 1);
-                        drawCurve(edge.x, y, hubX, hy,
-                            n.color, offsets[i]);
-                    });
-
-                    // Right nodes
-                    rightNodes.forEach((n, i) => {
-                        const y = H * n.ty;
-                        const nodeX = W - PAD - Math.round(W * n.tx * 0.35);
-                        const edge = drawNode(nodeX, y, n.label,
-                            n.color, n.muted, true);
-                        const hy = hubY + hubH * (i + 1) / (rightNodes.length + 1);
-                        drawCurve(hubX + hubW, hy, edge.x, y,
-                            n.color, offsets[i + 7]);
-                    });
-                }
-
-                // Draw hub
-                const grad = ctx.createLinearGradient(
-                    hubX, hubY, hubX + hubW, hubY + hubH);
-                grad.addColorStop(0, '#3b82f6');
-                grad.addColorStop(1, '#1d4ed8');
-                drawRoundRect(hubX, hubY, hubW, hubH,
-                    12, grad, null, false);
-
-                ctx.fillStyle = '#ffffff';
-                ctx.font = `900 ${isMobile ? 14 : 17}px "Plus Jakarta Sans", sans-serif`;
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText('blaze', hubCX, hubCY - 8);
-
-                ctx.fillStyle = 'rgba(255,255,255,0.5)';
-                ctx.font = '600 8px "Plus Jakarta Sans", sans-serif';
-                ctx.fillText('NETWORK HUB', hubCX, hubCY + 10);
-
-                // Bottom label
-                ctx.fillStyle = '#1e293b';
-                ctx.font = '700 10px "Plus Jakarta Sans", sans-serif';
-                ctx.textAlign = 'center';
-                ctx.fillText(
-                    'CONNECTING GLOBAL VOLUME TO EVERY LOCAL MFS ENDPOINT',
-                    W / 2, H - 16);
-
-                offsets.forEach((_, i) => { offsets[i] -= 0.5; });
-                requestAnimationFrame(draw);
-            }
-
-            window.addEventListener('load', () => {
-                requestAnimationFrame(draw);
-            });
-
-            window.addEventListener('resize', () => {
-                requestAnimationFrame(draw);
-            });
-
-        })();
-    </script>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
