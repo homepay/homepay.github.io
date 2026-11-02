@@ -216,6 +216,52 @@
                                 money</div>
                         </div>
                     </div>
+
+                    <!-- The same diagram top to bottom, for narrow screens. Keep its wording in step with the one above. -->
+                    <div class="vflow" aria-hidden="true">
+                        <div class="vflow__band">
+                            <div class="flow__lane">Instructions</div>
+                            <div class="flow__card"><strong>Your system</strong><span>Remittance company</span></div>
+                            <div class="vflow__pair">
+                                <div class="vflow__link"><span class="flow__label">payout request</span></div>
+                                <div class="vflow__link vflow__link--up vflow__link--status">
+                                    <span class="flow__label flow__label--status">status</span>
+                                </div>
+                            </div>
+                            <div class="flow__card flow__card--blaze"><strong>Blaze</strong><span>One integration</span>
+                            </div>
+                            <div class="vflow__pair">
+                                <div class="vflow__link"><span class="flow__label">forwarded</span></div>
+                                <div class="vflow__link vflow__link--up vflow__link--status">
+                                    <span class="flow__label flow__label--status">status</span>
+                                </div>
+                            </div>
+                            <div class="flow__card"><strong>Settlement bank</strong><span>Named in each request</span>
+                            </div>
+                            <div class="vflow__link"><span class="flow__label">payout</span></div>
+                            <div class="flow__card flow__card--list">
+                                <strong>Recipient</strong>
+                                <span>Account at the same bank</span>
+                                <span>Account at another bank</span>
+                                <span>Mobile wallet</span>
+                            </div>
+                        </div>
+                        <div class="vflow__band vflow__band--money">
+                            <div class="flow__lane flow__lane--money">Money</div>
+                            <div class="flow__card flow__card--money"><strong>Your funds</strong><span>Remittance
+                                    company</span></div>
+                            <div class="vflow__link vflow__link--money">
+                                <span class="flow__label flow__label--money">you fund it</span>
+                            </div>
+                            <div class="flow__card flow__card--money"><strong>Your nostro account</strong><span>At the
+                                    settlement bank</span></div>
+                            <div class="vflow__link vflow__link--money">
+                                <span class="flow__label flow__label--money">money</span>
+                            </div>
+                            <div class="flow__card flow__card--money"><strong>Recipient</strong></div>
+                        </div>
+                    </div>
+
                     <figcaption class="flow__caption">You name the settlement bank in every request, so your funding
                         and reconciliation stay in your hands.</figcaption>
                 </figure>
@@ -298,9 +344,60 @@
                                 bank settles in BDT, using the Blaze report</div>
                         </div>
                     </div>
+
+                    <!-- The same diagram top to bottom, for narrow screens. Keep its wording in step with the one above. -->
+                    <div class="vflow" aria-hidden="true">
+                        <div class="vflow__band">
+                            <div class="flow__lane">Instructions</div>
+                            <div class="vflow__split">
+                                <div class="flow__card" style="grid-area: 1 / 1">
+                                    <strong>Remittance company</strong><span>Sends through a bank</span>
+                                </div>
+                                <div class="flow__card" style="grid-area: 1 / 2">
+                                    <strong>Remittance company</strong><span>Connected directly</span>
+                                </div>
+                                <div class="vflow__link" style="grid-area: 2 / 1">
+                                    <span class="flow__label">sends</span>
+                                </div>
+                                <div class="flow__card" style="grid-area: 3 / 1">
+                                    <strong>Bank</strong><span>Connected to Blaze</span>
+                                </div>
+                                <div class="vflow__link" style="grid-area: 4 / 1">
+                                    <span class="flow__label">payout</span>
+                                </div>
+                                <div class="vflow__link" style="grid-area: 2 / 2 / 5">
+                                    <span class="flow__label">direct, names its settlement bank</span>
+                                </div>
+                            </div>
+                            <div class="flow__card flow__card--blaze flow__card--list">
+                                <strong>Blaze</strong>
+                                <span>Checks the wallet account</span>
+                                <span>Keeps the settlement report</span>
+                            </div>
+                            <div class="vflow__link"><span class="flow__label">payout</span></div>
+                            <div class="flow__card flow__card--list">
+                                <strong>Wallet provider</strong>
+                                <span>Credits the beneficiary's wallet</span>
+                            </div>
+                        </div>
+                        <div class="vflow__band vflow__band--money">
+                            <div class="flow__lane flow__lane--money">Money</div>
+                            <div class="flow__card flow__card--money">
+                                <strong>Nostro account</strong><span>of the remittance company, at the bank</span>
+                            </div>
+                            <div class="vflow__link vflow__link--money">
+                                <span class="flow__label flow__label--money">bank settles in BDT, using the Blaze
+                                    report</span>
+                            </div>
+                            <div class="flow__card flow__card--money">
+                                <strong>Settlement account</strong><span>of the wallet provider, at the same bank</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <figcaption class="flow__caption">Banks see in the Blaze portal exactly what to settle with each
                         wallet provider, and the wallet provider sees every transaction. A bank that only settles for
-                        direct payouts needs just a portal login.</figcaption>
+                        direct payouts gets a portal login, plus a webhook if it has one.</figcaption>
                 </figure>
 
                 <ol class="steps">
@@ -374,7 +471,7 @@
                                 <li>One connection to pay out to mobile wallets</li>
                                 <li>A portal report of what to settle with each wallet provider, plus a webhook if you
                                     have one</li>
-                                <li>Settle for direct payouts with just a portal login</li>
+                                <li>Settle for direct payouts with a portal login or a webhook</li>
                             </ul>
                         </div>
                         <div class="partner-card__block partner-card__start">
@@ -382,8 +479,8 @@
                             <ol class="start-steps">
                                 <li>Tell us how you want to work with Blaze: as a settlement bank, paying out to
                                     wallets, or both.</li>
-                                <li>We set up the connection with your team. Settling only? A portal login is enough.
-                                </li>
+                                <li>We set up the connection with your team. Settling only? You get a portal login,
+                                    plus a webhook if you have one.</li>
                                 <li>Settle wallet payouts using the portal report or a webhook.</li>
                             </ol>
                         </div>

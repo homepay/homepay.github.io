@@ -11,6 +11,7 @@
     --chip: #EEF1F5;
     --accent: #08676C;
     --accent-dark: #054F53;
+    --accent-soft: #E6F0F0;
     --navy: #1B365D;
     --navy-text: #C9D6E6;
     --money: #0F9D7A;
@@ -646,7 +647,8 @@ button {
     color: var(--text-2);
 }
 
-/* Flow diagrams: fixed-size canvas that scrolls sideways on small screens */
+/* Flow diagrams: a fixed-size canvas, which scripts/script.js shrinks to fit on tablets.
+   Phones get the top-to-bottom version (.vflow) instead. */
 
 .flow {
     border: 1px solid var(--line);
@@ -796,21 +798,155 @@ button {
     color: var(--text-2);
 }
 
+/* Phone version of a flow diagram: the same pieces in normal flow, top to bottom */
+
+.vflow {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 520px;
+    margin-inline: auto;
+    padding: 12px;
+}
+
+.vflow__band {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #FFFFFF;
+}
+
+.vflow__band--money {
+    border-color: var(--money-line);
+    background: var(--money-band);
+}
+
+.vflow .flow__lane,
+.vflow .flow__card,
+.vflow .flow__label {
+    position: static;
+}
+
+.vflow .flow__lane {
+    margin-bottom: 12px;
+}
+
+.vflow .flow__card {
+    padding: 10px 12px;
+}
+
+/* Arrow pointing down, with its label sitting on the line */
+.vflow__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    color: var(--arrow);
+}
+
+.vflow__link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 1px;
+    left: calc(50% - 1px);
+    border-left: 2px solid currentColor;
+}
+
+.vflow__link::after {
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: calc(50% - 5px);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid currentColor;
+}
+
+.vflow__link .flow__label {
+    z-index: 1;
+    padding: 2px 8px;
+    background: #FFFFFF;
+}
+
+.vflow__link--up::before {
+    top: 1px;
+    bottom: 0;
+}
+
+.vflow__link--up::after {
+    top: 1px;
+    bottom: auto;
+    border-top: 0;
+    border-bottom: 8px solid currentColor;
+}
+
+.vflow__link--status {
+    color: var(--arrow-status);
+}
+
+.vflow__link--status::before {
+    border-left-style: dashed;
+}
+
+.vflow__link--money {
+    color: var(--money);
+}
+
+.vflow__link--money .flow__label {
+    background: var(--money-band);
+}
+
+/* Two arrows, or two paths, side by side */
+.vflow__pair,
+.vflow__split {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+}
+
+@media (max-width: 880px) {
+    .flow__scroll {
+        display: none;
+    }
+}
+
+@media (min-width: 881px) {
+    .vflow {
+        display: none;
+    }
+}
+
+/* Step cards, joined by arrows centred between them */
+
 .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px 40px;
 }
 
 .steps li {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-top: 16px;
-    border-top: 2px solid var(--ink);
+    gap: 16px;
+    padding: 22px 24px 24px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #FFFFFF;
 }
 
 .steps__num {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent-soft);
     font-family: var(--mono);
     font-size: 13px;
     font-weight: 500;
@@ -820,6 +956,82 @@ button {
 .steps p {
     font-size: 16px;
     line-height: 1.55;
+}
+
+/* Arrow to the next card, in the gap: a line, then a head */
+.steps li:not(:last-child)::before,
+.steps li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+}
+
+.steps li:not(:last-child)::before {
+    top: calc(50% - 1px);
+    right: -25px;
+    width: 16px;
+    border-top: 2px solid var(--arrow);
+}
+
+.steps li:not(:last-child)::after {
+    top: calc(50% - 5px);
+    right: -33px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid var(--arrow);
+}
+
+/* Below 1100px four cards get too narrow, so two per row. The second card then ends a row,
+   so it gets no arrow. */
+@media (min-width: 561px) and (max-width: 1100px) {
+    .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .steps li:nth-child(2)::before,
+    .steps li:nth-child(2)::after {
+        display: none;
+    }
+}
+
+/* Phones: one card per row, the number beside the text, arrows pointing down */
+@media (max-width: 560px) {
+    .steps {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 28px;
+    }
+
+    .steps li {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 16px 18px;
+    }
+
+    .steps p {
+        padding-top: 4px;
+    }
+
+    .steps li:not(:last-child)::before {
+        top: auto;
+        right: auto;
+        bottom: -16px;
+        left: calc(50% - 1px);
+        width: 0;
+        height: 10px;
+        border-top: 0;
+        border-left: 2px solid var(--arrow);
+    }
+
+    .steps li:not(:last-child)::after {
+        top: auto;
+        right: auto;
+        bottom: -24px;
+        left: calc(50% - 5px);
+        border-top: 8px solid var(--arrow);
+        border-bottom: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+    }
 }
 
 /* ---------- Who it's for ---------- */
