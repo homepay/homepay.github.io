@@ -28,6 +28,20 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !mobileMenu.hidden) setMobileMenu(false);
 });
 
+// How it works: shrink the wide flow diagrams to fit their box on tablets
+const flowCanvases = document.querySelectorAll('.flow__canvas');
+
+function fitFlows() {
+    flowCanvases.forEach((canvas) => {
+        // 1120 is the canvas width in style.css. On phones the box is hidden, so its width is 0.
+        const width = canvas.parentElement.clientWidth;
+        if (width) canvas.style.zoom = Math.min(1, width / 1120);
+    });
+}
+
+fitFlows();
+window.addEventListener('resize', fitFlows);
+
 // Join Network Modal
 const joinModal = document.getElementById('joinModal');
 
